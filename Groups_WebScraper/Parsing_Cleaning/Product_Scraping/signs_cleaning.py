@@ -52,81 +52,43 @@ def revisar_producto_avalado(fila_html: str) -> str:
 
 # ------
 
-def limpiar_extraer_nombre_comercial(linea_nombre_comercial: str) -> str:
+def limpiar_extraer_numero_registro(linea_completa_anio: str) -> str:
 
-    indice_nombre_comercial = linea_nombre_comercial.find("Nombre comercial:")
-    indice_nombre_proyecto = linea_nombre_comercial.find("Nombre del proyecto:")
+    indice_numero_registro = linea_completa_anio.find("Número del registro:")
 
-    offset_nombre_comercial = len("Nombre comercial:")
-    
-    indice_coma = indice_nombre_proyecto-2
+    offset_numero_registro = len("Número del registro:")
 
-    nombre_sucio = linea_nombre_comercial[(indice_nombre_comercial+offset_nombre_comercial):indice_coma]
+    substr_numero_registro = linea_completa_anio[(indice_numero_registro+offset_numero_registro):]
+
+    indice_coma = substr_numero_registro.find("Nombre del titular:") - 2
+
+    nombre_sucio = substr_numero_registro[:indice_coma]
+
     nombre_limpio = nombre_sucio.strip()
 
     return revisar_string_vacio(nombre_limpio)
+
 
 # ------
 
-def limpiar_extraer_nombre_proyecto(linea_nombre_comercial: str) -> str:
+def limpiar_extraer_nombre_titular(linea_completa_anio: str) -> str:
 
-    indice_nombre_proyecto = linea_nombre_comercial.find("Nombre del proyecto:")
+    indice_numero_registro = linea_completa_anio.find("Número del registro:")
 
-    offset_nombre_proyecto = len("Nombre del proyecto:")
+    offset_numero_registro = len("Número del registro:")
 
-    nombre_sucio = linea_nombre_comercial[indice_nombre_proyecto+offset_nombre_proyecto:]
+    substr_numero_registro = linea_completa_anio[(indice_numero_registro+offset_numero_registro):]
+
+    indice_nombre_titular = substr_numero_registro.find("Nombre del titular:")
+
+    offset_nombre_titular = len("Nombre del titular:")
+
+    nombre_sucio = substr_numero_registro[indice_nombre_titular+offset_nombre_titular:]
+
     nombre_limpio = nombre_sucio.strip()
-
+    
     return revisar_string_vacio(nombre_limpio)
 
-# ------
-
-def limpiar_extraer_nombre_financiadora(linea_completa_financiadora: str) -> str:
-
-    indice_nombre_financiadora = linea_completa_financiadora.find("Institución financiadora:")
-
-    offset_nombre_financiadora = len("Institución financiadora:")
-
-    nombre_sucio = linea_completa_financiadora[(indice_nombre_financiadora+offset_nombre_financiadora):]
-    nombre_limpio = nombre_sucio.strip()
-
-    return revisar_string_vacio(nombre_limpio)
-
-# ------
-
-def limpiar_extraer_nombre_sitioweb(linea_nombre_anio: str) -> str:
-
-    indice_disponibilidad = linea_nombre_anio.find("Disponibilidad:")
-
-    offset_disponibilidad = len("Disponibilidad:")
-
-    substr_disponibilidad = linea_nombre_anio[indice_disponibilidad+offset_disponibilidad:]
-    
-    indice_sitioweb = substr_disponibilidad.find("Sitio web:")
-    
-    offset_sitioweb = len("Sitio web:")
-
-    nombre_sucio = substr_disponibilidad[indice_sitioweb+offset_sitioweb:]
-    nombre_limpio = nombre_sucio.strip()
-
-    return revisar_string_vacio(nombre_limpio)
-
-# ------
-
-def limpiar_extraer_nombre_disponibilidad(linea_nombre_anio: str) -> str:
-
-    indice_disponibilidad = linea_nombre_anio.find("Disponibilidad:")
-
-    offset_disponibilidad = len("Disponibilidad:")
-
-    substr_disponibilidad = linea_nombre_anio[indice_disponibilidad+offset_disponibilidad:]
-    
-    indice_coma = substr_disponibilidad.find("Sitio web:") - 2
-    
-    nombre_sucio = substr_disponibilidad[:indice_coma]
-    nombre_limpio = nombre_sucio.strip()
-
-    return revisar_string_vacio(nombre_limpio)
 
 # ------
 def revisar_string_vacio(input_string: str) -> str:
@@ -137,12 +99,12 @@ def revisar_string_vacio(input_string: str) -> str:
 
 
 #  ---------------------- Interpretacion de input como DF ---------------------- 
-softwares_df = knio.input_tables[0].to_pandas()
+signos_df = knio.input_tables[0].to_pandas()
     
 
 #  ---------------------- Creación de variables relevantes ---------------------- 
-tablas_html = softwares_df["HTML_Tabla_Softwares"]
-codigos_grupos = softwares_df["Codigo_Grupo"]
+tablas_html = signos_df["HTML_Tabla_Signos"]
+codigos_grupos = signos_df["Codigo_Grupo"]
 
 productos_construidos = []
 
@@ -159,15 +121,12 @@ for index, tabla in enumerate(tablas_html):
 
     soup = BeautifulSoup(tabla, "html.parser")
 
-    nombre_software: str
+    nombre_signo: str
     anio: int
     avalado: str
-    nombre_comercial: str
-    nombre_proyecto: str
-    institucion_financiadora: str
-    url_sitio_web: str
-    disponibilidad: str
-    
+    pais: str
+    numero_registro: str
+    nombre_titular: str
 
     # Se excluye la primera fila de la tabla.
     filas_tabla = soup.find_all("tr")[1:]
@@ -182,7 +141,7 @@ for index, tabla in enumerate(tablas_html):
         tags_strong = segunda_celda.find_all("strong");
         tags_br = segunda_celda.find_all("br");
 
-        nombre_software = tags_strong[0].next_sibling[3:].strip()
+        nombre_signo = tags_strong[0].next_sibling[3:].strip()
 
         linea_completa_anio = tags_br[0].next_sibling
         linea_tokenizada_anio = linea_completa_anio.strip().split(',')
@@ -190,31 +149,23 @@ for index, tabla in enumerate(tablas_html):
 
         avalado = revisar_producto_avalado(fila)
 
-        linea_completa_nombre_comercial = tags_br[1].next_sibling
-        nombre_comercial = limpiar_extraer_nombre_comercial(linea_completa_nombre_comercial)
+        pais = linea_tokenizada_anio[0].strip()
 
-        nombre_proyecto = limpiar_extraer_nombre_proyecto(linea_completa_nombre_comercial)
+        numero_registro = limpiar_extraer_numero_registro(linea_completa_anio)
 
-        linea_completa_financiadora = tags_br[-2].next_sibling
-        institucion_financiadora = limpiar_extraer_nombre_financiadora(linea_completa_financiadora)
-
-        url_sitio_web = limpiar_extraer_nombre_sitioweb(linea_completa_anio)
-
-        disponibilidad = limpiar_extraer_nombre_disponibilidad(linea_completa_anio)
+        nombre_titular = limpiar_extraer_nombre_titular(linea_completa_anio)
 
         codigo_grupo = codigos_grupos[index]
 
         # Creacion de fila. 
         nuevo_producto = {
                 "Codigo Grupo": codigo_grupo,
-                "Nombre Software": nombre_software,
+                "Nombre Signo": nombre_signo,
                 "Año": anio,
                 "Avalado?": avalado,
-                "Nombre Comercial": nombre_comercial,
-                "Nombre Proyecto": nombre_proyecto,
-                "Institucion Financiador": institucion_financiadora,
-                "Disponibillidad": disponibilidad,
-                "URL Sitio Web": url_sitio_web
+                "Pais": pais,
+                "Numero de Registro": numero_registro,
+                "Nombre de Titular": nombre_titular
         }
         
         productos_construidos.append(nuevo_producto)
