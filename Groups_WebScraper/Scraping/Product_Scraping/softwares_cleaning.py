@@ -58,9 +58,10 @@ def limpiar_extraer_nombre_comercial(linea_nombre_comercial: str) -> str:
     indice_nombre_proyecto = linea_nombre_comercial.find("Nombre del proyecto:")
 
     offset_nombre_comercial = len("Nombre comercial:")
-    offset_nombre_proyecto = len("Nombre del proyecto:") - 2
+    
+    indice_coma = indice_nombre_proyecto-2
 
-    nombre_sucio = linea_nombre_comercial[indice_nombre_comercial+offset_nombre_comercial:indice_nombre_proyecto+offset_nombre_proyecto]
+    nombre_sucio = linea_nombre_comercial[(indice_nombre_comercial+offset_nombre_comercial):indice_coma]
     nombre_limpio = nombre_sucio.strip()
 
     return revisar_string_vacio(nombre_limpio)
@@ -86,7 +87,7 @@ def limpiar_extraer_nombre_financiadora(linea_completa_financiadora: str) -> str
 
     offset_nombre_financiadora = len("Institución financiadora:")
 
-    nombre_sucio = linea_completa_financiadora[indice_nombre_financiadora:offset_nombre_financiadora]
+    nombre_sucio = linea_completa_financiadora[(indice_nombre_financiadora+offset_nombre_financiadora):]
     nombre_limpio = nombre_sucio.strip()
 
     return revisar_string_vacio(nombre_limpio)
@@ -171,8 +172,8 @@ for index, tabla in enumerate(tablas_html):
     # Se excluye la primera fila de la tabla.
     filas_tabla = soup.find_all("tr")[1:]
     
-    print("CodGrupo:", codigos_grupos[index])
-    print(len(filas_tabla))
+    #print("CodGrupo:", codigos_grupos[index])
+    #print(len(filas_tabla))
     
     # Ciclo interior para recorrer cada fila de una tabla.
     for inner_index, fila in enumerate(filas_tabla):
@@ -185,7 +186,7 @@ for index, tabla in enumerate(tablas_html):
 
         linea_completa_anio = tags_br[0].next_sibling
         linea_tokenizada_anio = linea_completa_anio.strip().split(',')
-        anio = linea_tokenizada_anio[1].strip()
+        anio = int(linea_tokenizada_anio[1].strip())
 
         avalado = revisar_producto_avalado(fila)
 
