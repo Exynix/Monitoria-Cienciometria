@@ -63,10 +63,9 @@ def extrer_fechas_trabajo(linea_completa_fechas: str) -> str:
     offset_desde = len("Desde")
     offset_hasta = len("hasta")
     
-
     fechas_substr = linea_completa_fechas[:indice_primera_coma]
 
-    fecha_inicio = fechas_substr[(indice_desde + offset_desde) : (indice_hasta + offset_hasta)]
+    fecha_inicio = fechas_substr[(indice_desde + offset_desde) : (indice_hasta)]
     fecha_inicio = fecha_inicio.strip()
     fecha_inicio = revisar_string_vacio(fecha_inicio)
 
@@ -74,7 +73,7 @@ def extrer_fechas_trabajo(linea_completa_fechas: str) -> str:
     fecha_finalizacion = fecha_finalizacion.strip()
     fecha_finalizacion = revisar_string_vacio(fecha_finalizacion)
 
-    return revisar_fecha(fecha_inicio),  revisar_fecha(fecha_inicio)
+    return revisar_fecha(fecha_inicio),  revisar_fecha(fecha_finalizacion)
 
 # ------
 
@@ -98,14 +97,13 @@ def definir_estado(fecha_finalizacion: str) -> int:
 # Deje el nombre de las variables de estudiantes así a proposito para alegrar un poco el code review jajajaja.
 def extraer_limpiar_nombres_estudiantes(linea_completa_estudiantes_programa):
     
-    estudiantes: str
-
     indice_nombres = linea_completa_estudiantes_programa.find("Nombre del estudiante:")
-    indice_separador_programa = linea_completa_estudiantes_programa.find(", Programa académico:")
+    indice_separador_programa = linea_completa_estudiantes_programa.find("Programa académico:")
+    indice_coma = indice_separador_programa - 2
 
     offset_nombres = len("Nombre del estudiante:")
 
-    substr_estudiantes = linea_completa_estudiantes_programa[ : indice_separador_programa]
+    substr_estudiantes = linea_completa_estudiantes_programa[indice_nombres : indice_coma]
 
     estudiantes_sucios = substr_estudiantes [offset_nombres : ]
 
@@ -120,9 +118,9 @@ def extraer_limpiar_programa_academico(linea_completa_estudiantes_programa):
     
     programa_academico: str
 
-    indice_separador_programa = linea_completa_estudiantes_programa.find(", Programa académico:")
+    indice_separador_programa = linea_completa_estudiantes_programa.find("Programa académico:")
 
-    offset_programa = len(", Programa académico:")
+    offset_programa = len("Programa académico:")
 
     substr_programa = linea_completa_estudiantes_programa[indice_separador_programa : ]
 
@@ -137,9 +135,9 @@ def extraer_limpiar_programa_academico(linea_completa_estudiantes_programa):
 
 def limpiar_extraer_institucion(linea_completa_institucion: str) -> str:
 
-    indice_institucion = linea_completa_institucion.find(", Institución:")
+    indice_institucion = linea_completa_institucion.find("Institución:")
 
-    offset_institucion = len(", Institución:")
+    offset_institucion = len("Institución:")
     
     substr_institucion = linea_completa_institucion[indice_institucion:]
 
@@ -222,7 +220,7 @@ for index, tabla in enumerate(tablas_html):
 
         programa_academico = extraer_limpiar_programa_academico(linea_completa_estudiantes_programa)
 
-        linea_completa_institucion = tags_br[2]
+        linea_completa_institucion = tags_br[2].next_sibling
         institucion = linea_completa_institucion(linea_completa_institucion)
 
         codigo_grupo = codigos_grupos[index]
