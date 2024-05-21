@@ -52,24 +52,68 @@ def revisar_producto_avalado(fila_html: str) -> str:
 
 # ------
 
-def limpiar_extraer_institucion_financiera(linea_completa_anio: str) -> str:
-
-    indice_institucion = linea_completa_anio.find("Institución financiadora:")
-
-    offset_institucion = len("Institución financiadora:")
+def extraer_limpiar_anio(linea_completa: str) -> str:
     
-    substr_institucion = linea_completa_anio[indice_institucion:]
+    indice_issn = buscar_indice_ISSN(linea_completa);
+    
+    substr_issn = linea_completa[indice_issn:]
 
-    nombre_sucio = substr_institucion[offset_institucion:]
+    indice_primera_coma = substr_issn.find(",");
 
+    substr_anio = substr_issn[indice_primera_coma:]
+
+    indice_vol = substr_anio.find("vol:");
+
+    anio_sucio = substr_anio[1:indice_vol];
+
+    anio_limpio = anio_sucio.strip()
+
+    anio_limpio = revisar_string_vacio(anio_limpio)
+
+    if (anio_limpio == None):
+        return None
+    else:
+        return int(anio_limpio)
+
+# ------
+
+
+def extraer_limpiar_nombre_revista(linea_completa: str) -> str:
+    
+    indice_primera_coma = linea_completa.find(",")
+    indice_issn = buscar_indice_ISSN(linea_completa)
+
+    nombre_sucio = linea_completa[indice_primera_coma+1:indice_issn]
+    
     nombre_limpio = nombre_sucio.strip()
 
     return revisar_string_vacio(nombre_limpio)
 
+# ------
+
+def extraer_limpiar_ISSN(linea_completa: str) -> str:
+    
+    indice_issn = buscar_indice_ISSN(linea_completa);
+    
+    substr_issn = linea_completa[indice_issn:]
+
+    indice_primera_coma = substr_issn.find(",");
+
+    issn_sucio = substr_issn[5:indice_primera_coma]
+
+    issn_limpio = issn_sucio.strip()
+
+    return revisar_string_vacio(issn_limpio);
+
+# ------
+def buscar_indice_ISSN(linea_completa: str) -> str:
+    
+    indice_issn = linea_completa.find("ISSN:")
+
+    return indice_issn
 
 # ------
 
-# ------
 def revisar_string_vacio(input_string: str) -> str:
     if(len(input_string) == 0):
         return None
@@ -78,14 +122,14 @@ def revisar_string_vacio(input_string: str) -> str:
 
 
 #  ---------------------- Interpretacion de input como DF ---------------------- 
-prototipos_df = knio.input_tables[0].to_pandas()
+articulos_df = knio.input_tables[0].to_pandas()
     
 
 #  ---------------------- Creación de variables relevantes ---------------------- 
-tablas_html = prototipos_df["HTML_Tabla_Prototipos"]
-codigos_grupos = prototipos_df["Codigo_Grupo"]
+tablas_html = articulos_df["HTML_Tabla_Articulos_Publicados"]
+codigos_grupos = articulos_df["Codigo_Grupo"]
 
-productos_construidos = []
+articulos_construidos = []
 
 #  ---------------------- Parsing y procesamiento ---------------------- 
 
@@ -100,11 +144,12 @@ for index, tabla in enumerate(tablas_html):
 
     soup = BeautifulSoup(tabla, "html.parser")
 
-    nombre_prototipo: str
-    anio: int
+    nombre_articulo: str
     avalado: str
-    institucion_financiera: str
-    
+    issn: str
+    doi: str
+    nombre_revista: str
+    anio: str
 
     # Se excluye la primera fila de la tabla.
     filas_tabla = soup.find_all("tr")[1:]
@@ -119,33 +164,39 @@ for index, tabla in enumerate(tablas_html):
         tags_strong = segunda_celda.find_all("strong");
         tags_br = segunda_celda.find_all("br");
 
-        nombre_prototipo = tags_strong[0].next_sibling[3:].strip()
+        linea_completa = tags_br[0].next_sibling
+        linea_tokenizada = linea_completa.strip().split(',')
 
-        linea_completa_anio = tags_br[0].next_sibling
-        linea_anio_tokenizada = linea_completa_anio.split(",")
-        anio = linea_anio_tokenizada[1]
+        nombre_articulo = segunda_celda.strong.next_sibling.strip()
+
+        anio = extraer_limpiar_anio (linea_completa);
 
         avalado = revisar_producto_avalado(fila)
 
-        institucion_financiera = limpiar_extraer_institucion_financiera(linea_completa_anio)
+        nombre_revista = extraer_limpiar_nombre_revista(linea_completa)
+
+        doi = revisar_string_vacio(tags_strong[1].next_sibling.strip())
+
+        issn = extraer_limpiar_ISSN(linea_completa)
 
         codigo_grupo = codigos_grupos[index]
 
         # Creacion de fila. 
-        nuevo_producto = {
-                "Codigo Grupo": codigo_grupo,
-                "Nombre Signo": nombre_prototipo,
+        nuevo_articulo = {
+                "Codigo_grupo": codigo_grupo,
+                "Nombre_articulo": nombre_articulo,
                 "Año": anio,
                 "Avalado?": avalado,
-                "Institucion Financiadora": institucion_financiera
-                
+                "Nombre_revista": nombre_revista,
+                "DOI": doi,
+                "ISSN": issn,
         }
         
-        productos_construidos.append(nuevo_producto)
+        articulos_construidos.append(nuevo_articulo)
         
 
 
-output_df = pd.DataFrame(productos_construidos)
+output_df = pd.DataFrame(articulos_construidos)
 
 #  ---------------------- Output del dataframe ---------------------- 
 knio.output_tables[0] = knio.Table.from_pandas(output_df)
