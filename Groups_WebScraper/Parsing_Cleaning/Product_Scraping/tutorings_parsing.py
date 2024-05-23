@@ -104,6 +104,10 @@ def extraer_limpiar_nombres_estudiantes(linea_completa_estudiantes_programa):
     offset_nombres = len("Nombre del estudiante:")
 
     substr_estudiantes = linea_completa_estudiantes_programa[indice_nombres : indice_coma]
+    #print(repr(substr_estudiantes))
+
+    substr_estudiantes = substr_estudiantes.strip()
+    #print(repr(substr_estudiantes))
 
     estudiantes_sucios = substr_estudiantes [offset_nombres : ]
 
@@ -221,7 +225,7 @@ for index, tabla in enumerate(tablas_html):
         programa_academico = extraer_limpiar_programa_academico(linea_completa_estudiantes_programa)
 
         linea_completa_institucion = tags_br[2].next_sibling
-        institucion = linea_completa_institucion(linea_completa_institucion)
+        institucion = limpiar_extraer_institucion(linea_completa_institucion)
 
         codigo_grupo = codigos_grupos[index]
 
@@ -248,3 +252,5 @@ output_df = pd.DataFrame(productos_construidos)
 
 #  ---------------------- Output del dataframe ---------------------- 
 knio.output_tables[0] = knio.Table.from_pandas(output_df)
+
+
