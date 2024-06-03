@@ -195,7 +195,6 @@ for index, tabla in enumerate(tablas_html):
         articulos_construidos.append(nuevo_articulo)
         
 
-
 output_df = pd.DataFrame(articulos_construidos)
 
 #  ---------------------- Output del dataframe ---------------------- 
