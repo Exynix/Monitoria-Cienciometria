@@ -6,7 +6,7 @@ import knime.scripting.io as knio
 
 from bs4 import BeautifulSoup
 import pandas as pd
-
+import re
 #  ---------------------- Definición de enumeracion de mensajes de verificacion ---------------------- 
 class MensajeVerficacion(Enum):
     TABLA_VALIDA = 1
@@ -51,19 +51,13 @@ def revisar_producto_avalado(fila_html: str) -> str:
 
 
 def extraer_ambito(linea_completa_ambito_publicacion):
+    patron_ambito = "(?<=Ambito:).*?(?=,)"
+    search_result = re.search (patron_ambito, linea_completa_ambito_publicacion) 
 
-    indice_ambito = linea_completa_ambito_publicacion.find("Ambito:")
-    indice_fecha_publicacion = linea_completa_ambito_publicacion.find("Fecha de publicación:")
-
-    offset_ambito = len("Ambito:")
-
-    substr_ambito = linea_completa_ambito_publicacion[indice_ambito : indice_fecha_publicacion]
-
-    ambito_sucio = substr_ambito[offset_ambito : ]
-
-    ambito_limpio = ambito_sucio.strip()
-
-    return revisar_string_vacio(ambito_limpio)
+    if search_result == None:
+        return None
+    else:
+        return search_result.group(0)
 
 
 # ------
