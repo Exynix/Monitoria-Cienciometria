@@ -49,6 +49,19 @@ def revisar_producto_avalado(fila_html: str) -> str:
     else:
         return "No"
 
+# ---------
+
+def check_string_not_whitespace (input_string):
+
+    alphanumeric_regex = "[A-Za-z0-9]*"
+    search_result = re.search(alphanumeric_regex, input_string) 
+    
+    if search_result == None:
+        return False;
+    else:
+        return True;
+
+# ------------
 
 def extraer_ambito(linea_completa_ambito_publicacion):
     patron_ambito = "(?<=Ambito:).*?(?=,)"
@@ -56,8 +69,13 @@ def extraer_ambito(linea_completa_ambito_publicacion):
 
     if search_result == None:
         return None
+    
+   # Verificar que el string sea algo distinto a espacio en blanco. Basicamente, que contenga letras o digitos. 
+   # If the function returns false, then the string doesn't have any digits or numbers. That's why we return null.
+    if check_string_not_whitespace(search_result.group(0)) == False:
+        return None
     else:
-        return search_result.group(0)
+        return search_result.group(0).strip()
 
 
 # ------
