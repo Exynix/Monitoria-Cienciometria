@@ -53,43 +53,8 @@ def revisar_producto_avalado(fila_html: str) -> str:
 # ---------
 
 
-def extraer_ambito(linea_completa_ambito_publicacion):
-   
-    # Regex mathching.
-    patron_ambito = "(?<=Ambito:).*?(?=,)"
-    search_result = re.search (patron_ambito, linea_completa_ambito_publicacion) 
-
-    # Verification of match existance.
-    if search_result == None:
-        print("No match found")
-        return None
-    
-   # Verificar que el string sea algo distinto a espacio en blanco. Basicamente, que contenga letras o digitos. 
-   # If the function returns false, then the string doesn't have any digits or numbers. That's why we return null.
-    if check_string_not_whitespace(search_result.group(0)) == False:
-        print("String sent is whitespace or doesn't contain alphanumeric characters.", repr(linea_completa_ambito_publicacion))
-        return None
-    else:
-        return search_result.group(0).strip()
 
 
-# ------
-
-def extraer_fecha_publicacion(linea_completa_ambito_publicacion):
-
-    indice_fecha_publicacion = linea_completa_ambito_publicacion.find("Fecha de publicación:")
-    indice_objeto = linea_completa_ambito_publicacion.find("Objeto:")
-    indice_coma = indice_objeto - 2
-
-    offset_fecha_publicacion = len("Fecha de publicación:")
-
-    substr_fecha_publicacion = linea_completa_ambito_publicacion[indice_fecha_publicacion : indice_coma]
-
-    fecha_publicacion_sucia = substr_fecha_publicacion[offset_fecha_publicacion: ]
-
-    fecha_publicacion_limpia = fecha_publicacion_sucia.strip()
-
-    return revisar_string_vacio(fecha_publicacion_limpia)
 
 # ------
 
