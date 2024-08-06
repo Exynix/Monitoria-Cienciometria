@@ -154,7 +154,6 @@ def check_string_not_whitespace (input_string):
     else:
         return True;
 
-# ------------
 #  ---------------------- Interpretacion de input como DF ---------------------- 
 tutorias_df = knio.input_tables[0].to_pandas()
     
@@ -204,7 +203,7 @@ for index, tabla in enumerate(tablas_html):
         linea_completa_ambito_publicacion = tags_br[0].next_sibling
         ambito = match_and_verify_regex_expression(linea_completa_ambito_publicacion, "(?<=Ambito:).*?(?=,)")
 
-        fecha_publicacion = extraer_fecha_publicacion(linea_completa_ambito_publicacion)
+        fecha_publicacion = match_and_verify_regex_expression(linea_completa_ambito_publicacion, "(?<=Fecha de publicación:).*?(?=,)")
 
         avalado = revisar_producto_avalado(fila)
 
