@@ -1,5 +1,6 @@
 #  ---------------------- Importación de librerias ---------------------- 
 from enum import Enum
+from typing import Optional
 import sys
 
 import knime.scripting.io as knio
@@ -51,28 +52,22 @@ def revisar_producto_avalado(fila_html: str) -> str:
 
 # ---------
 
-def check_string_not_whitespace (input_string):
-
-    alphanumeric_regex = "[A-Za-z0-9]*"
-    search_result = re.search(alphanumeric_regex, input_string) 
-    
-    if search_result == None:
-        return False;
-    else:
-        return True;
-
-# ------------
 
 def extraer_ambito(linea_completa_ambito_publicacion):
+   
+    # Regex mathching.
     patron_ambito = "(?<=Ambito:).*?(?=,)"
     search_result = re.search (patron_ambito, linea_completa_ambito_publicacion) 
 
+    # Verification of match existance.
     if search_result == None:
+        print("No match found")
         return None
     
    # Verificar que el string sea algo distinto a espacio en blanco. Basicamente, que contenga letras o digitos. 
    # If the function returns false, then the string doesn't have any digits or numbers. That's why we return null.
     if check_string_not_whitespace(search_result.group(0)) == False:
+        print("String sent is whitespace or doesn't contain alphanumeric characters.", repr(linea_completa_ambito_publicacion))
         return None
     else:
         return search_result.group(0).strip()
@@ -121,8 +116,25 @@ def limpiar_extraer_institucion_financiadora(linea_completa_institucion: str) ->
     return revisar_string_vacio(nombre_limpio)
 
 
-# ------
+# -------------------------------- Functions from the parsing utils library -------------------------------- 
 
+def match_and_verify_regex_expression (string_to_check: str, regex_pattern: str) -> Optional[str]:
+
+    # Regex mathching.
+    search_result = re.search (regex_pattern, string_to_check) 
+
+    # Verification of match existance.
+    if search_result == None:
+        print("No match found")
+        return None
+    
+   # If the function returns false, then the string doesn't have any digits or numbers. That's why we return null.
+    if check_string_not_whitespace(search_result.group(0)) == False:
+        print("string sent is whitespace or doesn't contain alphanumeric characters.", repr(string_to_check))
+        return None
+    else:
+        return search_result.group(0).strip()
+    
 # ------
 def revisar_string_vacio(input_string: str) -> str:
     if(len(input_string) == 0):
@@ -131,6 +143,18 @@ def revisar_string_vacio(input_string: str) -> str:
         return input_string
 
 
+# ------
+def check_string_not_whitespace (input_string):
+
+    alphanumeric_regex = "[A-Za-z0-9]+"
+    search_result = re.search(alphanumeric_regex, input_string) 
+    
+    if search_result == None:
+        return False;
+    else:
+        return True;
+
+# ------------
 #  ---------------------- Interpretacion de input como DF ---------------------- 
 tutorias_df = knio.input_tables[0].to_pandas()
     
@@ -178,7 +202,7 @@ for index, tabla in enumerate(tablas_html):
         nombre_norma = tags_strong[0].next_sibling[3:].strip()
 
         linea_completa_ambito_publicacion = tags_br[0].next_sibling
-        ambito = extraer_ambito(linea_completa_ambito_publicacion)
+        ambito = match_and_verify_regex_expression(linea_completa_ambito_publicacion, "(?<=Ambito:).*?(?=,)")
 
         fecha_publicacion = extraer_fecha_publicacion(linea_completa_ambito_publicacion)
 
@@ -209,5 +233,3 @@ output_df = pd.DataFrame(productos_construidos)
 
 #  ---------------------- Output del dataframe ---------------------- 
 knio.output_tables[0] = knio.Table.from_pandas(output_df)
-
-
