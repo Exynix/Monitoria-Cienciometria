@@ -26,7 +26,7 @@ def revisar_contenidos_de_tabla (html_table: str) -> int:
     numero_filas = len(soup.find_all("tr"))
 
 
-    # Si la tabla tiene menos de 2 filas, no hay articulos.
+    # Si la tabla tiene menos de 2 filas, no tienen ningún producto.
     if (numero_filas < 2 ):
 
         # Si la tabla solo tiene 1 filas, solo tiene filas de headers y titulos.
@@ -36,7 +36,7 @@ def revisar_contenidos_de_tabla (html_table: str) -> int:
         else:
             return MensajeVerficacion.TABLA_INVALIDA.value
 
-    # 2 filas significa que hay minimo un articulo, y la tabla es valida.
+    # 2 filas significa que hay minimo un producto, y la tabla es valida.
     if (numero_filas >= 2):
         return MensajeVerficacion.TABLA_VALIDA.value
 
