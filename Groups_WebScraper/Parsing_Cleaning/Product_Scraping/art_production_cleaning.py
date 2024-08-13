@@ -80,7 +80,9 @@ def match_and_verify_regex_expression (string_to_check: str, regex_pattern: str)
 
     # Verification of match existance.
     if search_result == None:
-        print("No match found")
+        print("No match found.")
+        print(" - Pattern: ", regex_pattern)
+        print(" - String being searched: ", string_to_check)
         return None
     
    # If the function returns false, then the string doesn't have any digits or numbers. That's why we return null.
@@ -100,6 +102,7 @@ def parse_obras_productos_table(art_products_html_table_rows, built_products, gr
 
         # Check if the actual row is a header row. 
         if row.find_all("td")[0].text == "Industrias creativas y culturales":
+            print("inside omission conditional")
             processed_rows += 1        
             break
         
@@ -107,19 +110,26 @@ def parse_obras_productos_table(art_products_html_table_rows, built_products, gr
         row_cells = row.find_all("td")
         second_cell = row_cells[1]
         br_tags = second_cell.find_all("br")
+        strong_tags = second_cell.find_all("strong")
 
         # If not a header row, then it's an Obra | Producto.
         is_validated = revisar_producto_avalado(row)
         product_name = second_cell.contents[0].strip()
+        print("Product being processed: ", product_name)
 
         creation_date_line = br_tags[0].text
         creation_date = match_and_verify_regex_expression(creation_date_line, "(?<=Fecha de creación: ).*(?= Disciplina o ámbito de origen:)")
 
-        evaluation_instance_line = second_cell.find_all("strong")[0].next_sibling
-        event_name = match_and_verify_regex_expression(evaluation_instance_line, "(?<=Nombre del espacio o evento:).*(?=, Fecha de presentación:)")
-        presentation_date = match_and_verify_regex_expression(evaluation_instance_line, "(?<=Fecha de presentación:).*(?=, Entidad convocante 1:)")
-        organizing_entity = match_and_verify_regex_expression(evaluation_instance_line, "(?<=Entidad convocante 1:).*(?=(.*|Entidad convocante 1:))")
-    
+        if strong_tags:
+            evaluation_instance_line = strong_tags[0].next_sibling
+            event_name = match_and_verify_regex_expression(evaluation_instance_line, "(?<=Nombre del espacio o evento:).*(?=, Fecha de presentación:)")
+            presentation_date = match_and_verify_regex_expression(evaluation_instance_line, "(?<=Fecha de presentación:).*(?=, Entidad convocante 1:)")
+            organizing_entity = match_and_verify_regex_expression(evaluation_instance_line, "(?<=Entidad convocante 1:).*(?=(.*|Entidad convocante 1:))")
+        else:
+            event_name = None
+            presentation_date = None
+            organizing_entity = None
+
         # After parsing, we create and append the product to the built products list.
         new_product = {
             "Codigo Grupo": group_code,
@@ -246,7 +256,7 @@ built_products = []
 
 # Ciclo exterior para recorrer cada grupo
 for index, table in enumerate(tablas_html):
-
+    print("Codigo del grupo: ", codigos_grupos[index])
     # We have to check the 4 tables for each group. If the table only has 5 rows, the group doesn't have any art product
     # and can be skipped.
     verification_message = check_if_table_has_content(table, 5)

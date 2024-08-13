@@ -72,7 +72,9 @@ def match_and_verify_regex_expression (string_to_check: str, regex_pattern: str)
 
     # Verification of match existance.
     if search_result == None:
-        print("No match found")
+        print("No match found.")
+        print(" - Pattern: ", regex_pattern)
+        print(" - String being searched: ", string_to_check)
         return None
     
    # If the function returns false, then the string doesn't have any digits or numbers. That's why we return null.
