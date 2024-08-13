@@ -34,7 +34,6 @@ def check_if_table_has_content(html_table: str, number_of_information_rows: int)
     if (total_number_of_rows > number_of_information_rows):
         return MensajeVerficacion.TABLA_VALIDA.value
 
-
 # -------------
 
 # Verificacion de existencia de tag <img>. Dice si el producto académico fue avalado.
