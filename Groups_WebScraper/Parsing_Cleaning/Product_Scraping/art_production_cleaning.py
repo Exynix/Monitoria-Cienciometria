@@ -118,7 +118,7 @@ def parse_obras_productos_table(art_products_html_table_rows, built_products, gr
         print("Product being processed: ", product_name)
 
         creation_date_line = br_tags[0].text
-        creation_date = match_and_verify_regex_expression(creation_date_line, "(?<=Fecha de creación: ).*(?= Disciplina o ámbito de origen:)")
+        creation_date = match_and_verify_regex_expression(creation_date_line, "(?<=Fecha de creación:).*(?=Disciplina o ámbito de origen:)")
 
         if strong_tags:
             evaluation_instance_line = strong_tags[0].next_sibling
@@ -177,8 +177,8 @@ def parse_eventos_artisticos_table(art_products_html_table_rows, built_products,
         product_name = match_and_verify_regex_expression(second_cell.contents[0].strip(), "(?<=Nombre del evento:).*").strip()
 
         dates_line =  br_tags[0].next_sibling 
-        start_date = match_and_verify_regex_expression(dates_line, "(?<=Fecha de inicio:).*?(?=\d\d:\d\d:\d\d\.\d)")
-        end_date = match_and_verify_regex_expression(dates_line, "(?<=Fecha de finalización:).*?(?=\d\d:\d\d:\d\d\.\d)")
+        start_date = match_and_verify_regex_expression(dates_line, "(?<=Fecha de inicio:).*?(?=(\d\d:\d\d:\d\d\.\d|,))")
+        end_date = match_and_verify_regex_expression(dates_line, "(?<=Fecha de finalización:).*?(?=(\d\d:\d\d:\d\d\.\d)|)")
 
         # After parsing, we create and append the product to the built products list.
         new_product = {
@@ -218,8 +218,8 @@ def parse_talleres_creacion_table(art_products_html_table_rows, built_products, 
         type_of_workshop = match_and_verify_regex_expression(second_cell.contents[0].strip(), "(?<=Tipo de taller:).*?(?=,Participación:)").strip()
 
         dates_line =  br_tags[0].next_sibling 
-        start_date = match_and_verify_regex_expression(dates_line, "(?<=Fecha de inicio:).*?(?=\d\d:\d\d:\d\d\.\d)")
-        end_date = match_and_verify_regex_expression(dates_line, "(?<=Fecha de finalización:).*?(?=\d\d:\d\d:\d\d\.\d)")
+        start_date = match_and_verify_regex_expression(dates_line, "(?<=Fecha de inicio:).*?(?=(\d\d:\d\d:\d\d\.\d|,))")
+        end_date = match_and_verify_regex_expression(dates_line, "(?<=Fecha de finalización:).*?(?=(\d\d:\d\d:\d\d\.\d)|)")
 
         # After parsing, we create and append the product to the built products list.
         new_product = {
@@ -229,7 +229,7 @@ def parse_talleres_creacion_table(art_products_html_table_rows, built_products, 
             "Fecha Finalizacion": end_date,
             "Tipo Taller": type_of_workshop,
             "Subcategoria": "Talleres de Creación",
-            "Avalado": is_validated
+            "Avalado?": is_validated
         }
 
         built_products.append(new_product)
