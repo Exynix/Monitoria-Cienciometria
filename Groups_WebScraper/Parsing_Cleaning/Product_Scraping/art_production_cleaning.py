@@ -82,7 +82,7 @@ def match_and_verify_regex_expression (string_to_check: str, regex_pattern: str)
     if search_result == None:
         print("No match found.")
         print(" - Pattern: ", regex_pattern)
-        print(" - String being searched: ", string_to_check)
+        print(" - String being searched: ", repr(string_to_check))
         return None
     
    # If the function returns false, then the string doesn't have any digits or numbers. That's why we return null.
@@ -102,7 +102,6 @@ def parse_obras_productos_table(art_products_html_table_rows, built_products, gr
 
         # Check if the actual row is a header row. 
         if row.find_all("td")[0].text == "Industrias creativas y culturales":
-            print("inside omission conditional")
             processed_rows += 1        
             break
         
@@ -115,10 +114,9 @@ def parse_obras_productos_table(art_products_html_table_rows, built_products, gr
         # If not a header row, then it's an Obra | Producto.
         is_validated = revisar_producto_avalado(row)
         product_name = second_cell.contents[0].strip()
-        print("Product being processed: ", product_name)
 
-        creation_date_line = br_tags[0].text
-        creation_date = match_and_verify_regex_expression(creation_date_line, "(?<=Fecha de creación:).*(?=Disciplina o ámbito de origen:)")
+        creation_date_line = br_tags[0].next_sibling
+        creation_date = match_and_verify_regex_expression(creation_date_line[1:], "(?<=Fecha de creación:).*(?=Disciplina o ámbito de origen:)")
 
         if strong_tags:
             evaluation_instance_line = strong_tags[0].next_sibling
@@ -136,7 +134,7 @@ def parse_obras_productos_table(art_products_html_table_rows, built_products, gr
             "Nombre Producto": product_name,
             "Fecha Creacion": creation_date,
             "Fecha Presentacion": presentation_date,
-            "Nombre Producto o Evento": event_name,
+            "Nombre Espacio o Evento": event_name,
             "Entidad Convocante": organizing_entity,
             "Subcategoria": "Obra o Producto",
             "Avalado?": is_validated
@@ -177,7 +175,7 @@ def parse_eventos_artisticos_table(art_products_html_table_rows, built_products,
         product_name = match_and_verify_regex_expression(second_cell.contents[0].strip(), "(?<=Nombre del evento:).*").strip()
 
         dates_line =  br_tags[0].next_sibling 
-        start_date = match_and_verify_regex_expression(dates_line, "(?<=Fecha de inicio:).*?(?=(\d\d:\d\d:\d\d\.\d|,))")
+        start_date = match_and_verify_regex_expression(dates_line[1:], "(?<=Fecha de inicio:).*?(?=(\d\d:\d\d:\d\d\.\d|,))")
         end_date = match_and_verify_regex_expression(dates_line, "(?<=Fecha de finalización:).*?(?=(\d\d:\d\d:\d\d\.\d)|)")
 
         # After parsing, we create and append the product to the built products list.
@@ -218,7 +216,7 @@ def parse_talleres_creacion_table(art_products_html_table_rows, built_products, 
         type_of_workshop = match_and_verify_regex_expression(second_cell.contents[0].strip(), "(?<=Tipo de taller:).*?(?=,Participación:)").strip()
 
         dates_line =  br_tags[0].next_sibling 
-        start_date = match_and_verify_regex_expression(dates_line, "(?<=Fecha de inicio:).*?(?=(\d\d:\d\d:\d\d\.\d|,))")
+        start_date = match_and_verify_regex_expression(dates_line[1:], "(?<=Fecha de inicio:).*?(?=(\d\d:\d\d:\d\d\.\d|,))")
         end_date = match_and_verify_regex_expression(dates_line, "(?<=Fecha de finalización:).*?(?=(\d\d:\d\d:\d\d\.\d)|)")
 
         # After parsing, we create and append the product to the built products list.
