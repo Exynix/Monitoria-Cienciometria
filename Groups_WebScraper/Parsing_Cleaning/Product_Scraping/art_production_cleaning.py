@@ -116,10 +116,12 @@ def parse_obras_productos_table(art_products_html_table_rows, built_products, gr
         product_name = second_cell.contents[0].strip()
 
         creation_date_line = br_tags[0].next_sibling
-        creation_date = match_and_verify_regex_expression(creation_date_line[1:], "(?<=Fecha de creación:).*(?=Disciplina o ámbito de origen:)")
+        creation_date_line = creation_date_line.rstrip()
+        creation_date = match_and_verify_regex_expression(creation_date_line, "(?<=Fecha de creación:).*(?=Disciplina o ámbito de origen:)")
 
         if strong_tags:
             evaluation_instance_line = strong_tags[0].next_sibling
+            evaluation_instance_line = evaluation_instance_line.rstrip()
             event_name = match_and_verify_regex_expression(evaluation_instance_line, "(?<=Nombre del espacio o evento:).*(?=, Fecha de presentación:)")
             presentation_date = match_and_verify_regex_expression(evaluation_instance_line, "(?<=Fecha de presentación:).*(?=, Entidad convocante 1:)")
             organizing_entity = match_and_verify_regex_expression(evaluation_instance_line, "(?<=Entidad convocante 1:).*(?=(.*|Entidad convocante 1:))")
@@ -175,6 +177,7 @@ def parse_eventos_artisticos_table(art_products_html_table_rows, built_products,
         product_name = match_and_verify_regex_expression(second_cell.contents[0].strip(), "(?<=Nombre del evento:).*").strip()
 
         dates_line =  br_tags[0].next_sibling 
+        start_date = start_date.rstrip()
         start_date = match_and_verify_regex_expression(dates_line[1:], "(?<=Fecha de inicio:).*?(?=(\d\d:\d\d:\d\d\.\d|,))")
         end_date = match_and_verify_regex_expression(dates_line, "(?<=Fecha de finalización:).*?(?=(\d\d:\d\d:\d\d\.\d)|)")
 
@@ -211,11 +214,12 @@ def parse_talleres_creacion_table(art_products_html_table_rows, built_products, 
 
         # If not a header row, then it's an Obra | Producto.
         is_validated = revisar_producto_avalado(row)
-        product_name = match_and_verify_regex_expression(second_cell.contents[0].strip(), "(?<=Nombre del taller:).*?(?=,Tipo de taller:)").strip()
+        product_name = match_and_verify_regex_expression(second_cell.contents[0].rstrip(), "(?<=Nombre del taller:).*?(?=,Tipo de taller:)").strip()
 
-        type_of_workshop = match_and_verify_regex_expression(second_cell.contents[0].strip(), "(?<=Tipo de taller:).*?(?=,Participación:)").strip()
+        type_of_workshop = match_and_verify_regex_expression(second_cell.contents[0].rstrip(), "(?<=Tipo de taller:).*?(?=,Participación:)").strip()
 
         dates_line =  br_tags[0].next_sibling 
+        dates_line = dates_line.rstrip()
         start_date = match_and_verify_regex_expression(dates_line[1:], "(?<=Fecha de inicio:).*?(?=(\d\d:\d\d:\d\d\.\d|,))")
         end_date = match_and_verify_regex_expression(dates_line, "(?<=Fecha de finalización:).*?(?=(\d\d:\d\d:\d\d\.\d)|)")
 
