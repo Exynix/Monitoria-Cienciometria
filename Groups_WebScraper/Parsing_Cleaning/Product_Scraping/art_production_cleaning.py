@@ -181,7 +181,7 @@ def parse_eventos_artisticos_table(art_products_html_table_rows, built_products,
         dates_line = dates_line.rstrip()
         dates_line = dates_line.replace("\n", '')
         start_date = match_and_verify_regex_expression(dates_line[1:], "(?<=Fecha de inicio:).*?(?=(\d\d:\d\d:\d\d\.\d|,))")
-        end_date = match_and_verify_regex_expression(dates_line, "(?<=Fecha de finalización:).*?(?=(\d\d:\d\d:\d\d\.\d)|)")
+        end_date = match_and_verify_regex_expression(dates_line, "(?<=Fecha de finalización:).*?(?=(\d\d:\d\d:\d\d\.\d)|\n)")
 
         # After parsing, we create and append the product to the built products list.
         new_product = {
@@ -226,7 +226,7 @@ def parse_talleres_creacion_table(art_products_html_table_rows, built_products, 
         dates_line = dates_line.rstrip()
         dates_line = dates_line.replace("\n", '')
         start_date = match_and_verify_regex_expression(dates_line[1:], "(?<=Fecha de inicio:).*?(?=(\d\d:\d\d:\d\d\.\d|,))")
-        end_date = match_and_verify_regex_expression(dates_line, "(?<=Fecha de finalización:).*?(?=(\d\d:\d\d:\d\d\.\d)|)")
+        end_date = match_and_verify_regex_expression(dates_line, "(?<=Fecha de finalización:).*?(?=(\d\d:\d\d:\d\d\.\d)|\n)")
 
         # After parsing, we create and append the product to the built products list.
         new_product = {
