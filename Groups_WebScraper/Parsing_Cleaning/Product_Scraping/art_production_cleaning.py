@@ -80,9 +80,9 @@ def match_and_verify_regex_expression (string_to_check: str, regex_pattern: str)
 
     # Verification of match existance.
     if search_result == None:
-        print("No match found.")
-        print(" - Pattern: ", regex_pattern)
-        print(" - String being searched: ", repr(string_to_check))
+        # print("No match found.")
+        # print(" - Pattern: ", regex_pattern)
+        # print(" - String being searched: ", repr(string_to_check))
         return None
     
    # If the function returns false, then the string doesn't have any digits or numbers. That's why we return null.
@@ -117,6 +117,7 @@ def parse_obras_productos_table(art_products_html_table_rows, built_products, gr
 
         creation_date_line = br_tags[0].next_sibling
         creation_date_line = creation_date_line.rstrip()
+        creation_date_line = creation_date_line.replace("\n", "")
         creation_date = match_and_verify_regex_expression(creation_date_line, "(?<=Fecha de creación:).*(?=Disciplina o ámbito de origen:)")
 
         if strong_tags:
@@ -177,7 +178,8 @@ def parse_eventos_artisticos_table(art_products_html_table_rows, built_products,
         product_name = match_and_verify_regex_expression(second_cell.contents[0].strip(), "(?<=Nombre del evento:).*").strip()
 
         dates_line =  br_tags[0].next_sibling 
-        start_date = start_date.rstrip()
+        dates_line = dates_line.rstrip()
+        dates_line = dates_line.replace("\n", '')
         start_date = match_and_verify_regex_expression(dates_line[1:], "(?<=Fecha de inicio:).*?(?=(\d\d:\d\d:\d\d\.\d|,))")
         end_date = match_and_verify_regex_expression(dates_line, "(?<=Fecha de finalización:).*?(?=(\d\d:\d\d:\d\d\.\d)|)")
 
@@ -214,12 +216,15 @@ def parse_talleres_creacion_table(art_products_html_table_rows, built_products, 
 
         # If not a header row, then it's an Obra | Producto.
         is_validated = revisar_producto_avalado(row)
+        print(second_cell.contents[0].rstrip())
+        repr(second_cell.contents[0].rstrip())
         product_name = match_and_verify_regex_expression(second_cell.contents[0].rstrip(), "(?<=Nombre del taller:).*?(?=,Tipo de taller:)").strip()
 
         type_of_workshop = match_and_verify_regex_expression(second_cell.contents[0].rstrip(), "(?<=Tipo de taller:).*?(?=,Participación:)").strip()
 
         dates_line =  br_tags[0].next_sibling 
         dates_line = dates_line.rstrip()
+        dates_line = dates_line.replace("\n", '')
         start_date = match_and_verify_regex_expression(dates_line[1:], "(?<=Fecha de inicio:).*?(?=(\d\d:\d\d:\d\d\.\d|,))")
         end_date = match_and_verify_regex_expression(dates_line, "(?<=Fecha de finalización:).*?(?=(\d\d:\d\d:\d\d\.\d)|)")
 
