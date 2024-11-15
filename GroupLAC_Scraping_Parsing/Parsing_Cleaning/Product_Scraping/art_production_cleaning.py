@@ -113,7 +113,8 @@ def parse_obras_productos_table(art_products_html_table_rows, built_products, gr
 
         # If not a header row, then it's an Obra | Producto.
         is_validated = revisar_producto_avalado(row)
-        product_name = second_cell.contents[0].strip()
+        product_line = second_cell.contents[0].strip()
+        product_name = match_and_verify_regex_expression(product_line, "(?<=Nombre del Producto:).*(?=,)")
 
         creation_date_line = br_tags[0].next_sibling
         creation_date_line = creation_date_line.rstrip()
