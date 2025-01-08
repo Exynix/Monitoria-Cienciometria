@@ -36,9 +36,12 @@ def parse_and_identify_page_type(df_row) -> str:
 
     try:
         # 1. Identification of private pages. They are the simplest ones.
-        only_body_html_tags = [element for element in soup.body.contents if element.name is not None]
-        if len(only_body_html_tags) == 3:
+        private_page_string = "La información de este currículo no está disponible por solicitud del investigador"
+        private_page_element_string = soup.find(string=private_page_string)
+        if private_page_element_string:
             return CvlacType.PRIVATE.value
+        #only_body_html_tags = [element for element in soup.body.contents if element.name is not None]
+        # if len(only_body_html_tags) == 3:
 
         # 2. Identification of empty pages. Second simplest.
         content_div = soup.select_one("div.container") # First level. body > div
