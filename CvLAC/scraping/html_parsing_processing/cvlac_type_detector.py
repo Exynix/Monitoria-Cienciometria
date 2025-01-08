@@ -37,28 +37,20 @@ def parse_and_identify_page_type(df_row) -> str:
     try:
         # 1. Identification of private pages. They are the simplest ones.
         private_page_string = "La información de este currículo no está disponible por solicitud del investigador"
-        private_page_element_string = soup.find(string=private_page_string)
-        if private_page_element_string:
+        only_blockquote_element = soup.find("blockquote")
+        if private_page_string == only_blockquote_element.text.strip:
             return CvlacType.PRIVATE.value
-        #only_body_html_tags = [element for element in soup.body.contents if element.name is not None]
-        # if len(only_body_html_tags) == 3:
 
         # 2. Identification of empty pages. Second simplest.
-        content_div = soup.select_one("div.container") # First level. body > div
-        main_content_tbody = content_div.find("tbody") #  Third level. div > table > tbody
-        social_media_tr = main_content_tbody.find_all("tr")[2] # Fourth level. div > table > tbody > tr
-        social_media_td = social_media_tr.find("td") # Fifth level. div > table > tbody > tr > td
-        social_media_html_tags = [element for element in social_media_td.contents if element.name is not None]
+        academic_formation_string = "Formación Académica"
+        academic_formation_element_string = soup.find(string=academic_formation_string)
 
-        # If there's only 1 element inside the social media <td>, the profile is counted as empty, as there's always
-        # as a minimum, an <a> tag inside.
-        if len(social_media_html_tags) == 1:
+        if academic_formation_element_string is None:
             return CvlacType.EMPTY.value
 
-        # 3. If inside the social media <td>, there's 2 tags (<a> and <table>) the profile is likely filled, or full.
-        # The profile is counted as a normal profile.
-        if len(social_media_html_tags) == 2:
+        if academic_formation_element_string is not None:
             return CvlacType.NORMAL.value
+
 
         # 4. If none of the if statements were entered, this is an unknown page.
         return CvlacType.UNKNOWN.value
