@@ -27,6 +27,7 @@ class ParsedCvlac(NamedTuple):
     cvlac_type: CvlacType
 
 # ----------------------------------------------------------
+# Definition of detectiion function
 def parse_and_identify_page_type(df_row) -> str:
 
     html_string = df_row["Document"]
@@ -36,9 +37,9 @@ def parse_and_identify_page_type(df_row) -> str:
 
     try:
         # 1. Identification of private pages. They are the simplest ones.
-        private_page_string = "La información de este currículo no está disponible por solicitud del investigador"
-        only_blockquote_element = soup.find("blockquote")
-        if private_page_string == only_blockquote_element.text.strip:
+        private_msg_baseline = "La información de este currículo no está disponible por solicitud del investigador"
+        private_msg_scraped = soup.find_all("blockquote")[1].text.strip()
+        if private_msg_scraped == private_msg_baseline:
             return CvlacType.PRIVATE.value
 
         # 2. Identification of empty pages. Second simplest.
