@@ -15,7 +15,7 @@ import knime.scripting.io as knio
 class CvlacType(Enum):
     NORMAL = "Normal"
     PRIVATE = "Privado"
-    EMPTY = "Vacio"
+    NO_PRODUCTS = "Sin Productos"
     UNKNOWN = "Tipo desconocido"
     ERROR = "Error processando la URL"
 
@@ -53,7 +53,7 @@ def detect_empty_and_normal_pages(bs4Soup) -> str:
                 is_table_empty = False
                 return CvlacType.NORMAL.value
 
-        return CvlacType.EMPTY.value
+        return CvlacType.NO_PRODUCTS.value
 
     except Exception as e:
         print(f"Error in detect_private_and_normal_pages: {e}")
