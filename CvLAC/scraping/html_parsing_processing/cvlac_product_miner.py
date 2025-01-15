@@ -24,34 +24,95 @@ def get_product_tables(bs4Soup) -> []:
     green_msg_parent_tr_siblings = [element for element in green_msg_parent_tr.next_siblings if element.name is not None]
     return green_msg_parent_tr_siblings
 
-def check_is_table_empty(html_table: str) -> bool:
+# ---------
+
+def check_is_table_empty(html_tr_table: str) -> bool:
     html_table_children_list = [
-        element for element in html_table.td.children if element.name is not None
+        element for element in html_tr_table.td.children if element.name is not None
     ]
+    if len(html_table_children_list) == 1 and html_table_children_list[0].name == "a":
+        return  True
+
+    if len(html_table_children_list) == 1 and html_table_children_list[0].name != "a":
+        return False
+
     if len(html_table_children_list) > 1:
         return False
 
     return True
 
 
-def identify_table_type (html_table: str):
-    pass
+# ---------
+def identify_table_type (html_tr_table: str):
+    inner_product_table_rows = html_tr_table.find_all("tr")
+    second_row = inner_product_table_rows[1]
+    second_row_td = second_row.td
+    second_row_first_element_child = [element for element in second_row_td.children if element.name is not None][0]
+
+    # Identification of scattered products. Looking for <li> tag.
+    if second_row_first_element_child.name == "li":
+        # Then, check if the li is empty or not.
+        # If empty
+        if not second_row_first_element_child.text.strip():
+            return TableType.SUBTYPE_AS_EMPTY_LIST_ITEM
+        # Has text, and necessarily will be a normal list item.
+        else:
+            return  TableType.SUBTYPE_AS_LIST_ITEM
+
+    # Identification of scattered product with <b> tag
+    if second_row_first_element_child.name == "b":
+        return TableType.SUBTYPE_AS_BOLD_TAG
+
+    # Identification of blockquote products
+    if second_row_first_element_child.name == "blockquote":
+        return TableType.BLOCKQUOTE_PRODUCTS
+
+    if second_row_first_element_child.name == "table":
+        return TableType.NESTED_TABLES
+
+    return  TableType.UNIDENTIFIED
 
 
-def parse_table(html_table_element: str, type:TableType):
-    if type == TableType.NESTED_TABLES:
-        pass
-    if type == TableType.BLOCKQUOTE_PRODUCTS:
-        pass
+# ---------
+def create_product_row(id_number: int, raw_product_html: str, product_type: str, product_subtype: str):
+    return {
+        "id_number": id_number,
+        "raw_product_html": raw_product_html,
+        "product_type": product_type,
+        "product_subtype": product_subtype
+    }
+
+# ---------
+def parse_table(html_tr_table: str, table_type: TableType, professor_id_num: int):
+
+    id_number: int = professor_id_num
+    raw_product: str
+    product_type: str
+    product_subtype: str
+    html_tr_table_products = []
+
+    inner_product_table_rows = html_tr_table.find_all("tr")
+    product_type = inner_product_table_rows.h3.text
+
+    # Same logic for self contained products.
+    if type == TableType.NESTED_TABLES or TableType.BLOCKQUOTE_PRODUCTS:
+        for inner_row in inner_product_table_rows:
+            new_row = create_product_row(id_number, inner_row.encode_contents(), product_type, None)
+            html_tr_table_products.append(new_row)
+
     if type == TableType.SUBTYPE_AS_LIST_ITEM:
         pass
+
     if type == TableType.SUBTYPE_AS_EMPTY_LIST_ITEM:
         pass
+
     if type == TableType.SUBTYPE_AS_BOLD_TAG:
         pass
+
     if type == TableType.UNIDENTIFIED:
         pass
 
+    return html_tr_table_products
 # ------------------ "Main" -------------------------------------------
 normal_cvlacs_df = knio.input_tables[0].to_pandas()
 product_table = [] # All products will be appended to this list
@@ -59,21 +120,21 @@ product_table = [] # All products will be appended to this list
 for cvlac_row in normal_cvlacs_df.itertuples(index=True):
 
     soup = BeautifulSoup(cvlac_row.Document, "html.parser")
-    # 1. Go to first product table
+# 1. Go to first product table
     product_tables = get_product_tables(soup)
 
     # 2. Iterate over all product tables, where in each table:
-    for table in product_tables:
+    for tr_table in product_tables:
         # 0. First check if table is empty. Skipped if empty.
-        if check_is_table_empty(table):
+        if check_is_table_empty(tr_table):
             continue
 
         # a. table type is identified.
-        table_type = identify_table_type(table)
+        table_type = identify_table_type(tr_table)
 
         # b. table is parsed based on table type. A list of dictionaries is returned as the rows of the table parsed.
-        product_table.extend(parse_table(table, table_type))
+        product_table.extend(parse_table(tr_table, table_type, cvlac_row.id_documento))
 
 
 
-knio.output_tables[0] = knio.Table.from_pandas(all_cvlacs_df)
+knio.output_tables[0] = knio.Table.from_pandas(product_table)
