@@ -3,6 +3,7 @@ from typing import List, NamedTuple
 from enum import Enum
 import traceback
 
+import pandas as pd
 # Import third party modules
 from bs4 import BeautifulSoup
 import knime.scripting.io as knio
@@ -79,7 +80,7 @@ def create_product_row(id_number: int, raw_product_html: str, product_type: str,
         "id_number": id_number,
         "raw_product_html": raw_product_html,
         "product_type": product_type,
-        "product_subtype": product_subtype
+        "raw_product_subtype": product_subtype
     }
 
 # ---------
@@ -92,19 +93,22 @@ def parse_table(html_tr_table: str, table_type: TableType, professor_id_num: int
     html_tr_table_products = []
 
     inner_product_table_rows = html_tr_table.find_all("tr")
-    product_type = inner_product_table_rows.h3.text
+    product_type = inner_product_table_rows[0].h3.text.strip().capitalize()
+    inner_product_table_rows = inner_product_table_rows[1:] # Remove title row
 
-    # Same logic for self contained products.
+    # Same logic for self-contained products.
     if type == TableType.NESTED_TABLES or TableType.BLOCKQUOTE_PRODUCTS:
         for inner_row in inner_product_table_rows:
-            new_row = create_product_row(id_number, inner_row.encode_contents(), product_type, None)
+            new_row = create_product_row(id_number, inner_row.decode_contents(), product_type, None)
             html_tr_table_products.append(new_row)
 
-    if type == TableType.SUBTYPE_AS_LIST_ITEM:
-        pass
-
-    if type == TableType.SUBTYPE_AS_EMPTY_LIST_ITEM:
-        pass
+    # Same logic for scattered products with a <li> tag.
+    if type == TableType.SUBTYPE_AS_LIST_ITEM or TableType.SUBTYPE_AS_EMPTY_LIST_ITEM or TableType.SUBTYPE_AS_BOLD_TAG:
+        # Filas impares ahora son los <li>, pares son productos.
+        even_inner_rows = inner_product_table_rows[1::2]
+        for inner_row in even_inner_rows:
+            new_row = create_product_row(id_number, inner_row.decode_contents(), product_type, None)
+            html_tr_table_products.append(new_row)
 
     if type == TableType.SUBTYPE_AS_BOLD_TAG:
         pass
@@ -136,5 +140,5 @@ for cvlac_row in normal_cvlacs_df.itertuples(index=True):
         product_table.extend(parse_table(tr_table, table_type, cvlac_row.id_documento))
 
 
-
-knio.output_tables[0] = knio.Table.from_pandas(product_table)
+products_df = pd.DataFrame(product_table)
+knio.output_tables[0] = knio.Table.from_pandas(products_df)
