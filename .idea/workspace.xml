@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="6ccfd88e-c8a2-460c-a9ca-c84a1eedd92f" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/CvLAC/scraping/html_parsing_processing/cvlac_product_miner.py" beforeDir="false" afterPath="$PROJECT_DIR$/CvLAC/scraping/html_parsing_processing/cvlac_product_miner.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CvLAC/scraping/html_parsing_processing/product_miner_tester.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/CvLAC/scraping/html_parsing_processing/product_miner_tester.ipynb" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="Python Script" />
+        <option value="Jupyter Notebook" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitToolBoxStore">
+    <option name="recentBranches">
+      <RecentBranches>
+        <option name="branchesForRepo">
+          <list>
+            <RecentBranchesForRepo>
+              <option name="branches">
+                <list>
+                  <RecentBranch>
+                    <option name="branchName" value="cvlac-scraping-parsing" />
+                    <option name="lastUsedInstant" value="1736217713" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="Group_Products_Cleaning" />
+                    <option name="lastUsedInstant" value="1736217712" />
+                  </RecentBranch>
+                </list>
+              </option>
+              <option name="repositoryRootUrl" value="file://$PROJECT_DIR$" />
+            </RecentBranchesForRepo>
+          </list>
+        </option>
+      </RecentBranches>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="2pD4n2OAa0KvCWWHa64DeLRZOUz" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "cvlac-scraping-parsing",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/David Barreto/Local_Documents/MonitoriaCienciometria/CvLAC/scraping/html_parsing_processing",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\David Barreto\Local_Documents\MonitoriaCienciometria\CvLAC\scraping\html_parsing_processing" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\David Barreto\Local_Documents\MonitoriaCienciometria\CvLAC\scraping\sample_scraped_cvlacs\type_detection" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-PY-243.22562.220" />
+        <option value="bundled-python-sdk-0fc6c617c4bd-9a18a617cbe4-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-243.22562.220" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6ccfd88e-c8a2-460c-a9ca-c84a1eedd92f" name="Changes" comment="" />
+      <created>1732287475669</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1732287475669</updated>
+      <workItem from="1732287476771" duration="259000" />
+      <workItem from="1732287760132" duration="169000" />
+      <workItem from="1732288044540" duration="8180000" />
+      <workItem from="1734980337513" duration="86000" />
+      <workItem from="1734980930353" duration="1437000" />
+      <workItem from="1736193272490" duration="12398000" />
+      <workItem from="1736301921239" duration="12120000" />
+      <workItem from="1736362677769" duration="20254000" />
+      <workItem from="1736397027292" duration="3632000" />
+      <workItem from="1736880923690" duration="19543000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
