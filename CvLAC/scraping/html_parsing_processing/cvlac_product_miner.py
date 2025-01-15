@@ -84,6 +84,7 @@ def create_product_row(id_number: int, raw_product_html: str, product_type: str,
     }
 
 # ---------
+"""
 def parse_table(html_tr_table: str, table_type: TableType, professor_id_num: int):
 
     id_number: int = professor_id_num
@@ -117,6 +118,59 @@ def parse_table(html_tr_table: str, table_type: TableType, professor_id_num: int
         pass
 
     return html_tr_table_products
+"""
+def parse_table(html_tr_table: str, table_type: TableType, professor_id_num: int):
+    id_number: int = professor_id_num
+    html_tr_table_products = []
+
+    inner_product_table_rows = html_tr_table.find_all("tr")
+    product_type = inner_product_table_rows[0].h3.text.strip().capitalize()
+    inner_product_table_rows = inner_product_table_rows[1:]  # Remove title row
+
+    # Handle self-contained products
+    if table_type in [TableType.NESTED_TABLES, TableType.BLOCKQUOTE_PRODUCTS]:
+        for inner_row in inner_product_table_rows:
+            new_row = create_product_row(
+                id_number=id_number,
+                raw_product_html=inner_row.decode_contents(),
+                product_type=product_type,
+                product_subtype=None
+            )
+            html_tr_table_products.append(new_row)
+
+    # Handle scattered products with tags (<li> or <b>)
+    elif table_type in [TableType.SUBTYPE_AS_LIST_ITEM,
+                        TableType.SUBTYPE_AS_EMPTY_LIST_ITEM,
+                        TableType.SUBTYPE_AS_BOLD_TAG]:
+        # Get only even-indexed rows (0-based indexing)
+        product_rows = inner_product_table_rows[1::2]
+        subtype_rows = inner_product_table_rows[::2]
+
+        for i, inner_row in enumerate(product_rows):
+            # Get corresponding subtype if available
+            subtype = None
+            if i < len(subtype_rows):
+                if table_type == TableType.SUBTYPE_AS_BOLD_TAG:
+                    bold_tag = subtype_rows[i].find('b')
+                    subtype = bold_tag.text.strip() if bold_tag else None
+                else:
+                    li_tag = subtype_rows[i].find('li')
+                    subtype = li_tag.text.strip() if li_tag else None
+
+            new_row = create_product_row(
+                id_number=id_number,
+                raw_product_html=inner_row.decode_contents(),
+                product_type=product_type,
+                product_subtype=subtype
+            )
+            html_tr_table_products.append(new_row)
+
+    elif table_type == TableType.UNIDENTIFIED:
+        # Log or handle unidentified table types as needed
+        pass
+
+    return html_tr_table_products
+
 # ------------------ "Main" -------------------------------------------
 normal_cvlacs_df = knio.input_tables[0].to_pandas()
 product_table = [] # All products will be appended to this list
