@@ -44,13 +44,11 @@ def detect_empty_and_normal_pages(bs4Soup) -> str:
         green_msg_parent_td = green_msg_tick_img.parent.parent.parent
         green_msg_parent_td_siblings = [element for element in green_msg_parent_td.next_siblings if element.name is not None]
 
-        is_table_empty: bool = True
         for sibling_tr in green_msg_parent_td_siblings:
             sibling_tr_children_list = [
                 element for element in sibling_tr.td.children if element.name is not None
             ]
             if len(sibling_tr_children_list) > 1:
-                is_table_empty = False
                 return CvlacType.NORMAL.value
 
         return CvlacType.NO_PRODUCTS.value
