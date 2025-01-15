@@ -1,0 +1,3247 @@
+"<!DOCTYPE html PUBLIC ""-//W3C//DTD XHTML 1.0 Transitional//EN"" ""http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"">
+<html xmlns=""http://www.w3.org/1999/xhtml"" lang=""en"" xml:lang=""en"">
+<head>
+    <title>CvLAC - RG</title>
+    <script>
+        var texto="""";
+        var NS4 = (document.layers); // Which browser?
+        var IE4 = (document.all);
+        var win = window; // window to search.
+        var n = 0;
+
+        function resaltar(valor){
+            var encontro=0;
+            var donde=0;
+            //valor=document.getElementById('tt').value;
+            reemplazar=RegExp(valor,""i"");
+            por=""<span style=\u0022background-Color:yellow;\u0022>""+valor+""</span>"";
+            if(texto==""""){texto=document.body.innerHTML};
+            txt=texto.split("">"");
+            for (x=0;x<txt.length;x++){
+                desde=(txt[x].indexOf(""<"")!=-1)?txt[x].indexOf(""<""):0;
+                tempP=txt[x].slice(0,desde);
+                tempU=txt[x].slice(desde);
+                tempPx=tempP.split("" "");
+                for(y=0;y<tempPx.length;y++){
+                    if(tempPx[y].search(reemplazar)!=-1){
+                        tempPx[y]=tempPx[y].replace(reemplazar,por);
+                        encontro+=1;
+                    }
+                }
+                txt[x]=tempPx.join("" "")+tempU;
+            }
+            document.body.innerHTML=txt.join("">"");
+            //alert((encontro==0)?""No se encontro ''""+valor+""''"":""Se encontraron ""+encontro+"" coincidencias"");
+            encontro=null;
+            donde=null;
+        }
+
+	<!-- Original by http://javascript.internet.com More javascripts http://www.hypergurl.com -->
+
+            function findInPage(str) {
+                //resaltar(str);
+                var txt, i, found; if (str == """") return false; // Find next occurance of the given string on the page, wrap around to the
+                // start of the page if necessary.
+                if (NS4) { // Look for match starting at the current point. If not found, rewind
+                    // back to the first match.
+                    if (!win.find(str)) while(win.find(str, false, true))
+                        n++; else n++; // If not found in either direction, give message. if (n == 0)
+                    alert(""Not found.""); } if (IE4) { txt = win.document.body.createTextRange();
+                    // Find the nth match from the top of the page.
+                    for (i = 0; i <= n && (found = txt.findText(str)) != false; i++) { txt.moveStart(""character"", 1); txt.moveEnd(""textedit""); } // If found, mark it and scroll it into view.
+                    if (found) { txt.moveStart(""character"", -1); txt.findText(str);
+                        txt.select(); txt.scrollIntoView(); n++; } // Otherwise, start over at the top of the page and find first match.
+                    else { if (n > 0) { n = 0; findInPage(str);
+                    } // Not found anywhere, give message.
+                    else alert(""Not found.""); } }
+                return false; }
+    </script>
+    <meta name=""google-site-verification"" content=""i8iweOHAFYQV0nLnM5KwROxv6enyqJioSpdx0w_uZSI"">
+    <meta name=""google-site-verification"" content=""i8iweOHAFYQV0nLnM5KwROxv6enyqJioSpdx0w_uZSI"">
+    <link href=""https://scienti.minciencias.gov.co/cvlac/css/visualizador.css;jsessionid=6B607FC9B4FB7D6386F76288B991755A"" type=""text/css"" rel=""stylesheet"">
+    <meta content=""no-cache"" http-equiv=""pragma"">
+    <meta http-equiv=""Content-Type"" content=""text/html; charset=iso-8859-1"">
+</head>
+<body>
+<div class=""wrapper"">
+<div class=""header"">
+<div class=""menubar"">
+<ul class=""mmenu"" style=""height:23px;padding:2px;"">
+<li><a class=""menu"" href=""https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000057371#"" style=""width:100px"">Datos generales</a>
+    <ul>
+        <li><a class=""menu"" href=""https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000057371#datos_generales"">Identificación</a></li>
+        <li><a class=""menu"" href=""https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000057371#redes_identificadores"">Redes sociales académicas</a></li>
+        <li><a class=""menu"" href=""https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000057371#red_identificadores"">Identificadores de autor</a></li>
+        <li><a class=""menu"" href=""https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000057371#formacion_acad"">Formación académica</a></li>
+        <li><a class=""menu"" href=""https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000057371#formacion_comp"">Formación complementaria</a></li>
+        <li><a class=""menu"" href=""https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000057371#estancias_posdoctorales"">Estancias posdoctorales</a></li>
+        <li><a class=""menu"" href=""https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000057371#experiencia"">Experiencia profesional</a></li>
+        <li><a class=""menu"" href=""https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000057371#otra_info_personal"">Otra información personal</a></li>
+    </ul></li>
+<li><a class=""menu"" href=""https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000057371#"" style=""width:130px"">Actividades formación</a>
+    <ul>
+        <li><a class=""menu"" href=""https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000057371#asesorias"">Asesorías</a></li>
+        <li><a class=""menu"" href=""https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000057371#curso_corta_du"">Cursos de corta duración</a></li>
+        <li><a class=""menu"" href=""https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000057371#trabajos_dirigi"">Trabajos dirigidos/tutorías</a></li>
+    </ul></li>
+<li><a class=""menu"" href=""https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000057371#"" style=""width:120px"">Actividades evaluador</a>
+    <ul>
+        <li><a class=""menu"" href=""https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000057371#jurado"">Jurado comisiones evaluadoras de trabajo de grado</a></li>
+        <li><a class=""menu"" href=""https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000057371#par"">Par evaluador</a></li>
+        <li><a class=""menu"" href=""https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000057371#comite"">Participación en comité de evaluación</a></li>
+    </ul></li>
+<li><a class=""menu"" href=""https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000057371#"" style=""width:130px"">Apropiación social</a>
+    <ul>
+        <li><a class=""menu"" href=""https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000057371#edicion"">Edición</a></li>
+        <li><a class=""menu"" href=""https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000057371#evento"">Evento científico</a></li>
+        <li><a class=""menu"" href=""https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000057371#re_co"">Redes de conocimiento especializado</a></li>
+        <li><a class=""menu"" href=""https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000057371#asc_for"">Fortalecimiento o solución de asuntos de interés social</a></li>
+        <li><a class=""menu"" href=""https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000057371#asc_tra"">Trabajo conjunto entre un Centro de Ciencia y un grupo de investigación</a></li>
+        <li><a class=""menu"" href=""https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000057371#asc_gen"">Generación de insumos de política pública y normatividad</a></li>
+        <li><a class=""menu"" href=""https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000057371#asc_cad"">Fortalecimiento de cadenas productivas</a></li>
+        <li><a class=""menu"" href=""https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000057371#div_ced"">Publicaciones editoriales no especializadas</a></li>
+        <li><a class=""menu"" href=""https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000057371#div_cda"">Producciones de contenido digital Audiovisual</a></li>
+        <li><a class=""menu"" href=""https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000057371#div_cds"">Producciones de contenido digital Sonoro</a></li>
+        <li><a class=""menu"" href=""https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000057371#div_cdr"">Producciones de contenido digital Recursos gráficos</a></li>
+        <li><a class=""menu"" href=""https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000057371#div_ctr"">Producción de estrategias y contenidos transmedia</a></li>
+        <li><a class=""menu"" href=""https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000057371#div_des"">Desarrollos web</a></li>
+    </ul></li>
+<li><a class=""menu"" href=""https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000057371#"" style=""width:140px"">Producción bibliográfica</a>
+    <ul>
+        <li><a class=""menu"" href=""https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000057371#articulos"">Artículos</a></li>
+        <li><a class=""menu"" href=""https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000057371#libros"">Libros</a></li>
+        <li><a class=""menu"" href=""https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000057371#capitulos"">Capítulos de libro</a></li>
+        <li><a class=""menu"" href=""https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000057371#nota_cientifica"">Nota científica</a></li>
+        <li><a class=""menu"" href=""https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000057371#textos"">Textos en publicaciones no científicas</a></li>
+        <li><a class=""menu"" href=""https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000057371#otra_prod_biblio"">Otra producción bibliogáfica</a></li>
+        <li><a class=""menu"" href=""https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000057371#lib_tra"">Traducciones Filológicas y Edición de Fuentes</a></li>
+        <li><a class=""menu"" href=""https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000057371#lib_cre"">Libro de creación (Piloto)</a></li>
+        <li><a class=""menu"" href=""https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000057371#lib_for"">Libro de Formación</a></li>
+        <li><a class=""menu"" href=""https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000057371#lib_div"">Libros de divulgación y/o Compilación de divulgación</a></li>
+        <li><a class=""menu"" href=""https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000057371#lib_man"">Manuales y Guías Especializadas</a></li>
+    </ul></li>
+<li><a class=""menu"" href=""https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000057371#"" style=""width:120px"">Producción Técnica</a>
+    <ul>
+        <li><a class=""menu"" href=""https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000057371#patentes"">Patentes</a></li>
+        <li><a class=""menu"" href=""https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000057371#secretos"">Secretos empresariales</a></li>
+        <li><a class=""menu"" href=""https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000057371#software"">Software</a></li>
+        <li><a class=""menu"" href=""https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000057371#tecnologicos"">Productos tenológicos</a></li>
+        <li><a class=""menu"" href=""https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000057371#procesos"">Procesos o técnicas</a></li>
+        <li><a class=""menu"" href=""https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000057371#trabajos_tec"">Trabajos técnicos</a></li>
+        <li><a class=""menu"" href=""https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000057371#normas"">Normas y Regulaciones</a></li>
+        <li><a class=""menu"" href=""https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000057371#otra_prod_tecnica"">Otra producción técnica</a></li>
+        <li><a class=""menu"" href=""https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000057371#base_tecnologica"">Empresas de base tecnologica</a></li>
+    </ul></li>
+<li><a class=""menu"" href=""https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000057371#"" style=""width:100px"">Más información</a>
+    <ul>
+        <li><a class=""menu"" href=""https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000057371#demas_trabajos"">Demás Trabajos</a></li>
+        <li><a class=""menu"" href=""https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000057371#proyectos"">Proyectos</a></li>
+    </ul></li>
+<li><a class=""menu"" href=""https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000057371#"" style=""width:110px"">Producción en arte</a>
+    <ul>
+        <li><a class=""menu"" href=""https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000057371#obras_productos"">Obras o productos</a></li>
+        <li><a class=""menu"" href=""https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000057371#registros_acuerdo"">Registros de acuerdo de licencia</a></li>
+        <li><a class=""menu"" href=""https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000057371#crea_cul"">Industrias Creativas y culturales</a></li>
+        <li><a class=""menu"" href=""https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000057371#even_art"">Evento artistico</a></li>
+        <li><a class=""menu"" href=""https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000057371#talleres"">Talleres creativos</a></li>
+    </ul></li>
+<li><a class=""menu"" href=""https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000057371#"" style=""width:60px;"">Buscar</a>
+    <ul>
+        <li>
+            <form style=""margin:0px;"" name=""search"" onsubmit=""return findInPage(this.string.value);"" method=""get"">
+            <input name=""string"" type=""text"" onchange=""n = 0;"">
+            <br><input type=""submit"" value=""Buscar"" name=""search"">
+            </form></li>
+    </ul></li>
+</ul>
+</div>
+</div>
+<div class=""sep"">
+&nbsp;
+</div>
+<div class=""container"">
+<table with=""100%"">
+<tbody>
+<tr>
+    <td>
+        <h3 align=""center""><font size=""3"">Hoja de vida</font></h3></td>
+</tr>
+<tr>
+    <td width=""100%""><a name=""datos_generales"" href=""""></a>
+    <table width=""100%"" style=""border:#999 1px solid"">
+<tbody>
+<tr>
+    <td>Nombre</td>
+    <td>Sandra Juliana&nbsp;Plata&nbsp;Contreras</td>
+</tr>
+<tr>
+    <td>Nombre en citaciones</td>
+    <td>PLATA CONTRERAS, SANDRA JULIANA</td>
+</tr>
+<tr>
+    <td>Nacionalidad</td>
+    <td>Colombiana</td>
+</tr>
+<tr>
+    <td>Sexo</td>
+    <td>Femenino</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+    <td width=""100%""><a name=""redes_identificadores"" href=""""></a></td>
+</tr>
+<tr>
+    <td width=""100%""><a name=""red_identificadores"" href=""""></a></td>
+</tr>
+<tr>
+    <td width=""100%""><a name=""formacion_acad"" href=""""></a>
+    <table width=""100%"" style=""border:#999 1px solid"">
+    <tbody>
+<tr>
+    <td colspan=""2"">
+    <h3>Formación Académica</h3></td>
+</tr>
+<tr>
+    <td>
+        <li>&nbsp;</li></td>
+    <td><b>Maestría/Magister</b> UNIVERSIDAD PEDAGÓGICA NACIONAL<br>
+        Maestria desarrollo educativo y social<br>
+        Agostode2007 - Juliode 2009<br>
+        Paternidad y maternidad en el contexto familiar adolescente</td>
+</tr>
+<tr>
+    <td>
+        <li>&nbsp;</li></td>
+    <td><b>Especialización</b> UNIVERSIDAD NACIONAL DE COLOMBIA SEDE BOGOTA<br>
+        Psicología y Salud<br>
+        Enerode1999 - de 2001<br>
+        Anosognosia en la Enfermedad de Alzheimer</td>
+</tr>
+<tr>
+    <td>
+        <li>&nbsp;</li></td>
+    <td><b>Pregrado/Universitario</b> PONTIFICIA UNIVERSIDAD JAVERIANA<br>
+        PSICOLOGIA<br>
+        Enerode1993 - de 1998<br>
+        Relación entre las fuentes de exposición al evento, la severidad de los síntomas y la percepción de autoeficacia en sujetos con estrés post traumático</td>
+</tr>
+<tr>
+    <td>
+        <li>&nbsp;</li></td>
+    <td><b>Secundario</b> Colegio Rosario De Santo Domingo<br><br>
+        Enerode1987 - de 1992<br></td>
+</tr>
+<tr>
+    <td>
+        <li>&nbsp;</li></td>
+    <td><b>Primaria</b> Colegio Rosario De Santo Domingo<br><br>
+        Enerode1982 - de 1986<br></td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+    <td width=""100%""><a name=""formacion_comp"" href=""""></a>
+    <table width=""100%"" style=""border:#999 1px solid"">
+    <tbody>
+<tr>
+    <td colspan=""2"">
+    <h3>Formación Complementaria</h3></td>
+</tr>
+<tr>
+    <td>
+        <li>&nbsp;</li></td>
+    <td><b>Cursos de corta duración</b> Executran<br>
+        Microsoft Excel 97 Introducción<br>
+        Enerode1999 - de 1999<br></td>
+</tr>
+<tr>
+    <td>
+        <li>&nbsp;</li></td>
+    <td><b>Cursos de corta duración</b> Instituto Colombiano De Bienestar Familiar<br><br>
+        Enerode2005 - de 2005<br></td>
+</tr>
+<tr>
+    <td>
+        <li>&nbsp;</li></td>
+    <td><b>Cursos de corta duración</b> UNIVERSIDAD NACIONAL DE COLOMBIA SEDE BOGOTA<br>
+        Neuropsicología Clínica y Cognoscitiva<br>
+        Enerode1999 - de 1999<br></td>
+</tr>
+<tr>
+    <td>
+        <li>&nbsp;</li></td>
+    <td><b>Cursos de corta duración</b> Hospital Militar Central<br>
+        VII Curso de Desordenes Del Neurodesarrollo<br>
+        Enerode1995 - de 1995<br></td>
+</tr>
+<tr>
+    <td>
+        <li>&nbsp;</li></td>
+    <td><b>Cursos de corta duración</b> Escuela de Lanceros Decima Quinta Brigada<br>
+        Operaciones Psicologicas Orientación Civil y Milit<br>
+        Enerode1999 - de 1999<br></td>
+</tr>
+<tr>
+    <td>
+        <li>&nbsp;</li></td>
+    <td><b>Cursos de corta duración</b> Asociación Colombiana de Diabetes<br>
+        Educación En Diabetes Mellitus<br>
+        Enerode2002 - de 2002<br></td>
+</tr>
+<tr>
+    <td>
+        <li>&nbsp;</li></td>
+    <td><b>Cursos de corta duración</b> Asociación Colombiana De Gerontología Y Geriatría<br>
+        Introducción a La Investigación Cualitativa<br>
+        Enerode2002 - de 2002<br></td>
+</tr>
+<tr>
+    <td>
+        <li>&nbsp;</li></td>
+    <td><b>Cursos de corta duración</b> Fundación de Acción Familiar Alzheimer Colombia<br>
+        La Atención Integral Del Enfermo de Alzhimer Un Tr<br>
+        Enerode2002 - de 2002<br></td>
+</tr>
+<tr>
+    <td>
+        <li>&nbsp;</li></td>
+    <td><b>Cursos de corta duración</b> UNIVERSIDAD DE LA SABANA<br>
+        Jornada de Actualización En Psicología Clínica<br>
+        Enerode1998 - de 1998<br></td>
+</tr>
+<tr>
+    <td>
+        <li>&nbsp;</li></td>
+    <td><b>Cursos de corta duración</b> <br>
+        Actualización En Demencia<br>
+        Enerode2000 - de 2000<br></td>
+</tr>
+<tr>
+    <td>
+        <li>&nbsp;</li></td>
+    <td><b>Cursos de corta duración</b> PONTIFICIA UNIVERSIDAD JAVERIANA<br>
+        PSICOLOGIA<br>
+        Septiembrede2014 - Noviembrede 2014<br></td>
+</tr>
+<tr>
+    <td>
+        <li>&nbsp;</li></td>
+    <td><b>Cursos de corta duración</b> UNIVERSIDAD DE LA SABANA<br>
+        III Encuentro nacional de invetsigadores en Psicologia<br>
+        Octubrede2007 - Octubrede 2007<br></td>
+</tr>
+<tr>
+    <td>
+        <li>&nbsp;</li></td>
+    <td><b>Cursos de corta duración</b> Ops<br>
+        Diplomado Gestion de la salud comunitaria primera infancia y mujer<br>
+        Marzode2007 - Noviembrede 2007<br></td>
+</tr>
+<tr>
+    <td>
+        <li>&nbsp;</li></td>
+    <td><b>Cursos de corta duración</b> PONTIFICIA UNIVERSIDAD JAVERIANA<br><br>
+        Enerode2007 - de <br></td>
+</tr>
+<tr>
+    <td>
+        <li>&nbsp;</li></td>
+    <td><b>Extensión</b> PONTIFICIA UNIVERSIDAD JAVERIANA<br>
+        Diplomado Fundamentos de Investigación Biomédica<br>
+        Enerode2001 - de 2001<br></td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+    <td width=""100%""><a name=""estancias_posdoctorales"" href=""""></a></td>
+</tr>
+<tr>
+    <td width=""100%""><a name=""experiencia"" href=""""></a>
+    <table width=""100%"" style=""border:#999 1px solid"">
+    <tbody>
+<tr>
+    <td colspan=""2"">
+    <h3>Experiencia profesional</h3></td>
+</tr>
+<tr>
+    <td>
+        <li>&nbsp;</li></td>
+    <td><b>PONTIFICIA UNIVERSIDAD JAVERIANA</b><br><i>Dedicación: </i>35&nbsp;horas Semanales Enero de 1998 Agosto de 2007<br><br><span class=""blueTitle"">Actividades de administración</span><br>
+        - &nbsp;Miembro de consejo de centro <i> - Cargo:</i>&nbsp;Profesora Instructora Agosto de 2003 de <br>
+        - &nbsp;Servicio Técnico Especializado <i> - Cargo:</i>&nbsp;Procesamiento estadístico de q-sort en el q-stat Enero de 2000 de <br>
+        - &nbsp;Miembro de consejo de centro <i> - Cargo:</i>&nbsp;Asistente de Investigación Enero de 2000 Julio de 2003<br>
+        - &nbsp;Miembro de consejo de centro <i> - Cargo:</i>&nbsp;Auxiliar de campo Enero de 1998 Diciembre de 1999<br><span class=""blueTitle"">Actividades de docencia</span><br>
+        - &nbsp; Capacitación/Entrenamientos dictados <i> - Nombre del curso:</i>&nbsp; Elaboración de registros etnográficos (Spradley, 1985),&nbsp; Enero 2000 <br>
+        - &nbsp; Capacitación/Entrenamientos dictados <i> - Nombre del curso:</i>&nbsp; Entrevista Etnográfica y categorización de la información,&nbsp; Enero 2000 <br>
+        - &nbsp; Pregrado <i> - Nombre del curso:</i>&nbsp; Metodologia de la recolección de información en Trabajo de campo,&nbsp; Enero 2000 <br>
+        - &nbsp; Capacitación/Entrenamientos dictados <i> - Nombre del curso:</i>&nbsp; Etnografia: Observación etnografica participante, descriptiva y focalizada.,&nbsp; Enero 2000 <br>
+        - &nbsp; Pregrado <i> - Nombre del curso:</i>&nbsp; Seminario Metodológico en Etnografía,&nbsp; Enero 2000 <br>
+        - &nbsp; Capacitación/Entrenamientos dictados <i> - Nombre del curso:</i>&nbsp; Metodología Q. Q-sort de Comportamiento Materno y Q-sort de Vinculo.,&nbsp; Enero 2000 <br><span class=""blueTitle"">Actividades de investigación</span><br>
+        - &nbsp; Investigación y Desarrollo <i> - Titulo:</i>&nbsp; Contacto temprano piel a piel en madres adolescentes niño(a) prematuro(a): Sensibilidad materna y comportamiento de base segura Agosto 2004 <br>
+        - &nbsp; Investigación y Desarrollo <i> - Titulo:</i>&nbsp; Estudio preliminar de los polimorfismos de la región 5'-UTR de los genes GRIN1, GRIN2A a D y GRIN3A y B del receptor ionotrópico de glutamato sensible a N-metil-D-aspartato en ancianos con Enfermedad de Alzheimer (EA) leve o severa Agosto 2003 Junio 2004<br>
+        - &nbsp; Investigación y Desarrollo <i> - Titulo:</i>&nbsp; Utilización de instrumentos de tamizado en el diagnóstico temprano de la Demencia Tipo Azheimer en comunidad . Estudio piloto Agosto 2003 Junio 2004<br>
+        - &nbsp; Investigación y Desarrollo <i> - Titulo:</i>&nbsp; Heterogeneidad Clínica de la enfermedad de Alzheimer: Estudio Longitudinal de los perfiles cognoscitivos, neurológicos, comportamentales y funcionales Fase II Febrero 2002 Junio 2005<br>
+        - &nbsp; Investigación y Desarrollo <i> - Titulo:</i>&nbsp; Programa De Educación A Distancia Para Medicos ""Diplomado En Demencias"" Junio 2002 Noviembre 2003<br>
+        - &nbsp; Investigación y Desarrollo <i> - Titulo:</i>&nbsp; Construcción de un Modelo Intervención/Prevención para las relaciones vinculares tempranas del hijo(a)-madre. Subfase II Febrero 2002 Febrero 2003<br>
+        - &nbsp; Investigación y Desarrollo <i> - Titulo:</i>&nbsp; Construcción de un Modelo Intervención/Prevención para las Relaciones Vinculares tempranas hijo(a)-madre. Subfase I Febrero 2001 Febrero 2002<br>
+        - &nbsp; Investigación y Desarrollo <i> - Titulo:</i>&nbsp; Estudios Clínicos Patológicos Febrero 2001 Febrero 2002<br>
+        - &nbsp; Investigación y Desarrollo <i> - Titulo:</i>&nbsp; Capacidad Operativa De Una Prueba De Tamizado En El Diagnóstico De La Enfermedad De Alzheimer Marzo 2001 Febrero 2002<br>
+        - &nbsp; Investigación y Desarrollo <i> - Titulo:</i>&nbsp; Perfiles Clínicos en controles y pacientes con demencia: Estudio Transversal Octubre 1999 Diciembre 2003<br>
+        - &nbsp; Investigación y Desarrollo <i> - Titulo:</i>&nbsp; Anosognosia en la Enfermedad de Alzheimer Septiembre 1999 Septiembre 2000<br>
+        - &nbsp; Investigación y Desarrollo <i> - Titulo:</i>&nbsp; Construcción y validación de escalas cualitativas del comportamiento materno Enero 1998 Diciembre 2001<br>
+        - &nbsp; Investigación y Desarrollo <i> - Titulo:</i>&nbsp; Hacia la construcción de un Modelo de Intervención sobre las relaciones vinculares tempranas niño(a)-profesora Enero 1998 Diciembre 2001<br>
+        - &nbsp; Investigación y Desarrollo <i> - Titulo:</i>&nbsp; Caracterización de la Sensibilidad Materna y del Comportamiento de base segura del niño en las interacción cotidianas Enero 1998 Diciembre 1998<br></td>
+</tr>
+<tr>
+    <td>
+        <li>&nbsp;</li></td>
+    <td><b>PONTIFICIA UNIVERSIDAD JAVERIANA</b><br><i>Dedicación: </i>40&nbsp;horas Semanales Enero de 2015 de <br><br><span class=""blueTitle"">Actividades de administración</span><br>
+        - &nbsp;Director de unidad <i> - Cargo:</i>&nbsp;Directora de la carrera de Psicología Febrero de 2015 Enero de <br><span class=""blueTitle"">Actividades de investigación</span><br>
+        - &nbsp; Investigación y Desarrollo <i> - Titulo:</i>&nbsp; Desarrollo y ejecución del proyecto de investigación Canción de cuna Enero 2015 <br></td>
+</tr>
+<tr>
+    <td>
+        <li>&nbsp;</li></td>
+    <td><b>Hospital Infantil Universitario de San Jose</b><br><i>Dedicación: </i>8&nbsp;horas Semanales Mayo de 2008 de Actual<br><br><span class=""blueTitle"">Actividades de administración</span><br>
+        - &nbsp;Otra actividad técnico-científica relevante <i> - Cargo:</i>&nbsp;Asistente a la reunión de consenso interdisciplinaria de diagnóstico de los pacientes evaluados en la Clínica de Memoria y Gestión de elaboración de informes Marzo de 2009 de <br><span class=""blueTitle"">Actividades de docencia</span><br>
+        - &nbsp; Capacitación/Entrenamientos dictados <i> - Nombre del curso:</i>&nbsp; Neuropsicología de las enfermedades neurodegenerativas y demencias,&nbsp;4 Agosto 2009 <br><span class=""blueTitle"">Actividades de investigación</span><br>
+        - &nbsp; Investigación y Desarrollo <i> - Titulo:</i>&nbsp; Asistente de investigación, construcción y alimentación de bases de datos. Marzo 2009 <br>
+        - &nbsp; Investigación y Desarrollo <i> - Titulo:</i>&nbsp; Co-investigadora del Proyecto de Investigación Prevalencia DCL y DTA Octubre 2009 <br></td>
+</tr>
+<tr>
+    <td>
+        <li>&nbsp;</li></td>
+    <td><b>PONTIFICIA UNIVERSIDAD JAVERIANA</b><br><i>Dedicación: </i>30&nbsp;horas Semanales Agosto de 2007 Diciembre de 2014<br><br><span class=""blueTitle"">Actividades de administración</span><br>
+        - &nbsp;Coordinador de curso <i> - Cargo:</i>&nbsp;Coordinadora practica familias y violencias Enero de 2013 Diciembre de 2014<br>
+        - &nbsp;Otra actividad técnico-científica relevante <i> - Cargo:</i>&nbsp;Coordinadora Campo problemático familias, vínculos y violencias Agosto de 2011 Diciembre de 2012<br>
+        - &nbsp;Coordinador de programa <i> - Cargo:</i>&nbsp;Coordinadora de Practica por Proyecto relaciones Vinculares Agosto de 2007 Junio de 2014<br>
+        - &nbsp;Miembro de comité asesor <i> - Cargo:</i>&nbsp;Miembro de comité de carrera y de currículo. Agosto de 2007 Diciembre de 2014<br><span class=""blueTitle"">Actividades de docencia</span><br>
+        - &nbsp; Pregrado <i> - Nombre del curso:</i>&nbsp; Desarrollo y procesos afectivos,&nbsp;40 Enero 2013 Junio 2013<br>
+        - &nbsp; Capacitación/Entrenamientos dictados <i> - Nombre del curso:</i>&nbsp; Entrenamiento en Q-sort Comportamiento Materno, Seguridad Vincular, Scripts, MacArthur, Tareas de Co-construcción, Escalas cualitativas de sensibilidad materna, Escalas de desarrollo.,&nbsp;30 Enero 2013 Diciembre 2014<br>
+        - &nbsp; Pregrado <i> - Nombre del curso:</i>&nbsp; Estudio de caso familias, vínculos y violencias,&nbsp;25 Enero 2013 Diciembre 2014<br>
+        - &nbsp; Pregrado <i> - Nombre del curso:</i>&nbsp; Seminario Metodológico Familias, Vinculos y Violencias,&nbsp;25 Enero 2013 Diciembre 2014<br>
+        - &nbsp; Pregrado <i> - Nombre del curso:</i>&nbsp; Desarrollo y procesos afectivos,&nbsp;35 Julio 2012 Noviembre 2012<br>
+        - &nbsp; Pregrado <i> - Nombre del curso:</i>&nbsp; Supervisión de las estudiantes de Psicologia Fundación Dos Mundos y familias en Situación de Desplazamiento,&nbsp;2 Enero 2008 Diciembre 2008<br>
+        - &nbsp; Docencia/Enseñanza de Graduación <i> - Nombre del curso:</i>&nbsp; Supervisión en el Programa Madre Canguro del trabajo de campo estudiantes de Psicologia. ,&nbsp;3 Agosto 2007 Junio 2014<br>
+        - &nbsp; Docencia/Enseñanza de Graduación <i> - Nombre del curso:</i>&nbsp; Supervisión de las estudiantes de Psicología en Fundaciones de Madres Adolescentes,&nbsp;6 Agosto 2007 Mayo 2010<br>
+        - &nbsp; Pregrado <i> - Nombre del curso:</i>&nbsp; Seminario Teórico: Relaciones vinculares y poblaciones a riesgo,&nbsp;13 Agosto 2007 Agosto 2009<br>
+        - &nbsp; Capacitación/Entrenamientos dictados <i> - Nombre del curso:</i>&nbsp; Entrenamiento en Q-sort Comportamiento Materno, Seguridad Vincular, Scripts, MacArthur, Tareas de Co-construcción, Escalas cualitativas de sensibilidad materna, Escalas de desarrollo.,&nbsp;13 Agosto 2007 Junio 2014<br>
+        - &nbsp; Pregrado <i> - Nombre del curso:</i>&nbsp; Seminario Metodológico: Etnografia y Teoria Fundamentada en los datos,&nbsp;13 Agosto 2007 Diciembre 2013<br><span class=""blueTitle"">Actividades de investigación</span><br>
+        - &nbsp; Investigación y Desarrollo <i> - Titulo:</i>&nbsp; Relaciones Vinculares tempranas madre-bebé: Construcción de un modelo de prevención-intervención Agosto 2009 Enero 2010<br>
+        - &nbsp; Investigación y Desarrollo <i> - Titulo:</i>&nbsp; Implementar el seguimiento y evaluación para el adecuado desarrollo psicomotor de bebés prematuros en india Agosto 2008 Enero 2010<br>
+        - &nbsp; Investigación y Desarrollo <i> - Titulo:</i>&nbsp; Contacto temprano piel a piel en madres adolescentes-niño(a) prematuro(a): Sensibilidad Materna y comportamiento de base segura. Agosto 2007 Enero 2012<br>
+        - &nbsp; Investigación y Desarrollo <i> - Titulo:</i>&nbsp; Career: Child-mother base relationship processes and social competence in early childhood: A cross-cultural perspective Agosto 2007 Agosto 2014<br>
+        - &nbsp; Investigación y Desarrollo <i> - Titulo:</i>&nbsp; Modelo de intervención-prevención en un grupo de madres adolescentes de la ciudad de Bogotá Agosto 2007 Diciembre 2014<br></td>
+</tr>
+<tr>
+    <td>
+        <li>&nbsp;</li></td>
+    <td><b>PONTIFICIA UNIVERSIDAD JAVERIANA</b><br><i>Dedicación: </i>40&nbsp;horas Semanales Agosto de 2003 Junio de 2007<br><br></td>
+</tr>
+<tr>
+    <td>
+        <li>&nbsp;</li></td>
+    <td><b>UNIVERSIDAD NACIONAL DE COLOMBIA SEDE BOGOTA</b><br><i>Dedicación: </i>0&nbsp;horas Semanales Agosto de 2000 Noviembre de 2001<br><br><span class=""blueTitle"">Actividades de administración</span><br>
+        - &nbsp;Miembro de consejo de centro <i> - Cargo:</i>&nbsp;Asistente de Investigación Agosto de 2000 Noviembre de 2001<br><span class=""blueTitle"">Actividades de investigación</span><br>
+        - &nbsp; Investigación y Desarrollo <i> - Titulo:</i>&nbsp; Heterogeneidad Clínica de la Enfermedad de Alzheimer: Estudio longitudinal Fase I Agosto 2000 Noviembre 2001<br></td>
+</tr>
+<tr>
+    <td>
+        <li>&nbsp;</li></td>
+    <td><b>INSTITUTO NACIONAL DE SALUD</b><br><i>Dedicación: </i>0&nbsp;horas Semanales Abril de 2000 Agosto de 2000<br><br><span class=""blueTitle"">Actividades de investigación</span><br>
+        - &nbsp; Investigación y Desarrollo <i> - Titulo:</i>&nbsp; Prevalencia de las demencias con énfasis en la Enfermedad de Alzheimer en la Población comunitaria de Santafé de Bogotá: Estudio Piloto Abril 2000 Agosto 2000<br></td>
+</tr>
+<tr>
+    <td>
+        <li>&nbsp;</li></td>
+    <td><b>Asociación Colombiana Para El Avance De La Ciencia - Acac</b><br><i>Dedicación: </i>10&nbsp;horas Semanales Julio de 2000 Agosto de 2000<br><br><span class=""blueTitle"">Actividades de administración</span><br>
+        - &nbsp;Miembro de consejo de centro <i> - Cargo:</i>&nbsp;Psicológa. Asistente de investigación Julio de 2000 Agosto de 2000<br></td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+    <td width=""100%""><a name=""otra_info_personal"" href=""""></a>
+    <table width=""100%"" style=""border:#999 1px solid"">
+    <tbody>
+<tr>
+    <td>
+        <h3>Áreas de actuación</h3></td>
+</tr>
+<tr>
+    <td>
+        <li>&nbsp;Ciencias Sociales -- Psicología -- Psicología (Incluye Terapias de Aprendizaje, Habla, Visual y Otras Discapacidades Físicas y Mentales)</li></td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+    <td width=""100%"">
+    <table width=""100%"" style=""border:#999 1px solid"">
+    <tbody>
+<tr>
+    <td colspan=""5"">
+    <h3>Idiomas</h3></td>
+</tr>
+<tr>
+    <td>&nbsp;</td>
+    <td><b>Habla</b></td>
+    <td><b>Escribe</b></td>
+    <td><b>Lee</b></td>
+    <td><b>Entiende</b></td>
+</tr>
+<tr>
+    <td>
+        <li>&nbsp;Inglés</li></td>
+    <td>Aceptable</td>
+    <td>Aceptable</td>
+    <td>Aceptable</td>
+    <td>Aceptable</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+    <td width=""100%"">
+    <table width=""100%"" style=""border:#999 1px solid"">
+    <tbody>
+<tr>
+    <td>
+        <h3>Líneas de investigación</h3></td>
+</tr>
+<tr>
+    <td>
+        <li>&nbsp;Enfermedad Neurodegenerativa y demencia, <i>Activa:</i>Si</li></td>
+</tr>
+<tr>
+    <td>
+        <li>&nbsp;Rol Paterno y relaciones vinculares temprana, <i>Activa:</i>Si</li></td>
+</tr>
+<tr>
+    <td>
+        <li>&nbsp;Maternidad adolescente y relaciones vinculares tempranas, <i>Activa:</i>Si</li></td>
+</tr>
+<tr>
+    <td>
+        <li>&nbsp;Relaciones Vinculares y niños institucionalizados, <i>Activa:</i>No</li></td>
+</tr>
+<tr>
+    <td>
+        <li>&nbsp;Linea de Investigación Neuropsicologia del Envejecimiento, <i>Activa:</i>No</li></td>
+</tr>
+<tr>
+    <td>
+        <li>&nbsp;Línea de investigación en Relaciones Vinculares. Palabras Claves: Sensibilidad materna, vínculo, base segura, ambiente de cuidado, representaciones mentales maternas. Area de Conocimiento: Psicología del desarrollo en el ámbito del desarollo socio-emo, <i>Activa:</i>Si</li></td>
+</tr>
+<tr>
+    <td>
+        <li>&nbsp;Desarrollo socio-emocional y familia, <i>Activa:</i>Si</li></td>
+</tr>
+<tr>
+    <td>
+        <li>&nbsp;Relaciones Vinculares desde una perspectiva transcultural, <i>Activa:</i>Si</li></td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+    <td width=""100%"">
+    <table width=""100%"" style=""border:#999 1px solid"">
+    <tbody>
+<tr>
+    <td>
+        <h3>Reconocimientos</h3></td>
+</tr>
+<tr>
+    <td>
+        <li>Tercer Premio Colsubsidio de Investigación en Pediatria 2014: Calidad del cuidado materno para niños criados dentro de la reclusión de mujeres Buen Pastor, en Bogotá, Colombia,Caja Colombiana de Subsidio Familiar COLSUBSIDIO - Noviembrede 2014</li></td>
+</tr>
+<tr>
+    <td>
+        <li>Premio Ganador del World Federation of Neurology Luigi Amaduci Travel fellowship. Otorgado a: Montañes, P., Matallana, S., Plata, S., García, R., Cano, C., Benito, M., y Gámez, A. Por el Trabajo titulado Terelationship between neuropsychological va,World Congress of Neurology. Londres, Junio - de 2001</li></td>
+</tr>
+<tr>
+    <td>
+        <li>Premio al Mejor trabajo de Investigación Clínica, modalidad Póster al trabajo Perfiles Clínicos en la Enfermedad de Alzheimer: Estudio Longitudinal, Otorgado a: Montañes, P., Matallana, D., Cano, C., Plata, S., et al,V Congreso Nacional de Neurología, Octubre 18 al 20. Cartagena, Colombia. - de 2001</li></td>
+</tr>
+<tr>
+    <td>
+        <li>Premio Sanofi-Synthelabo al mejor trabajo de investigación Capacidad Operativa de una prueba de tamizado en el diagnóstico de la Enfermedad de Alzheimer. Otorgado a: Cano, C., Ruiz, A., Plata, S,V Congreso nacional e internacional de Gerontología y Geriatría, Cartagena, Agosto - de 2002</li></td>
+</tr>
+<tr>
+    <td>
+        <li>Primer lugar en la premiación de Póster al estudio Relación entre las fuentes de exposición al estrés post traumático, severidad del síntoma y percepción de autoeficacia. Otorgado a: Plata, S., Trujillo, M., Uribe, C., Rodríguez, M.,,III Congreso de Psicoterapias Cognitivas Latinoamericanas, Abril 6,7 y 8. Montevideo, Urugua - de 2000</li></td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+    <td width=""100%"" align=""right"">&nbsp;</td>
+</tr>
+<tr>
+    <td>
+        <blockquote class=""fillText"">
+        Los ítems de producción con la marca <img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px""> corresponden a productos avalados y validados para la última <i>Convocatoria Nacional para el Reconocimiento y Medición de Grupos de Investigación, Desarrollo Tecnológico o de Innovación y para el Reconocimiento de Investigadores del SNCTeI</i>
+        </blockquote></td>
+</tr>
+<tr>
+    <td width=""100%""><a name=""asesorias"" href=""""></a></td>
+</tr>
+<tr>
+    <td width=""100%""><a name=""curso_corta_du"" href=""""></a>
+    <table width=""100%"" style=""border:#999 1px solid"">
+    <tbody>
+<tr>
+    <td>
+        <h3>Cursos de corta duración</h3></td>
+</tr>
+<tr>
+    <td>
+        <li><b>Producción técnica - Cursos de corta duración dictados - Perfeccionamiento</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, Entrenamiento de Q-sort Sensibilidad Materna, <i>Finalidad: </i>Desarrollar habilidades para hacer observaciones diadicas en ambientes naturales y evaluar la calidad de cuidado en menores de 2 años . En: Colombia&nbsp; ,2014,&nbsp; ,PONTIFICIA UNIVERSIDAD JAVERIANA.&nbsp; participación: Docente ,&nbsp;0 semanas&nbsp;
+            <br><b>Areas: </b>
+            <br>
+            Ciencias Sociales -- Psicología -- Psicología (Incluye Terapias de Aprendizaje, Habla, Visual y Otras Discapacidades Físicas y Mentales),
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <li><b>Producción técnica - Cursos de corta duración dictados - Otro</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, Practica Familias y Violencias, <i>Finalidad: </i>Modelo investigación, prevención e intervención en familias con o sin violencia intrafamilias . En: Colombia&nbsp; ,2013,&nbsp; ,PONTIFICIA UNIVERSIDAD JAVERIANA.&nbsp; participación: Docente ,&nbsp;0 semanas&nbsp;
+            <br><b>Areas: </b>
+            <br>
+            Ciencias Sociales -- Psicología -- Psicología (Incluye Terapias de Aprendizaje, Habla, Visual y Otras Discapacidades Físicas y Mentales),
+        </blockquote></td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+    <td width=""100%""><a name=""trabajos_dirigi"" href=""""></a>
+    <table width=""100%"" style=""border:#999 1px solid"">
+    <tbody>
+<tr>
+    <td>
+        <h3>Trabajos dirigidos/tutorías</h3></td>
+</tr>
+<tr>
+    <td>
+        <li><b>Trabajos dirigidos/Tutorías - Trabajos de grado de pregrado</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, Dinámicas Familiares y Relaciones de Pares de Adolescentes y su Regulación Emocional&nbsp; PONTIFICIA UNIVERSIDAD JAVERIANA&nbsp; Estado: Tesis concluida&nbsp; PSICOLOGIA, &nbsp;2023. <i>Dirigió como: </i>Tutor principal,&nbsp; &nbsp;<i>Persona(s) orientada(s):&nbsp;</i> María Paula Rojas Sarmiento María José Mendoza Díaz Susana Londoño Botero Mariana Giraldo Serna Tutor(es)/Cotutor(es): SANDRA JULIANA PLATA CONTRERAS,
+            <br><b>Areas: </b>
+            <br>
+            Ciencias Sociales -- Psicología -- Psicología (Incluye Terapias de Aprendizaje, Habla, Visual y Otras Discapacidades Físicas y Mentales),
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <li><b>Trabajos dirigidos/Tutorías - Trabajos de grado de pregrado</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, Percepción del apego inseguro en relaciones afectivas y la autoestima de jóvenes&nbsp; PONTIFICIA UNIVERSIDAD JAVERIANA&nbsp; Estado: Tesis concluida&nbsp; PSICOLOGIA, &nbsp;2023. <i>Dirigió como: </i>Tutor principal,&nbsp; &nbsp;<i>Persona(s) orientada(s):&nbsp;</i> Manuela Morales Amar Catalina Isaza Aristizabal Juan Diego Barbosa Rodriguez Valentina Prada Martin Tutor(es)/Cotutor(es): SANDRA JULIANA PLATA CONTRERAS,
+            <br><b>Areas: </b>
+            <br>
+            Ciencias Sociales -- Psicología -- Psicología (Incluye Terapias de Aprendizaje, Habla, Visual y Otras Discapacidades Físicas y Mentales),
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <li><b>Trabajos dirigidos/Tutorías - Trabajos de grado de pregrado</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, Experiencia de un hogar de acogida y desarrollo socioafectivo del niño acogido&nbsp; PONTIFICIA UNIVERSIDAD JAVERIANA&nbsp; Estado: Tesis concluida&nbsp; PSICOLOGIA, &nbsp;2021. <i>Dirigió como: </i>Tutor principal,&nbsp; &nbsp;<i>Persona(s) orientada(s):&nbsp;</i> Manuela Orrego Luque Lucía Durán Silva Isabella Tessarolo Segura Tutor(es)/Cotutor(es): SANDRA JULIANA PLATA CONTRERAS,
+            <br><b>Areas: </b>
+            <br>
+            Ciencias Sociales -- Psicología -- Psicología (Incluye Terapias de Aprendizaje, Habla, Visual y Otras Discapacidades Físicas y Mentales),
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <li><b>Trabajos dirigidos/Tutorías - Trabajos de grado de pregrado</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, Tik Tok y conductas alimenticias e imagen corporal de jóvenes universitarios&nbsp; PONTIFICIA UNIVERSIDAD JAVERIANA&nbsp; Estado: Tesis concluida&nbsp; PSICOLOGIA, &nbsp;2022. <i>Dirigió como: </i>Tutor principal,&nbsp; &nbsp;<i>Persona(s) orientada(s):&nbsp;</i> Mixy Dayane Rincón León Alejandro Guerra Morris Adriana Isabel Lobo Socarrás Juan Pablo Acevedo Ramirez Tutor(es)/Cotutor(es): SANDRA JULIANA PLATA CONTRERAS,
+            <br><b>Areas: </b>
+            <br>
+            Ciencias Sociales -- Psicología -- Psicología (Incluye Terapias de Aprendizaje, Habla, Visual y Otras Discapacidades Físicas y Mentales),
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <li><img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px""> <b>Trabajos dirigidos/Tutorías - Trabajos de grado de pregrado</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, Caracterización del rol padrastro/madrastra en familias reconstituidas de Bogotá&nbsp; PONTIFICIA UNIVERSIDAD JAVERIANA&nbsp; Estado: Tesis concluida&nbsp; Psicologia, &nbsp;2014. <i>Dirigió como: </i>Tutor principal,&nbsp; &nbsp;<i>Persona(s) orientada(s):&nbsp;</i> Luisa Jimeno, Maria José Gutierrez, Laura Cano y Juan Sebastian Bernal&nbsp; Tutor(es)/Cotutor(es): SANDRA JULIANA PLATA CONTRERAS,
+            <br><b>Areas: </b>
+            <br>
+            Ciencias Sociales -- Psicología -- Psicología (Incluye Terapias de Aprendizaje, Habla, Visual y Otras Discapacidades Físicas y Mentales),
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <li><img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px""> <b>Trabajos dirigidos/Tutorías - Trabajos de grado de pregrado</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, La percepción de maternidad y paternidad, de padres y madres de bebés que se encuentran en la unidad de cuidados intensivos neonatales&nbsp; PONTIFICIA UNIVERSIDAD JAVERIANA&nbsp; Estado: Tesis concluida&nbsp; PSICOLOGIA, &nbsp;2014. <i>Dirigió como: </i>Tutor principal,&nbsp; &nbsp;<i>Persona(s) orientada(s):&nbsp;</i> María Paula Mariño Martínez&nbsp; Tutor(es)/Cotutor(es): SANDRA JULIANA PLATA CONTRERAS,
+            <br><b>Areas: </b>
+            <br>
+            Ciencias Sociales -- Psicología -- Psicología (Incluye Terapias de Aprendizaje, Habla, Visual y Otras Discapacidades Físicas y Mentales),
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <li><img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px""> <b>Trabajos dirigidos/Tutorías - Trabajos de grado de pregrado</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, Interacción de cuidadoras no maternas con niños de 2 a 4 años&nbsp; PONTIFICIA UNIVERSIDAD JAVERIANA&nbsp; Estado: Tesis concluida&nbsp; Psicologia, &nbsp;2014. <i>Dirigió como: </i>Tutor principal,&nbsp; &nbsp;<i>Persona(s) orientada(s):&nbsp;</i> Luz Helena Gonzlaes y Gabriela Macias&nbsp; Tutor(es)/Cotutor(es): SANDRA JULIANA PLATA CONTRERAS,
+            <br><b>Areas: </b>
+            <br>
+            Ciencias Sociales -- Psicología -- Psicología (Incluye Terapias de Aprendizaje, Habla, Visual y Otras Discapacidades Físicas y Mentales),
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <li><img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px""> <b>Trabajos dirigidos/Tutorías - Trabajos de grado de pregrado</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, Representaciones sociales, creencias, significados y calidad de vida de adultos mayores acudientes a un centro día en la ciudad de Bogotá&nbsp; PONTIFICIA UNIVERSIDAD JAVERIANA&nbsp; Estado: Tesis concluida&nbsp; PSICOLOGIA, &nbsp;2013. <i>Dirigió como: </i>Tutor principal,&nbsp; &nbsp;<i>Persona(s) orientada(s):&nbsp;</i> Laura López Romero&nbsp; Tutor(es)/Cotutor(es): SANDRA JULIANA PLATA CONTRERAS,
+            <br><b>Areas: </b>
+            <br>
+            Ciencias Sociales -- Psicología -- Psicología (Incluye Terapias de Aprendizaje, Habla, Visual y Otras Discapacidades Físicas y Mentales),
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <li><img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px""> <b>Trabajos dirigidos/Tutorías - Trabajos de grado de pregrado</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, Tareas de co-construcción de niños y niñas a los 3 y 5 años de edad en Bogotá: Uso de la base segura&nbsp; PONTIFICIA UNIVERSIDAD JAVERIANA&nbsp; Estado: Tesis concluida&nbsp; PSICOLOGIA, &nbsp;2013. <i>Dirigió como: </i>Tutor principal,&nbsp; &nbsp;<i>Persona(s) orientada(s):&nbsp;</i> Juliana Vall de Rutén Fajardo&nbsp; Tutor(es)/Cotutor(es): SANDRA JULIANA PLATA CONTRERAS,
+            <br><b>Areas: </b>
+            <br>
+            Ciencias Sociales -- Psicología -- Psicología (Incluye Terapias de Aprendizaje, Habla, Visual y Otras Discapacidades Físicas y Mentales),
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <li><img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px""> <b>Trabajos dirigidos/Tutorías - Trabajos de grado de pregrado</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, Concepción de la paternidad en familias naturales y monoparentales e implementación de normas y limites en niños de tres años de edad en la ciudad de cartagena&nbsp; PONTIFICIA UNIVERSIDAD JAVERIANA&nbsp; Estado: Tesis concluida&nbsp; Práctica por Proyecto Relaciones Vinculares, &nbsp;2011. <i>Dirigió como: </i>Tutor principal,&nbsp; &nbsp;<i>Persona(s) orientada(s):&nbsp;</i> Ana Catalina Vives Noguera&nbsp; Tutor(es)/Cotutor(es): SANDRA JULIANA PLATA CONTRERAS,
+            <br><b>Areas: </b>
+            <br>
+            Ciencias Sociales -- Psicología -- Psicología (Incluye Terapias de Aprendizaje, Habla, Visual y Otras Discapacidades Físicas y Mentales),
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <li><img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px""> <b>Trabajos dirigidos/Tutorías - Trabajos de grado de pregrado</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, Percepciones del uso de base segura en niños y niñas a los 3 y 5 años de edad de Bogotá&nbsp; PONTIFICIA UNIVERSIDAD JAVERIANA&nbsp; Estado: Tesis concluida&nbsp; Práctica por Proyecto Relaciones Vinculares, &nbsp;2012. <i>Dirigió como: </i>Tutor principal,&nbsp; &nbsp;<i>Persona(s) orientada(s):&nbsp;</i> Daniel Alejandro Martínez Rairán&nbsp; Tutor(es)/Cotutor(es): SANDRA JULIANA PLATA CONTRERAS,
+            <br><b>Areas: </b>
+            <br>
+            Ciencias Sociales -- Psicología -- Psicología (Incluye Terapias de Aprendizaje, Habla, Visual y Otras Discapacidades Físicas y Mentales),
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <li><b>Trabajos dirigidos/Tutorías - Trabajos de grado de pregrado</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, Dinámicas familiares, experiencia universitaria y autopercepción de salud mental durante el COVID-19&nbsp; PONTIFICIA UNIVERSIDAD JAVERIANA&nbsp; Estado: Tesis concluida&nbsp; PSICOLOGIA, &nbsp;2021. <i>Dirigió como: </i>Tutor principal,&nbsp; &nbsp;<i>Persona(s) orientada(s):&nbsp;</i> Manuela Sarmiento Lozano Camila Garzón Pombo Tutor(es)/Cotutor(es): SANDRA JULIANA PLATA CONTRERAS,
+            <br><b>Areas: </b>
+            <br>
+            Ciencias Sociales -- Psicología -- Psicología (Incluye Terapias de Aprendizaje, Habla, Visual y Otras Discapacidades Físicas y Mentales),
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <li><img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px""> <b>Trabajos dirigidos/Tutorías - Trabajos de grado de pregrado</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, Descripción del Comportamiento Vincular en NIños Institucionalizados&nbsp; PONTIFICIA UNIVERSIDAD JAVERIANA&nbsp; Estado: Tesis concluida&nbsp; PSICOLOGIA, &nbsp;2007. <i>Dirigió como: </i>Tutor principal,&nbsp; &nbsp;<i>Persona(s) orientada(s):&nbsp;</i> Shadya Karawi&nbsp; Tutor(es)/Cotutor(es): SANDRA JULIANA PLATA CONTRERAS,
+            <br><b>Areas: </b>
+            <br>
+            Ciencias Sociales -- Psicología -- Psicología (Incluye Terapias de Aprendizaje, Habla, Visual y Otras Discapacidades Físicas y Mentales),
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <li><img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px""> <b>Trabajos dirigidos/Tutorías - Trabajos de grado de pregrado</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, Representaciones mentales vinculares de madres añosas primerizas y no primerizas&nbsp; PONTIFICIA UNIVERSIDAD JAVERIANA&nbsp; Estado: Tesis concluida&nbsp; PSICOLOGIA, &nbsp;2006. <i>Dirigió como: </i>Tutor principal,&nbsp; &nbsp;<i>Persona(s) orientada(s):&nbsp;</i> Monica Plata&nbsp; 0 meses, &nbsp; Tutor(es)/Cotutor(es): MONICA PLATA , SANDRA JULIANA PLATA CONTRERAS,
+            <br><b>Areas: </b>
+            <br>
+            Ciencias Sociales -- Psicología -- Psicología (Incluye Terapias de Aprendizaje, Habla, Visual y Otras Discapacidades Físicas y Mentales),
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <li><img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px""> <b>Trabajos dirigidos/Tutorías - Trabajos de grado de pregrado</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, Caracterización del comportamiento de cuidado de un grupo de madres comunitarioas de la localidad de&nbsp; PONTIFICIA UNIVERSIDAD JAVERIANA&nbsp; Estado: Tesis concluida&nbsp; PSICOLOGIA, &nbsp;2006. <i>Dirigió como: </i>Tutor principal,&nbsp; &nbsp;<i>Persona(s) orientada(s):&nbsp;</i> Catalina Arbelaez&nbsp; 0 meses, &nbsp; Tutor(es)/Cotutor(es): CATALINA ARBELAEZ , SANDRA JULIANA PLATA CONTRERAS,
+            <br><b>Areas: </b>
+            <br>
+            Ciencias Sociales -- Psicología -- Psicología (Incluye Terapias de Aprendizaje, Habla, Visual y Otras Discapacidades Físicas y Mentales),
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <li><img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px""> <b>Trabajos dirigidos/Tutorías - Trabajos de grado de pregrado</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, Percepción paterna de la relación con su hijo cuando asume la custodia legal&nbsp; PONTIFICIA UNIVERSIDAD JAVERIANA&nbsp; Estado: Tesis concluida&nbsp; PSICOLOGIA, &nbsp;2006. <i>Dirigió como: </i>Tutor principal,&nbsp; &nbsp;<i>Persona(s) orientada(s):&nbsp;</i> Julian Montoya&nbsp; 0 meses, &nbsp; Tutor(es)/Cotutor(es): JULIAN MONTOYA , SANDRA JULIANA PLATA CONTRERAS,
+            <br><b>Areas: </b>
+            <br>
+            Ciencias Sociales -- Psicología -- Psicología (Incluye Terapias de Aprendizaje, Habla, Visual y Otras Discapacidades Físicas y Mentales),
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <li><img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px""> <b>Trabajos dirigidos/Tutorías - Trabajos de grado de pregrado</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, Descripción de las relaciones vinculares con sus pares, de un grupo de adolescentes que fueron abandonados e institucionalizados en su primera infancia en su primera infancia, y de uno que ha vivido con sus padres&nbsp; PONTIFICIA UNIVERSIDAD JAVERIANA&nbsp; Estado: Tesis concluida&nbsp; PSICOLOGIA, &nbsp;2007. <i>Dirigió como: </i>Tutor principal,&nbsp; &nbsp;<i>Persona(s) orientada(s):&nbsp;</i> Alejandra Bonilla&nbsp; Tutor(es)/Cotutor(es): SANDRA JULIANA PLATA CONTRERAS,
+            <br><b>Areas: </b>
+            <br>
+            Ciencias Sociales -- Psicología -- Psicología (Incluye Terapias de Aprendizaje, Habla, Visual y Otras Discapacidades Físicas y Mentales),
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <li><b>Trabajos dirigidos/Tutorías - Trabajos de grado de pregrado</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, Caracterización de las habilidades sociales en niños(as) entre 8-11 años: posconfinamiento&nbsp; PONTIFICIA UNIVERSIDAD JAVERIANA&nbsp; Estado: Tesis concluida&nbsp; PSICOLOGIA, &nbsp;2023. <i>Dirigió como: </i>Tutor principal,&nbsp; &nbsp;<i>Persona(s) orientada(s):&nbsp;</i> Valentina Rodriguez Gallo Ana Maria Carvajal Bedoya Tutor(es)/Cotutor(es): SANDRA JULIANA PLATA CONTRERAS,
+            <br><b>Areas: </b>
+            <br>
+            Ciencias Sociales -- Psicología -- Psicología (Incluye Terapias de Aprendizaje, Habla, Visual y Otras Discapacidades Físicas y Mentales),
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <li><b>Trabajos dirigidos/Tutorías - Trabajos de grado de pregrado</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, Relaciones diádicas madre-niño preescolar: uso de base segura y competencia social&nbsp; PONTIFICIA UNIVERSIDAD JAVERIANA&nbsp; Estado: Tesis concluida&nbsp; PSICOLOGIA, &nbsp;2023. <i>Dirigió como: </i>Tutor principal,&nbsp; &nbsp;<i>Persona(s) orientada(s):&nbsp;</i> Maria Ximena Santos Espitia Ana Maria Rubiano Ruiz Laura Aponte Vargas Diana Sofia Roa Castro Tutor(es)/Cotutor(es): SANDRA JULIANA PLATA CONTRERAS,
+            <br><b>Areas: </b>
+            <br>
+            Ciencias Sociales -- Psicología -- Psicología (Incluye Terapias de Aprendizaje, Habla, Visual y Otras Discapacidades Físicas y Mentales),
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <li><b>Trabajos dirigidos/Tutorías - Trabajos de grado de pregrado</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, Percepciones de madres adoptivas: experiencias de cuidado y adaptación de sus hijos adoptados&nbsp; PONTIFICIA UNIVERSIDAD JAVERIANA&nbsp; Estado: Tesis concluida&nbsp; PSICOLOGIA, &nbsp;2022. <i>Dirigió como: </i>Tutor principal,&nbsp; &nbsp;<i>Persona(s) orientada(s):&nbsp;</i> Gabriela Ramírez Moreno Isabella Mateus Ávila Verónica Martínez Zuluaga Laura Henao Escobar Tutor(es)/Cotutor(es): SANDRA JULIANA PLATA CONTRERAS,
+            <br><b>Areas: </b>
+            <br>
+            Ciencias Sociales -- Psicología -- Psicología (Incluye Terapias de Aprendizaje, Habla, Visual y Otras Discapacidades Físicas y Mentales),
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <li><b>Trabajos dirigidos/Tutorías - Trabajos de grado de pregrado</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, Construcción de sentido de vida y relaciones parasociales en 8 jóvenes bogotanos&nbsp; PONTIFICIA UNIVERSIDAD JAVERIANA&nbsp; Estado: Tesis concluida&nbsp; PSICOLOGIA, &nbsp;2023. <i>Dirigió como: </i>Tutor principal,&nbsp; &nbsp;<i>Persona(s) orientada(s):&nbsp;</i> Laura Cristancho Montes Valentina Lizarazo Quintero Tutor(es)/Cotutor(es): SANDRA JULIANA PLATA CONTRERAS,
+            <br><b>Areas: </b>
+            <br>
+            Ciencias Sociales -- Psicología -- Psicología (Incluye Terapias de Aprendizaje, Habla, Visual y Otras Discapacidades Físicas y Mentales),
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <li><b>Trabajos dirigidos/Tutorías - Trabajo de grado de maestría o especialidad clínica</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, Proceso de divorcio contencioso como escenario de conflicto interparental : identificación de factores de riesgo desde una perspectiva ecológica&nbsp; PONTIFICIA UNIVERSIDAD JAVERIANA&nbsp; Estado: Tesis concluida&nbsp; PSICOLOGIA, &nbsp;2021. <i>Dirigió como: </i>Tutor principal,&nbsp; &nbsp;<i>Persona(s) orientada(s):&nbsp;</i> Camila Arbeláez Gómez Tutor(es)/Cotutor(es): SANDRA JULIANA PLATA CONTRERAS,
+            <br><b>Areas: </b>
+            <br>
+            Ciencias Sociales -- Psicología -- Psicología (Incluye Terapias de Aprendizaje, Habla, Visual y Otras Discapacidades Físicas y Mentales),
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <li><b>Trabajos dirigidos/Tutorías - Trabajos de grado de pregrado</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, Socialización y construcción de identidad en jóvenes durante confinamiento: entornos digitales&nbsp; PONTIFICIA UNIVERSIDAD JAVERIANA&nbsp; Estado: Tesis concluida&nbsp; PSICOLOGIA, &nbsp;2022. <i>Dirigió como: </i>Tutor principal,&nbsp; &nbsp;<i>Persona(s) orientada(s):&nbsp;</i> Laura Catherine Jiménez Villarraga Juan Esteban López Ariza Juanita Manosalva Murcia Tutor(es)/Cotutor(es): SANDRA JULIANA PLATA CONTRERAS,
+            <br><b>Areas: </b>
+            <br>
+            Ciencias Sociales -- Psicología -- Psicología (Incluye Terapias de Aprendizaje, Habla, Visual y Otras Discapacidades Físicas y Mentales),
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <li><img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px""> <b>Trabajos dirigidos/Tutorías - Trabajos de grado de pregrado</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, Percepciones de las relaciones de amistad y autoconcepto en adolescentes hombres y mujeres institucionalizados&nbsp; PONTIFICIA UNIVERSIDAD JAVERIANA&nbsp; Estado: Tesis concluida&nbsp; PSICOLOGIA, &nbsp;2012. <i>Dirigió como: </i>Tutor principal,&nbsp; &nbsp;<i>Persona(s) orientada(s):&nbsp;</i> Laura Cristina Lopez, Angela Lozano y Natalia Moreno&nbsp; Tutor(es)/Cotutor(es): SANDRA JULIANA PLATA CONTRERAS,
+            <br><b>Areas: </b>
+            <br>
+            Ciencias Sociales -- Psicología -- Psicología (Incluye Terapias de Aprendizaje, Habla, Visual y Otras Discapacidades Físicas y Mentales),
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <li><img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px""> <b>Trabajos dirigidos/Tutorías - Trabajos de grado de pregrado</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, Transformaciones y recorridos afectivo-sexuales en mujeres jóvenes residentes de Bogotá, Colombia&nbsp; PONTIFICIA UNIVERSIDAD JAVERIANA&nbsp; Estado: Tesis concluida&nbsp; PSICOLOGIA, &nbsp;2020. <i>Dirigió como: </i>Tutor principal,&nbsp; &nbsp;<i>Persona(s) orientada(s):&nbsp;</i> Manuela Salazar Silva Tutor(es)/Cotutor(es): SANDRA JULIANA PLATA CONTRERAS,
+            <br><b>Areas: </b>
+            <br>
+            Ciencias Sociales -- Psicología -- Psicología (Incluye Relaciones Hombre-Máquina),
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <li><img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px""> <b>Trabajos dirigidos/Tutorías - Trabajos de grado de pregrado</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, Caracterización de la experiencia de ser madres jóvenes de bebés prematuros&nbsp; PONTIFICIA UNIVERSIDAD JAVERIANA&nbsp; Estado: Tesis concluida&nbsp; PSICOLOGIA, &nbsp;2018. <i>Dirigió como: </i>Tutor principal,&nbsp; &nbsp;<i>Persona(s) orientada(s):&nbsp;</i> Magda Sophia Santana Hernández Tutor(es)/Cotutor(es): SANDRA JULIANA PLATA CONTRERAS,
+            <br><b>Areas: </b>
+            <br>
+            Ciencias Sociales -- Psicología -- Psicología (Incluye Relaciones Hombre-Máquina),
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <li><img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px""> <b>Trabajos dirigidos/Tutorías - Trabajos de grado de pregrado</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, Experiencias del embarazo, parto y el imaginario de las madres sobre su bebé prematuro pertenecientes al Programa Madre Canguro, residentes en Bogotá&nbsp; PONTIFICIA UNIVERSIDAD JAVERIANA&nbsp; Estado: Tesis concluida&nbsp; PSICOLOGIA, &nbsp;2020. <i>Dirigió como: </i>Tutor principal,&nbsp; &nbsp;<i>Persona(s) orientada(s):&nbsp;</i> Adriana Isabel Diaz Suarez Tutor(es)/Cotutor(es): SANDRA JULIANA PLATA CONTRERAS,
+            <br><b>Areas: </b>
+            <br>
+            Ciencias Sociales -- Psicología -- Psicología (Incluye Relaciones Hombre-Máquina),
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <li><img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px""> <b>Trabajos dirigidos/Tutorías - Trabajos de grado de pregrado</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, La problemática del reintegro familiar de niños, niñas y adolescentes en Colombia&nbsp; PONTIFICIA UNIVERSIDAD JAVERIANA&nbsp; Estado: Tesis concluida&nbsp; PSICOLOGIA, &nbsp;2020. <i>Dirigió como: </i>Tutor principal,&nbsp; &nbsp;<i>Persona(s) orientada(s):&nbsp;</i> Natalia Alario Caicedo María José Urbina Otálora Tutor(es)/Cotutor(es): SANDRA JULIANA PLATA CONTRERAS,
+            <br><b>Areas: </b>
+            <br>
+            Ciencias Sociales -- Psicología -- Psicología (Incluye Relaciones Hombre-Máquina),
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <li><img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px""> <b>Trabajos dirigidos/Tutorías - Trabajos de grado de pregrado</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, La Pérdida Simbólica en el Rol materno : el nacimiento de un bebé prematuro, un análisis ecológico.&nbsp; PONTIFICIA UNIVERSIDAD JAVERIANA&nbsp; Estado: Tesis concluida&nbsp; PSICOLOGIA, &nbsp;2019. <i>Dirigió como: </i>Tutor principal,&nbsp; &nbsp;<i>Persona(s) orientada(s):&nbsp;</i> María Alejandra González López Tutor(es)/Cotutor(es): SANDRA JULIANA PLATA CONTRERAS,
+            <br><b>Areas: </b>
+            <br>
+            Ciencias Sociales -- Psicología -- Psicología (Incluye Relaciones Hombre-Máquina),
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <li><img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px""> <b>Trabajos dirigidos/Tutorías - Trabajos de grado de pregrado</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, Experiencias de rechazo del embarazo y lactancia materna ineficaz en mamás canguro&nbsp; PONTIFICIA UNIVERSIDAD JAVERIANA&nbsp; Estado: Tesis concluida&nbsp; PSICOLOGIA, &nbsp;2018. <i>Dirigió como: </i>Tutor principal,&nbsp; &nbsp;<i>Persona(s) orientada(s):&nbsp;</i> Ana María Díaz Obando Tutor(es)/Cotutor(es): SANDRA JULIANA PLATA CONTRERAS,
+            <br><b>Areas: </b>
+            <br>
+            Ciencias Sociales -- Psicología -- Psicología (Incluye Relaciones Hombre-Máquina),
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <li><img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px""> <b>Trabajos dirigidos/Tutorías - Trabajos de grado de pregrado</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, Relación entre dinámica de pareja e involucramiento paterno en cuidados del prematuro&nbsp; PONTIFICIA UNIVERSIDAD JAVERIANA&nbsp; Estado: Tesis concluida&nbsp; PSICOLOGIA, &nbsp;2018. <i>Dirigió como: </i>Tutor principal,&nbsp; &nbsp;<i>Persona(s) orientada(s):&nbsp;</i> Daniela Alejandra Infante Botero Laura Restrepo Ángel Tutor(es)/Cotutor(es): SANDRA JULIANA PLATA CONTRERAS,
+            <br><b>Areas: </b>
+            <br>
+            Ciencias Sociales -- Psicología -- Psicología (Incluye Relaciones Hombre-Máquina),
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <li><img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px""> <b>Trabajos dirigidos/Tutorías - Trabajos de grado de pregrado</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, Comunicación en tareas de co-construcción con niños de 3 y 5 años&nbsp; PONTIFICIA UNIVERSIDAD JAVERIANA&nbsp; Estado: Tesis concluida&nbsp; PSICOLOGIA, &nbsp;2018. <i>Dirigió como: </i>Tutor principal,&nbsp; &nbsp;<i>Persona(s) orientada(s):&nbsp;</i> Ibeth Alexandra Naranjo Bedoya Valeria Ruíz Quiroga Tutor(es)/Cotutor(es): SANDRA JULIANA PLATA CONTRERAS,
+            <br><b>Areas: </b>
+            <br>
+            Ciencias Sociales -- Psicología -- Psicología (Incluye Relaciones Hombre-Máquina),
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <li><img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px""> <b>Trabajos dirigidos/Tutorías - Trabajos de grado de pregrado</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, Resolución de conflictos en madres adolescentes y familias con hermanos mayores de bebés prematuros&nbsp; PONTIFICIA UNIVERSIDAD JAVERIANA&nbsp; Estado: Tesis concluida&nbsp; Psicologia, &nbsp;2014. <i>Dirigió como: </i>Tutor principal,&nbsp; &nbsp;<i>Persona(s) orientada(s):&nbsp;</i> María Luisa Mendivil Castellote y Sara Valeria Ratti Guzmán &nbsp; Tutor(es)/Cotutor(es): SANDRA JULIANA PLATA CONTRERAS,
+            <br><b>Areas: </b>
+            <br>
+            Ciencias Sociales -- Psicología -- Psicología (Incluye Terapias de Aprendizaje, Habla, Visual y Otras Discapacidades Físicas y Mentales),
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <li><img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px""> <b>Trabajos dirigidos/Tutorías - Trabajos de grado de pregrado</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, Preferencia gemelar en madres del Programa Madre Canguro Integral del Hospital Universitario San Ignacio&nbsp; PONTIFICIA UNIVERSIDAD JAVERIANA&nbsp; Estado: Tesis concluida&nbsp; PSICOLOGIA, &nbsp;2016. <i>Dirigió como: </i>Tutor principal,&nbsp; &nbsp;<i>Persona(s) orientada(s):&nbsp;</i> Daniela Calderón Samacá&nbsp; Tutor(es)/Cotutor(es): SANDRA JULIANA PLATA CONTRERAS,
+            <br><b>Areas: </b>
+            <br>
+            Ciencias Sociales -- Psicología -- Psicología (Incluye Terapias de Aprendizaje, Habla, Visual y Otras Discapacidades Físicas y Mentales),
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <li><img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px""> <b>Trabajos dirigidos/Tutorías - Trabajos de grado de pregrado</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, Caracterización de las relaciones de pareja en 4 adultos jóvenes que han experimentado ausencia parental&nbsp; PONTIFICIA UNIVERSIDAD JAVERIANA&nbsp; Estado: Tesis concluida&nbsp; PSICOLOGIA, &nbsp;2015. <i>Dirigió como: </i>Tutor principal,&nbsp; &nbsp;<i>Persona(s) orientada(s):&nbsp;</i> Mariana Bueno Vargas y Ana María Jiménez Riaño&nbsp; Tutor(es)/Cotutor(es): SANDRA JULIANA PLATA CONTRERAS,
+            <br><b>Areas: </b>
+            <br>
+            Ciencias Sociales -- Psicología -- Psicología (Incluye Terapias de Aprendizaje, Habla, Visual y Otras Discapacidades Físicas y Mentales),
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <li><img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px""> <b>Trabajos dirigidos/Tutorías - Trabajos de grado de pregrado</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, Comunicación de malas noticias en dos unidades de Cuidados Intensivos Neonatales&nbsp; PONTIFICIA UNIVERSIDAD JAVERIANA&nbsp; Estado: Tesis concluida&nbsp; PSICOLOGIA, &nbsp;2016. <i>Dirigió como: </i>Tutor principal,&nbsp; &nbsp;<i>Persona(s) orientada(s):&nbsp;</i> Carolina Basto Medida y Tatiana De Castro Botero&nbsp; Tutor(es)/Cotutor(es): SANDRA JULIANA PLATA CONTRERAS,
+            <br><b>Areas: </b>
+            <br>
+            Ciencias Sociales -- Psicología -- Psicología (Incluye Terapias de Aprendizaje, Habla, Visual y Otras Discapacidades Físicas y Mentales),
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <li><img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px""> <b>Trabajos dirigidos/Tutorías - Trabajos de grado de pregrado</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, Influencia de las condiciones laborales en el establecimiento del vínculo entre paredes e hijos: un modelo de diagnóstico e intervención realizado en la empresa Takami S.A. ubicada en Bogotá - Colombia&nbsp; PONTIFICIA UNIVERSIDAD JAVERIANA&nbsp; Estado: Tesis concluida&nbsp; PSICOLOGIA, &nbsp;2014. <i>Dirigió como: </i>Tutor principal,&nbsp; &nbsp;<i>Persona(s) orientada(s):&nbsp;</i> Nathalie Barrera Gómez y María Alejandra Álvarez Motta&nbsp; Tutor(es)/Cotutor(es): SANDRA JULIANA PLATA CONTRERAS,
+            <br><b>Areas: </b>
+            <br>
+            Ciencias Sociales -- Psicología -- Psicología (Incluye Terapias de Aprendizaje, Habla, Visual y Otras Discapacidades Físicas y Mentales),
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <li><img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px""> <b>Trabajos dirigidos/Tutorías - Trabajos de grado de pregrado</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, Resolución de conflictos en madres adolescentes y familias con hermanos mayores de bebés prematuros&nbsp; PONTIFICIA UNIVERSIDAD JAVERIANA&nbsp; Estado: Tesis concluida&nbsp; PSICOLOGIA, &nbsp;2014. <i>Dirigió como: </i>Tutor principal,&nbsp; &nbsp;<i>Persona(s) orientada(s):&nbsp;</i> Sara Valeria Ratti Guzmán y María Luisa Mendivil Castellote&nbsp; Tutor(es)/Cotutor(es): SANDRA JULIANA PLATA CONTRERAS,
+            <br><b>Areas: </b>
+            <br>
+            Ciencias Sociales -- Psicología -- Psicología (Incluye Terapias de Aprendizaje, Habla, Visual y Otras Discapacidades Físicas y Mentales),
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <li><img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px""> <b>Trabajos dirigidos/Tutorías - Trabajos de grado de pregrado</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, Reflexiones acerca del impacto de las nuevas tecnologías en las relaciones de padres e hijos y en las dinámicas de cuatro familias estrato 5 y 6 de de Bogotá&nbsp; PONTIFICIA UNIVERSIDAD JAVERIANA&nbsp; Estado: Tesis concluida&nbsp; PSICOLOGIA, &nbsp;2015. <i>Dirigió como: </i>Tutor principal,&nbsp; &nbsp;<i>Persona(s) orientada(s):&nbsp;</i> Vanessa Daccach González, Carolina Madriñan Feged, Juliana Godoy Giraldo&nbsp; Tutor(es)/Cotutor(es): SANDRA JULIANA PLATA CONTRERAS,
+            <br><b>Areas: </b>
+            <br>
+            Ciencias Sociales -- Psicología -- Psicología (Incluye Terapias de Aprendizaje, Habla, Visual y Otras Discapacidades Físicas y Mentales),
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <li><img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px""> <b>Trabajos dirigidos/Tutorías - Trabajos de grado de pregrado</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, Percepción de sobrecarga en cuidadores informales de pacientes con demencia tipo Alzheimer y percepción de la calidad de cuidado&nbsp; PONTIFICIA UNIVERSIDAD JAVERIANA&nbsp; Estado: Tesis concluida&nbsp; PSICOLOGIA, &nbsp;2016. <i>Dirigió como: </i>Tutor principal,&nbsp; &nbsp;<i>Persona(s) orientada(s):&nbsp;</i> Martha Lorena Gordon Doncel, Julie Ana Restall Camelo, Diana Alexandra Zapata Garcés&nbsp; Tutor(es)/Cotutor(es): SANDRA JULIANA PLATA CONTRERAS,
+            <br><b>Areas: </b>
+            <br>
+            Ciencias Sociales -- Psicología -- Psicología (Incluye Terapias de Aprendizaje, Habla, Visual y Otras Discapacidades Físicas y Mentales),
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <li><img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px""> <b>Trabajos dirigidos/Tutorías - Trabajos de grado de pregrado</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, Consumo de SPA: rehabilitación, familia y religión en cuatro jóvenes bogotanos&nbsp; PONTIFICIA UNIVERSIDAD JAVERIANA&nbsp; Estado: Tesis concluida&nbsp; PSICOLOGIA, &nbsp;2015. <i>Dirigió como: </i>Tutor principal,&nbsp; &nbsp;<i>Persona(s) orientada(s):&nbsp;</i> María Camila García Duran y Juanita Rojas Uribe&nbsp; Tutor(es)/Cotutor(es): SANDRA JULIANA PLATA CONTRERAS,
+            <br><b>Areas: </b>
+            <br>
+            Ciencias Sociales -- Psicología -- Psicología (Incluye Terapias de Aprendizaje, Habla, Visual y Otras Discapacidades Físicas y Mentales),
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <li><img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px""> <b>Trabajos dirigidos/Tutorías - Trabajos de grado de pregrado</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, Descripción De Las Conductas Vinculares de Proximidad y de Exploración en Niños de Padres Separados que tienen Actividad Asistida con Animales&nbsp; PONTIFICIA UNIVERSIDAD JAVERIANA&nbsp; Estado: Tesis concluida&nbsp; PSICOLOGIA, &nbsp;2008. <i>Dirigió como: </i>Coturor/asesor,&nbsp; &nbsp;<i>Persona(s) orientada(s):&nbsp;</i> Angélica Cuellar&nbsp; Tutor(es)/Cotutor(es): SANDRA JULIANA PLATA CONTRERAS,
+            <br><b>Areas: </b>
+            <br>
+            Ciencias Sociales -- Psicología -- Psicología (Incluye Terapias de Aprendizaje, Habla, Visual y Otras Discapacidades Físicas y Mentales),
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <li><img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px""> <b>Trabajos dirigidos/Tutorías - Trabajos de grado de pregrado</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, Comportamientos de Cuidado de 30 Padres con Hijos Prematuros que Asisten al Programa Madre Canguro Integral en el Hospital Universitario San Ignacio (Husi) De La Ciudad De Bogotá&nbsp; PONTIFICIA UNIVERSIDAD JAVERIANA&nbsp; Estado: Tesis concluida&nbsp; Práctica por Proyecto Relaciones Vinculares, &nbsp;2008. <i>Dirigió como: </i>Tutor principal,&nbsp; &nbsp;<i>Persona(s) orientada(s):&nbsp;</i> Natalia Arias&nbsp; Tutor(es)/Cotutor(es): SANDRA JULIANA PLATA CONTRERAS,
+            <br><b>Areas: </b>
+            <br>
+            Ciencias Sociales -- Psicología -- Psicología (Incluye Terapias de Aprendizaje, Habla, Visual y Otras Discapacidades Físicas y Mentales),
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <li><img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px""> <b>Trabajos dirigidos/Tutorías - Trabajos de grado de pregrado</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, Expectativas de las y los adolescentes bogotanos respecto a las relaciones vinculares que tienen con su madre y su padre&nbsp; PONTIFICIA UNIVERSIDAD JAVERIANA&nbsp; Estado: Tesis concluida&nbsp; Práctica por Proyecto Relaciones Vinculares, &nbsp;2008. <i>Dirigió como: </i>Tutor principal,&nbsp; &nbsp;<i>Persona(s) orientada(s):&nbsp;</i> Claudia Arias&nbsp; Tutor(es)/Cotutor(es): SANDRA JULIANA PLATA CONTRERAS,
+            <br><b>Areas: </b>
+            <br>
+            Ciencias Sociales -- Psicología -- Psicología (Incluye Terapias de Aprendizaje, Habla, Visual y Otras Discapacidades Físicas y Mentales),
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <li><img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px""> <b>Trabajos dirigidos/Tutorías - Trabajos de grado de pregrado</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, Percepciones de Proximidad y Exploración Reflejados dentro del Significado de Amor expresados por Parejas en Unión Libre y Matrimonio de por lo menos 5 años&nbsp; PONTIFICIA UNIVERSIDAD JAVERIANA&nbsp; Estado: Tesis concluida&nbsp; Práctica por Proyecto Relaciones Vinculares, &nbsp;2008. <i>Dirigió como: </i>Tutor principal,&nbsp; &nbsp;<i>Persona(s) orientada(s):&nbsp;</i> Nirina Charris&nbsp; Tutor(es)/Cotutor(es): SANDRA JULIANA PLATA CONTRERAS,
+            <br><b>Areas: </b>
+            <br>
+            Ciencias Sociales -- Psicología -- Psicología (Incluye Terapias de Aprendizaje, Habla, Visual y Otras Discapacidades Físicas y Mentales),
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <li><img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px""> <b>Trabajos dirigidos/Tutorías - Trabajos de grado de pregrado</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, Consecuencias de la ausencia temporal en el hogar por motivos laborales en las conductas vinculares del niño: Creencias y significados&nbsp; PONTIFICIA UNIVERSIDAD JAVERIANA&nbsp; Estado: Tesis concluida&nbsp; Práctica por Proyecto Relaciones Vinculares, &nbsp;2008. <i>Dirigió como: </i>Tutor principal,&nbsp; &nbsp;<i>Persona(s) orientada(s):&nbsp;</i> Jennifer Espitia&nbsp; Tutor(es)/Cotutor(es): SANDRA JULIANA PLATA CONTRERAS,
+            <br><b>Areas: </b>
+            <br>
+            Ciencias Sociales -- Psicología -- Psicología (Incluye Terapias de Aprendizaje, Habla, Visual y Otras Discapacidades Físicas y Mentales),
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <li><img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px""> <b>Trabajos dirigidos/Tutorías - Trabajos de grado de pregrado</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, Historia vincular y sensibilidad materna: Madres adolescentes de estratos socio-económicos 1 y 2 en Bogotá&nbsp; PONTIFICIA UNIVERSIDAD JAVERIANA&nbsp; Estado: Tesis concluida&nbsp; Práctica por Proyecto Relaciones Vinculares, &nbsp;2009. <i>Dirigió como: </i>Tutor principal,&nbsp; &nbsp;<i>Persona(s) orientada(s):&nbsp;</i> Jorge Abaunza&nbsp; Tutor(es)/Cotutor(es): SANDRA JULIANA PLATA CONTRERAS,
+            <br><b>Areas: </b>
+            <br>
+            Ciencias Sociales -- Psicología -- Psicología (Incluye Terapias de Aprendizaje, Habla, Visual y Otras Discapacidades Físicas y Mentales),
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <li><img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px""> <b>Trabajos dirigidos/Tutorías - Trabajos de grado de pregrado</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, Dinámicas de parejas con hijos menores de 4 años residentes en Bogotá, durante el confinamiento por la pandemia COVID-19 ﻿&nbsp; PONTIFICIA UNIVERSIDAD JAVERIANA - SEDE BOGOTA&nbsp; Estado: Tesis concluida&nbsp; Psicología, &nbsp;2020. <i>Dirigió como: </i>Tutor principal,&nbsp; &nbsp;<i>Persona(s) orientada(s):&nbsp;</i> Daniela Roa Palacio Laura María Rojas Polo Juanita Rubiano Jiménez Tutor(es)/Cotutor(es): SANDRA JULIANA PLATA CONTRERAS,
+            <br><b>Areas: </b>
+            <br>
+            Ciencias Sociales -- Psicología -- Psicología (Incluye Relaciones Hombre-Máquina),
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <li><img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px""> <b>Trabajos dirigidos/Tutorías - Trabajo de grado de maestría o especialidad clínica</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, Sensibilidad materna y su relación con la adquisición del lenguaje. Estudio exploratorio en días mamá-hijo de 6 a 24 meses de la ciudad de Montevideo&nbsp; Universidad de la República Uruguay&nbsp; Estado: Tesis concluida&nbsp; Maestría en psicología y educación, &nbsp;2014. <i>Dirigió como: </i>Tutor principal,&nbsp; &nbsp;<i>Persona(s) orientada(s):&nbsp;</i> Paola Silva Cabrera&nbsp; Tutor(es)/Cotutor(es): SANDRA JULIANA PLATA CONTRERAS,
+            <br><b>Areas: </b>
+            <br>
+            Ciencias Sociales -- Psicología -- Psicología (Incluye Relaciones Hombre-Máquina),
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <li><img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px""> <b>Trabajos dirigidos/Tutorías - Trabajo de grado de maestría o especialidad clínica</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, Construcción de sentidos en torno a la noción de Calidad de Cuidado en mujeres madres con hijos de hasta dos años de vida. Estudio cualitativo en un Centro de Salud Pública de Primer Nivel de Atención en Montevideo&nbsp; Universidad de la República Uruguay&nbsp; Estado: Tesis concluida&nbsp; Maestría en psicología y educación, &nbsp;2014. <i>Dirigió como: </i>Tutor principal,&nbsp; &nbsp;<i>Persona(s) orientada(s):&nbsp;</i> Alejandra Akar Moreno&nbsp; Tutor(es)/Cotutor(es): SANDRA JULIANA PLATA CONTRERAS,
+            <br><b>Areas: </b>
+            <br>
+            Ciencias Sociales -- Psicología -- Psicología (Incluye Relaciones Hombre-Máquina),
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <li><img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px""> <b>Trabajos dirigidos/Tutorías - Trabajos de grado de pregrado</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, La experiencia materna de mujeres mayores de 35 años con bebés prematuros.&nbsp; PONTIFICIA UNIVERSIDAD JAVERIANA&nbsp; Estado: Tesis concluida&nbsp; Psicologia, &nbsp;2017. <i>Dirigió como: </i>Tutor principal,&nbsp; &nbsp;<i>Persona(s) orientada(s):&nbsp;</i> Andrea Echeverri Ferreira&nbsp; Tutor(es)/Cotutor(es): SANDRA JULIANA PLATA CONTRERAS,
+            <br><b>Areas: </b>
+            <br>
+            Ciencias Sociales -- Psicología -- Psicología (Incluye Terapias de Aprendizaje, Habla, Visual y Otras Discapacidades Físicas y Mentales),
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <li><img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px""> <b>Trabajos dirigidos/Tutorías - Trabajos de grado de pregrado</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, Dinámicas de pareja en familias canguro : diseño de cuestionario escala Likert&nbsp; PONTIFICIA UNIVERSIDAD JAVERIANA&nbsp; Estado: Tesis concluida&nbsp; Psicologia, &nbsp;2017. <i>Dirigió como: </i>Tutor principal,&nbsp; &nbsp;<i>Persona(s) orientada(s):&nbsp;</i> MAYRA ARDILA&nbsp; Tutor(es)/Cotutor(es): SANDRA JULIANA PLATA CONTRERAS,
+            <br><b>Areas: </b>
+            <br>
+            Ciencias Sociales -- Psicología -- Psicología (Incluye Terapias de Aprendizaje, Habla, Visual y Otras Discapacidades Físicas y Mentales),
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <li><img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px""> <b>Trabajos dirigidos/Tutorías - Trabajos de grado de pregrado</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, Caracterización de familias recompuestas canguro : reacción ante embarazo, apoyo social y estrés&nbsp; PONTIFICIA UNIVERSIDAD JAVERIANA&nbsp; Estado: Tesis concluida&nbsp; Psicologia, &nbsp;2017. <i>Dirigió como: </i>Coturor/asesor,&nbsp; &nbsp;<i>Persona(s) orientada(s):&nbsp;</i> Cristina Restrepo Jimeno&nbsp; Tutor(es)/Cotutor(es): SANDRA JULIANA PLATA CONTRERAS,
+            <br><b>Areas: </b>
+            <br>
+            Ciencias Sociales -- Psicología -- Psicología (Incluye Terapias de Aprendizaje, Habla, Visual y Otras Discapacidades Físicas y Mentales),
+        </blockquote></td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+    <td width=""100%"" align=""right"">&nbsp;</td>
+</tr>
+<tr>
+    <td width=""100%""><a name=""jurado"" href=""""></a>
+    <table width=""100%"" style=""border:#999 1px solid"">
+    <tbody>
+<tr>
+    <td>
+        <h3>Jurado en comités de evaluación</h3></td>
+</tr>
+<tr>
+    <td>
+        <li><b>Datos complementarios - Jurado/Comisiones evaluadoras de trabajo de grado - Pregrado</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, OLGA ALICICA CARBONELL, <i>Titulo:&nbsp;</i>Descripción de comportamientos de riesgo en la creación del vínculo afectivo durante la etapa prenatal <i>Tipo de trabajo presentado:&nbsp;</i> <i>en:&nbsp;</i> PONTIFICIA UNIVERSIDAD JAVERIANA&nbsp; <i>programa académico</i> PSICOLOGIA&nbsp; <i>Nombre del orientado:&nbsp;</i>Natalia Borda Convers &nbsp;
+            <br><b>Palabras: </b>
+            <br>
+            Comoprtamientos de Riesgo, Etapa prenatal, Relaciones Vinculares,
+            <br><b>Areas: </b>
+            <br>
+            Ciencias Sociales -- Psicología -- Psicología (Incluye Terapias de Aprendizaje, Habla, Visual y Otras Discapacidades Físicas y Mentales),
+            <br><b>Sectores: </b>
+            <br>
+            Salud humana,
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <li><b>Datos complementarios - Jurado/Comisiones evaluadoras de trabajo de grado - Pregrado</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, <i>Titulo:&nbsp;</i>Análisi comparativo de pautas de crianza entre madres jefes de hogar y madres amas de casa <i>Tipo de trabajo presentado:&nbsp;</i> <i>en:&nbsp;</i> PONTIFICIA UNIVERSIDAD JAVERIANA&nbsp; <i>programa académico</i> PSICOLOGIA&nbsp; <i>Nombre del orientado:&nbsp;</i>Diana Carolina Becerra &nbsp;
+            <br><b>Areas: </b>
+            <br>
+            Ciencias Sociales -- Psicología -- Psicología (Incluye Terapias de Aprendizaje, Habla, Visual y Otras Discapacidades Físicas y Mentales),
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <li><b>Datos complementarios - Jurado/Comisiones evaluadoras de trabajo de grado - Pregrado</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, <i>Titulo:&nbsp;</i>Analisis del proceso de toma de decisiones de mujeres adolescentes que hacen un plan de adopción <i>Tipo de trabajo presentado:&nbsp;</i> <i>en:&nbsp;</i> PONTIFICIA UNIVERSIDAD JAVERIANA&nbsp; <i>programa académico</i> PSICOLOGIA&nbsp; <i>Nombre del orientado:&nbsp;</i>Diana Patricia Virviescas &nbsp;
+            <br><b>Areas: </b>
+            <br>
+            Ciencias Sociales -- Psicología -- Psicología (Incluye Terapias de Aprendizaje, Habla, Visual y Otras Discapacidades Físicas y Mentales),
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <li><b>Datos complementarios - Jurado/Comisiones evaluadoras de trabajo de grado - Pregrado</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, <i>Titulo:&nbsp;</i>Representaciones sociales de la emoción en niños desde la perspectiva de lo padres <i>Tipo de trabajo presentado:&nbsp;</i> <i>en:&nbsp;</i> PONTIFICIA UNIVERSIDAD JAVERIANA&nbsp; <i>programa académico</i> PSICOLOGIA&nbsp; <i>Nombre del orientado:&nbsp;</i>Mariana Saenz &nbsp;
+            <br><b>Areas: </b>
+            <br>
+            Ciencias Sociales -- Psicología -- Psicología (Incluye Terapias de Aprendizaje, Habla, Visual y Otras Discapacidades Físicas y Mentales),
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <li><b>Datos complementarios - Jurado/Comisiones evaluadoras de trabajo de grado - Pregrado</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, <i>Titulo:&nbsp;</i>Relación entre el estilo vincular adulto y la caracterización del proceso de duelo por separación conyugal <i>Tipo de trabajo presentado:&nbsp;</i> <i>en:&nbsp;</i> PONTIFICIA UNIVERSIDAD JAVERIANA&nbsp; <i>programa académico</i> PSICOLOGIA&nbsp; <i>Nombre del orientado:&nbsp;</i>Maria del Pilar Jaramillo Valencia &nbsp;
+            <br><b>Areas: </b>
+            <br>
+            Ciencias Sociales -- Psicología -- Psicología (Incluye Terapias de Aprendizaje, Habla, Visual y Otras Discapacidades Físicas y Mentales),
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <li><b>Datos complementarios - Jurado/Comisiones evaluadoras de trabajo de grado - Pregrado</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, <i>Titulo:&nbsp;</i>Calidad del cuidado institucional en niños de uno a tres de edad en proceso de adopción <i>Tipo de trabajo presentado:&nbsp;</i> <i>en:&nbsp;</i> PONTIFICIA UNIVERSIDAD JAVERIANA&nbsp; <i>programa académico</i> PSICOLOGIA&nbsp; <i>Nombre del orientado:&nbsp;</i>Angela Pradilla &nbsp;
+            <br><b>Areas: </b>
+            <br>
+            Ciencias Sociales -- Psicología -- Psicología (Incluye Terapias de Aprendizaje, Habla, Visual y Otras Discapacidades Físicas y Mentales),
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <li><b>Datos complementarios - Jurado/Comisiones evaluadoras de trabajo de grado - Pregrado</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, <i>Titulo:&nbsp;</i>El rol de la abuela en el cuidado del nieto canguro <i>Tipo de trabajo presentado:&nbsp;</i> <i>en:&nbsp;</i> PONTIFICIA UNIVERSIDAD JAVERIANA&nbsp; <i>programa académico</i> PSICOLOGIA&nbsp; <i>Nombre del orientado:&nbsp;</i>Maria Fernanda Vesga &nbsp;
+            <br><b>Areas: </b>
+            <br>
+            Ciencias Sociales -- Psicología -- Psicología (Incluye Terapias de Aprendizaje, Habla, Visual y Otras Discapacidades Físicas y Mentales),
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <li><b>Datos complementarios - Jurado/Comisiones evaluadoras de trabajo de grado - Maestría</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, <i>Titulo:&nbsp;</i>Análisis psicométrico del test de cribaje para la evaluación de las demencias (EUROTEST/PESOTEST) en una muestra de la ciudad de Bogotá <i>Tipo de trabajo presentado:&nbsp;</i> <i>en:&nbsp;</i> PONTIFICIA UNIVERSIDAD JAVERIANA&nbsp; <i>programa académico</i> PSICOLOGIA&nbsp; <i>Nombre del orientado:&nbsp;</i>Xue Alejandro Avendaño Pimentel &nbsp;
+            <br><b>Areas: </b>
+            <br>
+            Ciencias Sociales -- Psicología -- Psicología (Incluye Terapias de Aprendizaje, Habla, Visual y Otras Discapacidades Físicas y Mentales),
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <li><b>Datos complementarios - Jurado/Comisiones evaluadoras de trabajo de grado - Maestría</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, <i>Titulo:&nbsp;</i>Implementación de las pautas de manejo Canguro en familias rurales y urbanas con niños nacidos a término en la población del municipio de Valle de San José del departamento de Santander del sur <i>Tipo de trabajo presentado:&nbsp;</i> <i>en:&nbsp;</i> PONTIFICIA UNIVERSIDAD JAVERIANA&nbsp; <i>programa académico</i> PSICOLOGIA&nbsp; <i>Nombre del orientado:&nbsp;</i>Andrea Carolina Aldana Acosta &nbsp;
+            <br><b>Areas: </b>
+            <br>
+            Ciencias Sociales -- Psicología -- Psicología (Incluye Terapias de Aprendizaje, Habla, Visual y Otras Discapacidades Físicas y Mentales),
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <li><b>Datos complementarios - Jurado/Comisiones evaluadoras de trabajo de grado - Pregrado</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, <i>Titulo:&nbsp;</i>Significados de paternidad y estilos de crianza de 8 hombres de la ciudad de Bogotá <i>Tipo de trabajo presentado:&nbsp;</i> <i>en:&nbsp;</i> PONTIFICIA UNIVERSIDAD JAVERIANA&nbsp; <i>programa académico</i> PSICOLOGIA&nbsp; <i>Nombre del orientado:&nbsp;</i>Ginna Paola Diaz &nbsp;
+            <br><b>Areas: </b>
+            <br>
+            Ciencias Sociales -- Psicología -- Psicología (Incluye Terapias de Aprendizaje, Habla, Visual y Otras Discapacidades Físicas y Mentales),
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <li><b>Datos complementarios - Jurado/Comisiones evaluadoras de trabajo de grado - Maestría</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, <i>Titulo:&nbsp;</i>Cuidado temprano para la infancia en HOgares Sustitutos: Orientaciones para la formulación de los lineamientos técnicos <i>Tipo de trabajo presentado:&nbsp;</i> <i>en:&nbsp;</i> UNIVERSIDAD NACIONAL DE COLOMBIA&nbsp; <i>programa académico</i> MAESTRIA EN PSICOLOGIA&nbsp; <i>Nombre del orientado:&nbsp;</i>Ana Carolina Rodríguez Ibarra &nbsp;
+            <br><b>Areas: </b>
+            <br>
+            Ciencias Sociales -- Psicología -- Psicología (Incluye Terapias de Aprendizaje, Habla, Visual y Otras Discapacidades Físicas y Mentales),
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <li><b>Datos complementarios - Jurado/Comisiones evaluadoras de trabajo de grado - Pregrado</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, <i>Titulo:&nbsp;</i>Qué huellas vamos dejando : perspectivas del profesorado y las directivas sobre la incidencia de la práctica subjetividades contemporáneas en la Institución Soacha Para Vivir Mejor de la Fundación Fe y Alegría <i>Tipo de trabajo presentado:&nbsp;</i>Proyecto de grado/Tesis <i>en:&nbsp;</i> PONTIFICIA UNIVERSIDAD JAVERIANA&nbsp; <i>programa académico</i> Psicologia&nbsp; <i>Nombre del orientado:&nbsp;</i>Pablo Mateo Roa Coral; Laura Rodríguez Gallardo &nbsp;
+            <br><b>Areas: </b>
+            <br>
+            Ciencias Sociales -- Psicología -- Psicología (Incluye Terapias de Aprendizaje, Habla, Visual y Otras Discapacidades Físicas y Mentales),
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <li><b>Datos complementarios - Jurado/Comisiones evaluadoras de trabajo de grado - Pregrado</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, <i>Titulo:&nbsp;</i>Conducta prosocial y socialización parental y su asociación con autoeficacia en adolescente <i>Tipo de trabajo presentado:&nbsp;</i>Proyecto de grado/Tesis <i>en:&nbsp;</i> PONTIFICIA UNIVERSIDAD JAVERIANA&nbsp; <i>programa académico</i> Psicologia&nbsp; <i>Nombre del orientado:&nbsp;</i>María Camila Cruz Silva; Juliana Errázuriz García &nbsp;
+            <br><b>Areas: </b>
+            <br>
+            Ciencias Sociales -- Psicología -- Psicología (Incluye Terapias de Aprendizaje, Habla, Visual y Otras Discapacidades Físicas y Mentales),
+        </blockquote></td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+    <td width=""100%""><a name=""comite"" href=""""></a></td>
+</tr>
+<tr>
+    <td><a name=""par"" href=""""></a>
+        <table width=""100%"" style=""border:#999 1px solid"">
+        <tbody>
+<tr>
+    <td>
+        <h3>Par evaluador</h3></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            <i>Ámbito: </i>Nacional&nbsp; <i>Par evaluador de: </i>Material para publicación científica&nbsp; <i>Revista: </i>UNIVERSITAS PSYCHOLOGICA,&nbsp; 2011,&nbsp; Agosto &nbsp;
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            <i>Ámbito: </i>Nacional&nbsp; <i>Par evaluador de: </i>Material para publicación científica&nbsp; <i>Revista: </i>UNIVERSITAS PSYCHOLOGICA,&nbsp; 2014,&nbsp; Octubre &nbsp;
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            <i>Ámbito: </i>Nacional&nbsp; <i>Par evaluador de: </i>Material para publicación científica&nbsp; <i>Revista: </i>UNIVERSITAS PSYCHOLOGICA,&nbsp; 2010,&nbsp; Enero &nbsp;
+        </blockquote></td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+    <td width=""100%""></td>
+</tr>
+<tr>
+    <td width=""100%""><a name=""edicion"" href=""""></a></td>
+</tr>
+<tr>
+    <td width=""100%""><a name=""evento"" href=""""></a>
+    <table width=""100%"" style=""border:#999 1px solid"">
+    <tbody>
+<tr>
+    <td>
+        <h3>Eventos científicos</h3></td>
+</tr>
+<tr>
+    <td>
+        <table>
+            <tbody>
+            <tr>
+                <td><b>1</b>&nbsp;<i><b>Nombre del evento:&nbsp;</b></i>7th International conference on Alzheimer's Disease and Related Disorders&nbsp; <i>Tipo de evento: </i>Otro&nbsp; <i>Ámbito: </i>&nbsp; <i>Realizado el:2000-07-01 00:00:00.0,&nbsp; &nbsp; en Washington, D.C. U.S.A &nbsp; - &nbsp; </i></td>
+            </tr>
+            <tr>
+                <td><b>Productos asociados</b><br>
+                    <ul>
+                        <li><i>Nombre del producto:</i>Anosognosia in Alzheimer disease <i>Tipo de producto:</i>Producción bibliográfica - Trabajos en eventos (Capítulos de memoria) - Resumen</li>
+                    </ul></td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <td><b>Participantes</b><br>
+                    <ul>
+                        <li><i>Nombre: </i>SANDRA JULIANA PLATA CONTRERAS <i>Rol en el evento: </i>Asistente</li>
+                    </ul></td>
+            </tr>
+            </tbody>
+        </table></td>
+</tr>
+<tr>
+    <td>
+        <table>
+            <tbody>
+            <tr>
+                <td><b>2</b>&nbsp;<i><b>Nombre del evento:&nbsp;</b></i>IV Congreso Nacional e Internacional de Gerontlogía y Geriatría&nbsp; <i>Tipo de evento: </i>Congreso&nbsp; <i>Ámbito: </i>&nbsp; <i>Realizado el:2000-08-01 00:00:00.0,&nbsp; &nbsp; en MEDELLÍN &nbsp; - &nbsp; </i></td>
+            </tr>
+            <tr>
+                <td><b>Productos asociados</b><br>
+                    <ul>
+                        <li><i>Nombre del producto:</i>Disociaciones de la consciencia en la Enfermedad de Alzheimer <i>Tipo de producto:</i>Producción bibliográfica - Trabajos en eventos (Capítulos de memoria) - Resumen</li>
+                    </ul>
+                    <ul>
+                        <li><i>Nombre del producto:</i>Evidencia de la Fragmentación de la Memoria en una paciente con Demencia Semantica <i>Tipo de producto:</i>Producción bibliográfica - Trabajos en eventos (Capítulos de memoria) - Resumen</li>
+                    </ul>
+                    <ul>
+                        <li><i>Nombre del producto:</i>Degeneración focal progresiva con deterioro selectivo de la fonología o la semántica. <i>Tipo de producto:</i>Producción bibliográfica - Trabajos en eventos (Capítulos de memoria) - Resumen</li>
+                    </ul></td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <td><b>Participantes</b><br>
+                    <ul>
+                        <li><i>Nombre: </i>SANDRA JULIANA PLATA CONTRERAS <i>Rol en el evento: </i>Asistente</li>
+                    </ul></td>
+            </tr>
+            </tbody>
+        </table></td>
+</tr>
+<tr>
+    <td>
+        <table>
+            <tbody>
+            <tr>
+                <td><b>3</b>&nbsp;<i><b>Nombre del evento:&nbsp;</b></i>III Congreso Iberoamericano de Psicología&nbsp; <i>Tipo de evento: </i>Congreso&nbsp; <i>Ámbito: </i>&nbsp; <i>Realizado el:2002-01-01 00:00:00.0,&nbsp; &nbsp; en BOGOTÁ, D.C. &nbsp; - &nbsp; </i></td>
+            </tr>
+            <tr>
+                <td><b>Productos asociados</b><br>
+                    <ul>
+                        <li><i>Nombre del producto:</i>Construcción de un modelo de intervención/prevención para las relaciones vinculares tempranas hijo(a)-mamá <i>Tipo de producto:</i>Producción bibliográfica - Trabajos en eventos (Capítulos de memoria) - Resumen</li>
+                    </ul></td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <td><b>Participantes</b><br>
+                    <ul>
+                        <li><i>Nombre: </i>SANDRA JULIANA PLATA CONTRERAS <i>Rol en el evento: </i>Asistente</li>
+                    </ul></td>
+            </tr>
+            </tbody>
+        </table></td>
+</tr>
+<tr>
+    <td>
+        <table>
+            <tbody>
+            <tr>
+                <td><b>4</b>&nbsp;<i><b>Nombre del evento:&nbsp;</b></i>17th World Congress of Neurology&nbsp; <i>Tipo de evento: </i>Congreso&nbsp; <i>Ámbito: </i>&nbsp; <i>Realizado el:2001-01-01 00:00:00.0,&nbsp; &nbsp; en Londres &nbsp; - &nbsp; </i></td>
+            </tr>
+            <tr>
+                <td><b>Productos asociados</b><br>
+                    <ul>
+                        <li><i>Nombre del producto:</i>The relationship between Neuropsychological variables and unawareness of deficits in Alzheimer's disease <i>Tipo de producto:</i>Producción bibliográfica - Trabajos en eventos (Capítulos de memoria) - Resumen</li>
+                    </ul></td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <td><b>Participantes</b><br>
+                    <ul>
+                        <li><i>Nombre: </i>SANDRA JULIANA PLATA CONTRERAS <i>Rol en el evento: </i>Asistente</li>
+                    </ul></td>
+            </tr>
+            </tbody>
+        </table></td>
+</tr>
+<tr>
+    <td>
+        <table>
+            <tbody>
+            <tr>
+                <td><b>5</b>&nbsp;<i><b>Nombre del evento:&nbsp;</b></i>ICIS - 2004&nbsp; <i>Tipo de evento: </i>Otro&nbsp; <i>Ámbito: </i>&nbsp; <i>Realizado el:2004-01-01 00:00:00.0,&nbsp; &nbsp; en Chicago &nbsp; - &nbsp; </i></td>
+            </tr>
+            <tr>
+                <td><b>Productos asociados</b><br>
+                    <ul>
+                        <li><i>Nombre del producto:</i>A descriptive etnographic study of caregivers'interactive behavior in a DAy care setting <i>Tipo de producto:</i>Producción bibliográfica - Trabajos en eventos (Capítulos de memoria) - Resumen</li>
+                    </ul></td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <td><b>Participantes</b><br>
+                    <ul>
+                        <li><i>Nombre: </i>SANDRA JULIANA PLATA CONTRERAS <i>Rol en el evento: </i>Asistente</li>
+                    </ul></td>
+            </tr>
+            </tbody>
+        </table></td>
+</tr>
+<tr>
+    <td>
+        <table>
+            <tbody>
+            <tr>
+                <td><b>6</b>&nbsp;<i><b>Nombre del evento:&nbsp;</b></i>Meeting of the society for research in child development&nbsp; <i>Tipo de evento: </i>Encuentro&nbsp; <i>Ámbito: </i>&nbsp; <i>Realizado el:2003-01-01 00:00:00.0,&nbsp; &nbsp; en Tampa &nbsp; - &nbsp; </i></td>
+            </tr>
+            <tr>
+                <td><b>Productos asociados</b><br>
+                    <ul>
+                        <li><i>Nombre del producto:</i>Maternal sensitivity in a cross-cultural perspective: Mother's ideals and actual behavior when interacting with their infants <i>Tipo de producto:</i>Producción bibliográfica - Trabajos en eventos (Capítulos de memoria) - Resumen</li>
+                    </ul></td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <td><b>Participantes</b><br>
+                    <ul>
+                        <li><i>Nombre: </i>SANDRA JULIANA PLATA CONTRERAS <i>Rol en el evento: </i>Asistente</li>
+                    </ul></td>
+            </tr>
+            </tbody>
+        </table></td>
+</tr>
+<tr>
+    <td>
+        <table>
+            <tbody>
+            <tr>
+                <td><b>7</b>&nbsp;<i><b>Nombre del evento:&nbsp;</b></i>XI Eurpoean Conference on developmental psychology&nbsp; <i>Tipo de evento: </i>Otro&nbsp; <i>Ámbito: </i>&nbsp; <i>Realizado el:2003-01-01 00:00:00.0,&nbsp; &nbsp; en MILÁN &nbsp; - &nbsp; </i></td>
+            </tr>
+            <tr>
+                <td><b>Productos asociados</b><br>
+                    <ul>
+                        <li><i>Nombre del producto:</i>Using a word promt narrative protocol assessing secure base representations in colombia <i>Tipo de producto:</i>Producción bibliográfica - Trabajos en eventos (Capítulos de memoria) - Resumen</li>
+                    </ul></td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <td><b>Participantes</b><br>
+                    <ul>
+                        <li><i>Nombre: </i>SANDRA JULIANA PLATA CONTRERAS <i>Rol en el evento: </i>Asistente</li>
+                    </ul></td>
+            </tr>
+            </tbody>
+        </table></td>
+</tr>
+<tr>
+    <td>
+        <table>
+            <tbody>
+            <tr>
+                <td><b>8</b>&nbsp;<i><b>Nombre del evento:&nbsp;</b></i>First congress of the international society for vascular behavioural and cognitive desorders held.&nbsp; <i>Tipo de evento: </i>Congreso&nbsp; <i>Ámbito: </i>&nbsp; <i>Realizado el:2003-01-01 00:00:00.0,&nbsp; &nbsp; en Göteborg &nbsp; - &nbsp; </i></td>
+            </tr>
+            <tr>
+                <td><b>Productos asociados</b><br>
+                    <ul>
+                        <li><i>Nombre del producto:</i>Does Pure vascular dementia exist or not? <i>Tipo de producto:</i>Producción bibliográfica - Trabajos en eventos (Capítulos de memoria) - Resumen</li>
+                    </ul></td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <td><b>Participantes</b><br>
+                    <ul>
+                        <li><i>Nombre: </i>SANDRA JULIANA PLATA CONTRERAS <i>Rol en el evento: </i>Asistente</li>
+                    </ul></td>
+            </tr>
+            </tbody>
+        </table></td>
+</tr>
+<tr>
+    <td>
+        <table>
+            <tbody>
+            <tr>
+                <td><b>9</b>&nbsp;<i><b>Nombre del evento:&nbsp;</b></i>Congreso Nacional de Neuropsicología&nbsp; <i>Tipo de evento: </i>Congreso&nbsp; <i>Ámbito: </i>&nbsp; <i>Realizado el:2004-01-01 00:00:00.0,&nbsp; &nbsp; en MEDELLÍN &nbsp; - &nbsp; </i></td>
+            </tr>
+            <tr>
+                <td><b>Productos asociados</b><br>
+                    <ul>
+                        <li><i>Nombre del producto:</i>Perfiles neuropsicológicos y psiquiatricos de la variante frontal de la demencia frontotemporal <i>Tipo de producto:</i>Producción bibliográfica - Trabajos en eventos (Capítulos de memoria) - Resumen</li>
+                    </ul></td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <td><b>Participantes</b><br>
+                    <ul>
+                        <li><i>Nombre: </i>SANDRA JULIANA PLATA CONTRERAS <i>Rol en el evento: </i>Asistente</li>
+                    </ul></td>
+            </tr>
+            </tbody>
+        </table></td>
+</tr>
+<tr>
+    <td>
+        <table>
+            <tbody>
+            <tr>
+                <td><b>10</b>&nbsp;<i><b>Nombre del evento:&nbsp;</b></i>1ra Reunión NAcional SEMEG (Sociedad Española de Medicina Geriatríca)&nbsp; <i>Tipo de evento: </i>Otro&nbsp; <i>Ámbito: </i>&nbsp; <i>Realizado el:2004-01-01 00:00:00.0,&nbsp; &nbsp; en VALENCIA &nbsp; - &nbsp; </i></td>
+            </tr>
+            <tr>
+                <td><b>Productos asociados</b><br>
+                    <ul>
+                        <li><i>Nombre del producto:</i>Caracterización de los pacientes con demencia frontotemporal <i>Tipo de producto:</i>Producción bibliográfica - Trabajos en eventos (Capítulos de memoria) - Resumen</li>
+                    </ul></td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <td><b>Participantes</b><br>
+                    <ul>
+                        <li><i>Nombre: </i>SANDRA JULIANA PLATA CONTRERAS <i>Rol en el evento: </i>Asistente</li>
+                    </ul></td>
+            </tr>
+            </tbody>
+        </table></td>
+</tr>
+<tr>
+    <td>
+        <table>
+            <tbody>
+            <tr>
+                <td><b>11</b>&nbsp;<i><b>Nombre del evento:&nbsp;</b></i>Joint Meeting with the international neuropsychological society&nbsp; <i>Tipo de evento: </i>Encuentro&nbsp; <i>Ámbito: </i>&nbsp; <i>Realizado el:2003-01-01 00:00:00.0,&nbsp; &nbsp; en Berlin &nbsp; - &nbsp; </i></td>
+            </tr>
+            <tr>
+                <td><b>Productos asociados</b><br>
+                    <ul>
+                        <li><i>Nombre del producto:</i>Recall and recognition of famous persons in patients with alzheimer's disease <i>Tipo de producto:</i>Producción bibliográfica - Trabajos en eventos (Capítulos de memoria) - Resumen</li>
+                    </ul></td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <td><b>Participantes</b><br>
+                    <ul>
+                        <li><i>Nombre: </i>SANDRA JULIANA PLATA CONTRERAS <i>Rol en el evento: </i>Asistente</li>
+                    </ul></td>
+            </tr>
+            </tbody>
+        </table></td>
+</tr>
+<tr>
+    <td>
+        <table>
+            <tbody>
+            <tr>
+                <td><img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px""> <b>12</b>&nbsp;<i><b>Nombre del evento:&nbsp;</b></i>Ciclo de Conferencias Primera Infancia y Conflicto Armado&nbsp; <i>Tipo de evento: </i>Otro&nbsp; <i>Ámbito: </i>Nacional&nbsp; <i>Realizado el:2009-01-01 00:00:00.0,&nbsp; &nbsp; en BOGOTÁ, D.C. &nbsp; - Pontificia Universidad Javeriana &nbsp; </i></td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <td><b>Instituciones asociadas</b><br>
+                    <ul>
+                        <li><i>Nombre de la institución:</i>PONTIFICIA UNIVERSIDAD JAVERIANA <i>Tipo de vinculación</i>Patrocinadora</li>
+                    </ul></td>
+            </tr>
+            <tr>
+                <td><b>Participantes</b><br>
+                    <ul>
+                        <li><i>Nombre: </i>SANDRA JULIANA PLATA CONTRERAS <i>Rol en el evento: </i>Organizador</li>
+                    </ul></td>
+            </tr>
+            </tbody>
+        </table></td>
+</tr>
+<tr>
+    <td>
+        <table>
+            <tbody>
+            <tr>
+                <td><img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px""> <b>13</b>&nbsp;<i><b>Nombre del evento:&nbsp;</b></i>V Congreso Javeriana de Psicología ""Pensar el presente: Psicología, crítica y teimpos de globalización""&nbsp; <i>Tipo de evento: </i>Congreso&nbsp; <i>Ámbito: </i>Nacional&nbsp; <i>Realizado el:2008-01-01 00:00:00.0,&nbsp; &nbsp; en BOGOTÁ, D.C. &nbsp; - Auditorio Felix Restrepo - Pontificia Universidad Javeriana - Bogotá &nbsp; </i></td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <td><b>Instituciones asociadas</b><br>
+                    <ul>
+                        <li><i>Nombre de la institución:</i>PONTIFICIA UNIVERSIDAD JAVERIANA <i>Tipo de vinculación</i>Patrocinadora</li>
+                    </ul></td>
+            </tr>
+            <tr>
+                <td><b>Participantes</b><br>
+                    <ul>
+                        <li><i>Nombre: </i>SANDRA JULIANA PLATA CONTRERAS <i>Rol en el evento: </i>Organizador</li>
+                    </ul></td>
+            </tr>
+            </tbody>
+        </table></td>
+</tr>
+<tr>
+    <td>
+        <table>
+            <tbody>
+            <tr>
+                <td><img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px""> <b>14</b>&nbsp;<i><b>Nombre del evento:&nbsp;</b></i>III Encuentro Nacional de Investigadores en Psicología&nbsp; <i>Tipo de evento: </i>Encuentro&nbsp; <i>Ámbito: </i>Nacional&nbsp; <i>Realizado el:2007-01-01 00:00:00.0,&nbsp; &nbsp; en BOGOTÁ, D.C. &nbsp; - Universidad de la Sabana &nbsp; </i></td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <td><b>Instituciones asociadas</b><br>
+                    <ul>
+                        <li><i>Nombre de la institución:</i>UNIVERSIDAD DE LA SABANA <i>Tipo de vinculación</i>Patrocinadora</li>
+                    </ul></td>
+            </tr>
+            <tr>
+                <td><b>Participantes</b><br>
+                    <ul>
+                        <li><i>Nombre: </i>SANDRA JULIANA PLATA CONTRERAS <i>Rol en el evento: </i>Organizador</li>
+                    </ul></td>
+            </tr>
+            </tbody>
+        </table></td>
+</tr>
+<tr>
+    <td>
+        <table>
+            <tbody>
+            <tr>
+                <td><img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px""> <b>15</b>&nbsp;<i><b>Nombre del evento:&nbsp;</b></i>IV Educación - VI Psicología Vecindades y Fronteras &nbsp; <i>Tipo de evento: </i>Congreso&nbsp; <i>Ámbito: </i>Nacional&nbsp; <i>Realizado el:2010-01-01 00:00:00.0,&nbsp; &nbsp; en BOGOTÁ, D.C. &nbsp; - Auditorio Felix Restrepo - Pontificia Universidad Javeriana - Sede Bogotá &nbsp; </i></td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <td><b>Instituciones asociadas</b><br>
+                    <ul>
+                        <li><i>Nombre de la institución:</i>PONTIFICIA UNIVERSIDAD JAVERIANA <i>Tipo de vinculación</i>Patrocinadora</li>
+                    </ul></td>
+            </tr>
+            <tr>
+                <td><b>Participantes</b><br>
+                    <ul>
+                        <li><i>Nombre: </i>SANDRA JULIANA PLATA CONTRERAS <i>Rol en el evento: </i>Organizador</li>
+                    </ul></td>
+            </tr>
+            </tbody>
+        </table></td>
+</tr>
+<tr>
+    <td>
+        <table>
+            <tbody>
+            <tr>
+                <td><img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px""> <b>16</b>&nbsp;<i><b>Nombre del evento:&nbsp;</b></i>Vecindades y Fronteras: Ciclos Vitales, Evaluación y Diversidad&nbsp; <i>Tipo de evento: </i>Congreso&nbsp; <i>Ámbito: </i>Internacional&nbsp; <i>Realizado el:2010-04-01 00:00:00.0,&nbsp; &nbsp; en BOGOTÁ, D.C. &nbsp; - Auditorio Felix Restrepo &nbsp; </i></td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <td><b>Instituciones asociadas</b><br>
+                    <ul>
+                        <li><i>Nombre de la institución:</i>PONTIFICIA UNIVERSIDAD JAVERIANA <i>Tipo de vinculación</i>Patrocinadora</li>
+                    </ul></td>
+            </tr>
+            <tr>
+                <td><b>Participantes</b><br>
+                    <ul>
+                        <li><i>Nombre: </i>SANDRA JULIANA PLATA CONTRERAS <i>Rol en el evento: </i>Organizador</li>
+                    </ul></td>
+            </tr>
+            </tbody>
+        </table></td>
+</tr>
+<tr>
+    <td>
+        <table>
+            <tbody>
+            <tr>
+                <td><img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px""> <b>17</b>&nbsp;<i><b>Nombre del evento:&nbsp;</b></i>Reunión Anual Nodo Psicología de Desarrollo&nbsp; <i>Tipo de evento: </i>Otro&nbsp; <i>Ámbito: </i>Nacional&nbsp; <i>Realizado el:2009-01-01 00:00:00.0,&nbsp; &nbsp; en BOGOTÁ, D.C. &nbsp; - Pontificia Universidad Javeriana &nbsp; </i></td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <td><b>Instituciones asociadas</b><br>
+                    <ul>
+                        <li><i>Nombre de la institución:</i>Asociación Colombiana de Facultades de Psicología <i>Tipo de vinculación</i>Patrocinadora</li>
+                    </ul></td>
+            </tr>
+            <tr>
+                <td><b>Participantes</b><br>
+                    <ul>
+                        <li><i>Nombre: </i>SANDRA JULIANA PLATA CONTRERAS <i>Rol en el evento: </i>Organizador</li>
+                    </ul></td>
+            </tr>
+            </tbody>
+        </table></td>
+</tr>
+<tr>
+    <td>
+        <table>
+            <tbody>
+            <tr>
+                <td><img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px""> <b>18</b>&nbsp;<i><b>Nombre del evento:&nbsp;</b></i>VI Congreso La investigación en la Pontificia Universidad Javeriana&nbsp; <i>Tipo de evento: </i>Congreso&nbsp; <i>Ámbito: </i>Nacional&nbsp; <i>Realizado el:2001-01-01 00:00:00.0,&nbsp; &nbsp; en BOGOTÁ, D.C. &nbsp; - Auditorio Felix Restrepo &nbsp; </i></td>
+            </tr>
+            <tr>
+                <td><b>Productos asociados</b><br>
+                    <ul>
+                        <li><i>Nombre del producto:</i>Anosognosia en la Enfermedad de Alzheimer <i>Tipo de producto:</i>Producción bibliográfica - Trabajos en eventos (Capítulos de memoria) - Resumen</li>
+                    </ul>
+                    <ul>
+                        <li><i>Nombre del producto:</i>Cuidado Materno y seguridad vincular del niño(a) en dos cultural <i>Tipo de producto:</i>Producción bibliográfica - Trabajos en eventos (Capítulos de memoria) - Resumen</li>
+                    </ul></td>
+            </tr>
+            <tr>
+                <td><b>Instituciones asociadas</b><br>
+                    <ul>
+                        <li><i>Nombre de la institución:</i>PONTIFICIA UNIVERSIDAD JAVERIANA <i>Tipo de vinculación</i>Patrocinadora</li>
+                    </ul></td>
+            </tr>
+            <tr>
+                <td><b>Participantes</b><br>
+                    <ul>
+                        <li><i>Nombre: </i>SANDRA JULIANA PLATA CONTRERAS <i>Rol en el evento: </i>Organizador</li>
+                    </ul></td>
+            </tr>
+            </tbody>
+        </table></td>
+</tr>
+<tr>
+    <td>
+        <table>
+            <tbody>
+            <tr>
+                <td><img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px""> <b>19</b>&nbsp;<i><b>Nombre del evento:&nbsp;</b></i>Cerebro Arte y Creatividad&nbsp; <i>Tipo de evento: </i>Simposio&nbsp; <i>Ámbito: </i>Nacional&nbsp; <i>Realizado el:2000-01-01 00:00:00.0,&nbsp; &nbsp; en BOGOTÁ, D.C. &nbsp; - Edificio de postgrados &nbsp; </i></td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <td><b>Instituciones asociadas</b><br>
+                    <ul>
+                        <li><i>Nombre de la institución:</i>UNIVERSIDAD NACIONAL DE COLOMBIA <i>Tipo de vinculación</i>Patrocinadora</li>
+                    </ul></td>
+            </tr>
+            <tr>
+                <td><b>Participantes</b><br>
+                    <ul>
+                        <li><i>Nombre: </i>SANDRA JULIANA PLATA CONTRERAS <i>Rol en el evento: </i>Organizador</li>
+                    </ul></td>
+            </tr>
+            </tbody>
+        </table></td>
+</tr>
+<tr>
+    <td>
+        <table>
+            <tbody>
+            <tr>
+                <td><img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px""> <b>20</b>&nbsp;<i><b>Nombre del evento:&nbsp;</b></i>II Encuentro INternacional de Investigadoers ""Ciencia para el desarrollo en el siglo XXI""&nbsp; <i>Tipo de evento: </i>Encuentro&nbsp; <i>Ámbito: </i>Nacional&nbsp; <i>Realizado el:2001-01-01 00:00:00.0,&nbsp; &nbsp; en BOGOTÁ, D.C. &nbsp; - Auditorio Administrativo. Corporación Universitaria Iberoamericana &nbsp; </i></td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <td><b>Instituciones asociadas</b><br>
+                    <ul>
+                        <li><i>Nombre de la institución:</i>CORPORACIÓN UNIVERSITARIA IBEROAMERICANA <i>Tipo de vinculación</i>Patrocinadora</li>
+                    </ul></td>
+            </tr>
+            <tr>
+                <td><b>Participantes</b><br>
+                    <ul>
+                        <li><i>Nombre: </i>SANDRA JULIANA PLATA CONTRERAS <i>Rol en el evento: </i>Organizador</li>
+                    </ul></td>
+            </tr>
+            </tbody>
+        </table></td>
+</tr>
+<tr>
+    <td>
+        <table>
+            <tbody>
+            <tr>
+                <td><img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px""> <b>21</b>&nbsp;<i><b>Nombre del evento:&nbsp;</b></i>IV Congreso Nacional e Internacional de GErontología y Geritaría&nbsp; <i>Tipo de evento: </i>Congreso&nbsp; <i>Ámbito: </i>Nacional&nbsp; <i>Realizado el:2000-01-01 00:00:00.0,&nbsp; &nbsp; en MEDELLÍN &nbsp; - Centro de Convenciones Hotel Intercontinental &nbsp; </i></td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <td><b>Instituciones asociadas</b><br>
+                    <ul>
+                        <li><i>Nombre de la institución:</i>Asociación Colombiana De Gerontología Y Geriatría <i>Tipo de vinculación</i>Patrocinadora</li>
+                    </ul></td>
+            </tr>
+            <tr>
+                <td><b>Participantes</b><br>
+                    <ul>
+                        <li><i>Nombre: </i>SANDRA JULIANA PLATA CONTRERAS <i>Rol en el evento: </i>Organizador</li>
+                    </ul></td>
+            </tr>
+            </tbody>
+        </table></td>
+</tr>
+<tr>
+    <td>
+        <table>
+            <tbody>
+            <tr>
+                <td><img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px""> <b>22</b>&nbsp;<i><b>Nombre del evento:&nbsp;</b></i>IV Congreso Nacional e Internacional de Gerontología y Geriatría&nbsp; <i>Tipo de evento: </i>Taller&nbsp; <i>Ámbito: </i>Nacional&nbsp; <i>Realizado el:2000-01-01 00:00:00.0,&nbsp; &nbsp; en MEDELLÍN &nbsp; - Hotel Intercontinental &nbsp; </i></td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <td><b>Instituciones asociadas</b><br>
+                    <ul>
+                        <li><i>Nombre de la institución:</i>Asocación Colombiana de Gerontología y Geriatria <i>Tipo de vinculación</i>Patrocinadora</li>
+                    </ul></td>
+            </tr>
+            <tr>
+                <td><b>Participantes</b><br>
+                    <ul>
+                        <li><i>Nombre: </i>SANDRA JULIANA PLATA CONTRERAS <i>Rol en el evento: </i>Organizador</li>
+                    </ul></td>
+            </tr>
+            </tbody>
+        </table></td>
+</tr>
+<tr>
+    <td>
+        <table>
+            <tbody>
+            <tr>
+                <td><img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px""> <b>23</b>&nbsp;<i><b>Nombre del evento:&nbsp;</b></i>V Congreso Nacional e Internacional de Gerontología y Geriatría&nbsp; <i>Tipo de evento: </i>Congreso&nbsp; <i>Ámbito: </i>Nacional&nbsp; <i>Realizado el:2002-01-01 00:00:00.0,&nbsp; &nbsp; en CARTAGENA DE INDIAS &nbsp; - Hotel Almirante &nbsp; </i></td>
+            </tr>
+            <tr>
+                <td><b>Productos asociados</b><br>
+                    <ul>
+                        <li><i>Nombre del producto:</i>CAPACIDAD OPERATIVA DE UNA PRUEBA DE TAMIZADO EN EL DIAGNÓSTICO TEMPRANO DE LA ENFERMEDAD DE ALZHEIMER <i>Tipo de producto:</i>Producción bibliográfica - Trabajos en eventos (Capítulos de memoria) - Resumen</li>
+                    </ul>
+                    <ul>
+                        <li><i>Nombre del producto:</i>Estudio longitudinal de la conciencia de las alteraciones en la Enfermedad de Alzheimer <i>Tipo de producto:</i>Producción bibliográfica - Trabajos en eventos (Capítulos de memoria) - Resumen</li>
+                    </ul></td>
+            </tr>
+            <tr>
+                <td><b>Instituciones asociadas</b><br>
+                    <ul>
+                        <li><i>Nombre de la institución:</i>Asociación Colombiana De Gerontología Y Geriatría <i>Tipo de vinculación</i>Patrocinadora</li>
+                    </ul></td>
+            </tr>
+            <tr>
+                <td><b>Participantes</b><br>
+                    <ul>
+                        <li><i>Nombre: </i>SANDRA JULIANA PLATA CONTRERAS <i>Rol en el evento: </i>Organizador</li>
+                    </ul></td>
+            </tr>
+            </tbody>
+        </table></td>
+</tr>
+<tr>
+    <td>
+        <table>
+            <tbody>
+            <tr>
+                <td><b>24</b>&nbsp;<i><b>Nombre del evento:&nbsp;</b></i>Attachment Representations: The Secure-base script in Latin-American Preschoolers&nbsp; <i>Tipo de evento: </i>Otro&nbsp; <i>Ámbito: </i>Internacional&nbsp; <i>Realizado el:2022-02-08 00:00:00.0,&nbsp; 2022-02-08 00:00:00.0 &nbsp; en BOGOTÁ, D.C. &nbsp; - Virtual &nbsp; </i></td>
+            </tr>
+            <tr>
+                <td><b>Productos asociados</b><br>
+                    <ul>
+                        <li><i>Nombre del producto:</i>Attachment Representations: The Secure-base script in Latin-American Preschoolers <i>Tipo de producto:</i>Producción técnica - Presentación de trabajo - Ponencia</li>
+                    </ul></td>
+            </tr>
+            <tr>
+                <td><b>Instituciones asociadas</b><br>
+                    <ul>
+                        <li><i>Nombre de la institución:</i>PONTIFICIA UNIVERSIDAD JAVERIANA <i>Tipo de vinculación</i>Patrocinadora</li>
+                    </ul></td>
+            </tr>
+            <tr>
+                <td><b>Participantes</b><br>
+                    <ul>
+                        <li><i>Nombre: </i>SANDRA JULIANA PLATA CONTRERAS <i>Rol en el evento: </i>Ponente</li>
+                    </ul></td>
+            </tr>
+            </tbody>
+        </table></td>
+</tr>
+<tr>
+    <td>
+        <table>
+            <tbody>
+            <tr>
+                <td><b>25</b>&nbsp;<i><b>Nombre del evento:&nbsp;</b></i>Society for the Study of Human Development (SSHD) 2021-22 Conference Series&nbsp; <i>Tipo de evento: </i>Otro&nbsp; <i>Ámbito: </i>Internacional&nbsp; <i>Realizado el:2022-02-08 00:00:00.0,&nbsp; 2022-02-08 00:00:00.0 &nbsp; en BOGOTÁ, D.C. &nbsp; - Virtual &nbsp; </i></td>
+            </tr>
+            <tr>
+                <td><b>Productos asociados</b><br>
+                    <ul>
+                        <li><i>Nombre del producto:</i>Maternal Secure-Base Support During Child-Mother Interactions <i>Tipo de producto:</i>Producción técnica - Presentación de trabajo - Ponencia</li>
+                    </ul></td>
+            </tr>
+            <tr>
+                <td><b>Instituciones asociadas</b><br>
+                    <ul>
+                        <li><i>Nombre de la institución:</i>PONTIFICIA UNIVERSIDAD JAVERIANA <i>Tipo de vinculación</i>Patrocinadora</li>
+                    </ul></td>
+            </tr>
+            <tr>
+                <td><b>Participantes</b><br>
+                    <ul>
+                        <li><i>Nombre: </i>SANDRA JULIANA PLATA CONTRERAS <i>Rol en el evento: </i>Ponente</li>
+                    </ul></td>
+            </tr>
+            </tbody>
+        </table></td>
+</tr>
+<tr>
+    <td>
+        <table>
+            <tbody>
+            <tr>
+                <td><b>26</b>&nbsp;<i><b>Nombre del evento:&nbsp;</b></i>Society for the Study of Human Development (SSHD) 2021-22 Conference Series&nbsp; <i>Tipo de evento: </i>Otro&nbsp; <i>Ámbito: </i>Internacional&nbsp; <i>Realizado el:2022-02-08 00:00:00.0,&nbsp; 2022-02-08 00:00:00.0 &nbsp; en BOGOTÁ, D.C. &nbsp; - Virtual &nbsp; </i></td>
+            </tr>
+            <tr>
+                <td><b>Productos asociados</b><br>
+                    <ul>
+                        <li><i>Nombre del producto:</i>Child Attachment Behavior: Secure-base use of Mother <i>Tipo de producto:</i>Producción técnica - Presentación de trabajo - Ponencia</li>
+                    </ul></td>
+            </tr>
+            <tr>
+                <td><b>Instituciones asociadas</b><br>
+                    <ul>
+                        <li><i>Nombre de la institución:</i>PONTIFICIA UNIVERSIDAD JAVERIANA <i>Tipo de vinculación</i>Patrocinadora</li>
+                    </ul></td>
+            </tr>
+            <tr>
+                <td><b>Participantes</b><br>
+                    <ul>
+                        <li><i>Nombre: </i>SANDRA JULIANA PLATA CONTRERAS <i>Rol en el evento: </i>Ponente</li>
+                    </ul></td>
+            </tr>
+            </tbody>
+        </table></td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+    <td width=""100%""><a name=""re_co"" href=""""></a></td>
+</tr>
+<tr>
+    <td width=""100%""><a name=""pr_ex_re"" href=""""></a></td>
+</tr>
+<tr>
+    <td width=""100%""><a name=""asc_for"" href=""""></a></td>
+</tr>
+<tr>
+    <td width=""100%""><a name=""asc_tra"" href=""""></a></td>
+</tr>
+<tr>
+    <td width=""100%""><a name=""asc_gen"" href=""""></a></td>
+</tr>
+<tr>
+    <td width=""100%""><a name=""asc_cad"" href=""""></a></td>
+</tr>
+<tr>
+    <td width=""100%""><a name=""div_ced"" href=""""></a></td>
+</tr>
+<tr>
+    <td width=""100%""><a name=""div_cda"" href=""""></a></td>
+</tr>
+<tr>
+    <td width=""100%""><a name=""div_cds"" href=""""></a></td>
+</tr>
+<tr>
+    <td width=""100%""><a name=""div_cdr"" href=""""></a></td>
+</tr>
+<tr>
+    <td width=""100%""><a name=""div_ctr"" href=""""></a></td>
+</tr>
+<tr>
+    <td width=""100%""><a name=""div_des"" href=""""></a></td>
+</tr>
+<tr>
+    <td width=""100%""><a name=""articulos"" href=""""></a>
+    <table width=""100%"" style=""border:#999 1px solid"">
+    <tbody>
+<tr>
+    <td>
+        <h3>Artículos</h3></td>
+</tr>
+<tr>
+    <td>
+        <li><img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px""> <b>Producción bibliográfica - Artículo - Publicado en revista especializada</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, MA VICTORIA TRUJILLO, CECILIA URIBE, MA CLARA RODRIGUEZ, ""Relación entre las fuentes de exposición al estrés post traumático, severidad del síntoma y percepción de autoeficacia"" . En: Argentina&nbsp;
+            <br>
+            REVISTA ARGENTINA DE CLINICA PSICOLOGICA&nbsp; <i>ISSN:</i>&nbsp;0327-6716&nbsp; <i>ed:</i>&nbsp;Fundacion Aigle
+            <br><i>v.</i>IX <i>fasc.</i>2 p.137 - 148 ,2000, <i>&nbsp;DOI:&nbsp;</i>
+            <br><b>Palabras: </b>
+            <br>
+            Trastorno por estrés post traumático, Autoeficacia,
+            <br><b>Sectores: </b>
+            <br>
+            Salud humana - Cuidado a la salud de las personas,
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <li><img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px""> <b>Producción bibliográfica - Artículo - Publicado en revista especializada</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, CARLOS ALBERTO CANO GUTIERREZ, MARIA PATRICIA MONTANES RIOS, ALEXANDER MORENO, DIANA LUCIA MATALLANA ESLAVA, ""Anosognosia en la Enfermedad de Alzheimer: Estudio longitudinal"" . En: Colombia&nbsp;
+            <br>
+            Neurociencias En Colombia&nbsp; <i>ISSN:</i>&nbsp;0123-4048&nbsp; <i>ed:</i>&nbsp;Distribuna Ltda
+            <br><i>v.</i>11 <i>fasc.</i>N/A p.7 - 25 ,2003, <i>&nbsp;DOI:&nbsp;</i>
+            <br><b>Palabras: </b>
+            <br>
+            Anosognosia, Enfermedad de Alzheimer, Conciencia, Longitudinal, Neuropsicología,
+            <br><b>Sectores: </b>
+            <br>
+            Salud humana,
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <li><img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px""> <b>Producción bibliográfica - Artículo - Publicado en revista especializada</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, GLORIA ALZATE, OLGA ALICIA CARBONELL BLANCO, GERMAN POSADA, GERMAN ENRIQUE POSADA GILEDE, ""Through Colombian lenses: Etnographic and conventional analyses of maternal care and their associations with secure base behavior"" . En: Estados Unidos&nbsp;
+            <br>
+            DEVELOPMENTAL PSYCHOLOGY&nbsp; <i>ISSN:</i>&nbsp;0012-1649&nbsp; <i>ed:</i>&nbsp;american psychological association
+            <br><i>v.</i>40 <i>fasc.</i>4 p.508 - 518 ,2004, <i>&nbsp;DOI:&nbsp;</i>10.1037/0012-1649.40.4.508
+            <br><b>Palabras: </b>
+            <br>
+            Etnografía, Cuidado Materno,
+            <br><b>Sectores: </b>
+            <br>
+            Educación,
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <li><img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px""> <b>Producción bibliográfica - Artículo - Publicado en revista especializada</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, ALEXANDER MORENO, PATRICIA MONTANES, CARLOS CANO, OLGA PEDRAZA, MARGARITA PENALOZA, LUZ DARY RUBIANO, ADRIANA GAMEZ, ""Demencia no alzheimer: Variante frontal de la demencia frontotemporal"" . En: Colombia&nbsp;
+            <br>
+            Revista De La Asociación Colombiana De Gerontología Y Geriatría&nbsp; <i>ISSN:</i>&nbsp;0122-6916&nbsp; <i>ed:</i>&nbsp;Editorial Bochica Ltda
+            <br><i>v.</i>17 <i>fasc.</i>4 p.539 - 549 ,2003, <i>&nbsp;DOI:&nbsp;</i>
+            <br><b>Palabras: </b>
+            <br>
+            Demencia, Fontotemporal,
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <li><img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px""> <b>Producción bibliográfica - Artículo - Publicado en revista especializada</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, OLGA ALICICA CARBONELL, GERMAN POSADA, SARA MENDEZ, ""Las relaciones vinculares: un contexto para potenciar el derecho al bienestar de niños y niñas"" . En: Colombia&nbsp;
+            <br>
+            Cuadernos De Psicología&nbsp; <i>ISSN:</i>&nbsp;1900-3420&nbsp; <i>ed:</i>&nbsp;Ceja Centro Editorial Universidad Javeriana
+            <br><i>v.</i>1 <i>fasc.</i>1 p.31 - 38 ,2005, <i>&nbsp;DOI:&nbsp;</i>
+            <br><b>Palabras: </b>
+            <br>
+            Primera Infancia, Derechos HUmanos,
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <li><img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px""> <b>Producción bibliográfica - Artículo - Publicado en revista especializada</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, OLGA ALICIA CARBONELL BLANCO, GERMAN POSADA, GERMAN ENRIQUE POSADA GILEDE, ""The quality of maternal secure-base scripts predicts children's secure-base behavior at home in three sociocultural groups"" . En: Estados Unidos&nbsp;
+            <br>
+            INTERNATIONAL JOURNAL OF BEHAVIORAL DEVELOPMENT&nbsp; <i>ISSN:</i>&nbsp;1464-0651&nbsp; <i>ed:</i>&nbsp;SAGE Publications Ltd
+            <br><i>v.</i>31 <i>fasc.</i>1 p.65 - 76 ,2007, <i>&nbsp;DOI:&nbsp;</i>
+            <br><b>Palabras: </b>
+            <br>
+            Attachment script representation task;, Secure base,
+            <br><b>Sectores: </b>
+            <br>
+            Salud humana - Cuidado a la salud de las poblaciones humanas,
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <li><img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px""> <b>Producción bibliográfica - Artículo - Publicado en revista especializada</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, GLORIA ALZATE, OLGA ALICIA CARBONELL BLANCO, ""Creencias y expectativas sobre el comportamiento materno ideal y real en mujeres gestantes desde un abordaje metodológico mixto"" . En: Colombia&nbsp;
+            <br>
+            Revista Infancia Adolescencia Y Familia&nbsp; <i>ISSN:</i>&nbsp;1900-8201&nbsp; <i>ed:</i>&nbsp;Instituto Colombiano de Bienestar Familiar
+            <br><i>v.</i>1 <i>fasc.</i>1 p.115 - 140 ,2006, <i>&nbsp;DOI:&nbsp;</i>
+            <br><b>Palabras: </b>
+            <br>
+            Desarrollo temprano, Teoría del vínculo,
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <li><img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px""> <b>Producción bibliográfica - Artículo - Publicado en revista especializada</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, ""Comparación de perfiles neuropsicológicos del viejo-joven (VJ) y el viejo-viejo (VV): Envejecimiento normal y enfermedad de alzheimer"" . En: Colombia&nbsp;
+            <br>
+            Revista De La Asociación Colombiana De Gerontología Y Geriatría&nbsp; <i>ISSN:</i>&nbsp;0122-6916&nbsp; <i>ed:</i>&nbsp;Editorial Bochica Ltda
+            <br><i>v.</i>19 <i>fasc.</i>2 p.776 - 796 ,2005, <i>&nbsp;DOI:&nbsp;</i>
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <li><img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px""> <b>Producción bibliográfica - Artículo - Publicado en revista especializada</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, GERMAN POSADA, MARTA CRISTO, OLGA ALICIA CARBONELL BLANCO, PAOLA ANDREA PENA PATINO, GERMAN ENRIQUE POSADA GILEDE, ""Calidad de cuidado materno: Una comparación entre bebes prematuros en cuidado madre canguro y bebés a término en cuidado regular"" . En: Colombia&nbsp;
+            <br>
+            UNIVERSITAS PSYCHOLOGICA&nbsp; <i>ISSN:</i>&nbsp;1657-9267&nbsp; <i>ed:</i>&nbsp;Pontificia Universidad Javeriana
+            <br><i>v.</i>9 <i>fasc.</i>3 p.773 - 785 ,2010, <i>&nbsp;DOI:&nbsp;</i>
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <li><img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px""> <b>Producción bibliográfica - Artículo - Publicado en revista especializada</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, GERMAN ENRIQUE POSADA GILEDE, ""Is the Secure Base Phenomenon Evident Here, There, and Anywhere? A cross-Cultural study of child behavior and experts' definitions"" . En: Colombia&nbsp;
+            <br>
+            CHILD DEVELOPMENT&nbsp; <i>ISSN:</i>&nbsp;0009-3920&nbsp; <i>ed:</i>&nbsp;Wiley
+            <br><i>v.</i>84 <i>fasc.</i>6 p.1896 - 1905 ,2013, <i>&nbsp;DOI:&nbsp;</i>10.1111/cdev.12084
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <li><img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px""> <b>Producción bibliográfica - Artículo - Publicado en revista especializada</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, OLGA LUCIA PEDRAZA, ""Prevalencia y factores de riesgo psicosociales de la depresión en un grupo de adultos mayores en Bogotá"" . En: Colombia&nbsp;
+            <br>
+            Acta Neurológica Colombiana&nbsp; <i>ISSN:</i>&nbsp;0120-8748&nbsp; <i>ed:</i>&nbsp;Editora Guadalupe Ltda. (Bogotá)
+            <br><i>v.</i>31 <i>fasc.</i>N/A p.176 - 182 ,2015, <i>&nbsp;DOI:&nbsp;</i>
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <li><img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px""> <b>Producción bibliográfica - Artículo - Publicado en revista especializada</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, OLGA PEDRAZA, ""Acuerdo intra-interobservador en las pruebas Minimental State Examination (MMSE) y Montereal Cognitive Assessment (MoCA test) aplicados por personal en entrenamiento"" . En: Colombia&nbsp;
+            <br>
+            Acta Neurológica Colombiana&nbsp; <i>ISSN:</i>&nbsp;0120-8748&nbsp; <i>ed:</i>&nbsp;Editora Guadalupe Ltda. (Bogotá)
+            <br><i>v.</i>32 <i>fasc.</i>N/A p.35 - 40 ,2016, <i>&nbsp;DOI:&nbsp;</i>
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <li><img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px""> <b>Producción bibliográfica - Artículo - Publicado en revista especializada</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, CAROLINA VILLANUEVA, LILIANA CATALINA SUAREZ BARACALDO, OLGA ALICIA CARBONELL BLANCO, ""Caracterización de prácticas de cuidado en familias colombianas con niños en primera infancia en situación de desplazamiento forzado"" . En: Colombia&nbsp;
+            <br>
+            UNIVERSITAS PSYCHOLOGICA&nbsp; <i>ISSN:</i>&nbsp;1657-9267&nbsp; <i>ed:</i>&nbsp;Pontificia Universidad Javeriana
+            <br><i>v.</i>14 <i>fasc.</i>N/A p.67 - 80 ,2015, <i>&nbsp;DOI:&nbsp;</i>10.11144/Javeriana.upsy14-1.cpcf
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <li><img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px""> <b>Producción bibliográfica - Artículo - Publicado en revista especializada</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, ""Indian Fathers and Their Premature Baby - An Early Beginning: A Pilot Study of Skin-to-Skin Contact, Culture and Fatherhood"" . En: Estados Unidos&nbsp;
+            <br>
+            FATHERING&nbsp; <i>ISSN:</i>&nbsp;1933-026X&nbsp; <i>ed:</i>&nbsp;Men's Studies Press
+            <br><i>v.</i>12 <i>fasc.</i>N/A p.211 - 217 ,2014, <i>&nbsp;DOI:&nbsp;</i>10.3149/fth.1202.211
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <li><img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px""> <b>Producción bibliográfica - Artículo - Publicado en revista especializada</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, OLGA ALICIA CARBONELL BLANCO, ""Maternal Sensitivity and Child Secure Base Use in Early Childhood: Studies in Different Cultural Contexts"" . En: Colombia&nbsp;
+            <br>
+            CHILD DEVELOPMENT&nbsp; <i>ISSN:</i>&nbsp;0009-3920&nbsp; <i>ed:</i>&nbsp;Wiley
+            <br><i>v.</i>87 <i>fasc.</i>N/A p.297 - 311 ,2016, <i>&nbsp;DOI:&nbsp;</i> 10.1111/cdev.12454
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <li><img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px""> <b>Producción bibliográfica - Artículo - Publicado en revista especializada</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, ""Puntuaciones del MoCA y el MMSE en pacientes con deterioro cognitivo leve y demencia en una clínica de memoria en Bogotá"" . En: Colombia&nbsp;
+            <br>
+            Acta Neurológica Colombiana&nbsp; <i>ISSN:</i>&nbsp;0120-8748&nbsp; <i>ed:</i>&nbsp;Editora Guadalupe Ltda. (Bogotá)
+            <br><i>v.</i>30 <i>fasc.</i>1 p.22 - 31 ,2014, <i>&nbsp;DOI:&nbsp;</i>
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <li><img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px""> <b>Producción bibliográfica - Artículo - Publicado en revista especializada</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, ANTONIO MARTINEZ PINEDA, PAOLA ELIZABETH SILVA CABRERA, VERONICA CAMBON MIHALFI, WENDOLYN CORTES ROJAS, ""Mother Behavior Q-Set (MBQS) Dimensionalidad del Q-set del comportamiento materno en muestras de México, Colombia y Uruguay"" . En: Colombia&nbsp;
+            <br>
+            Revista Iberoamericana De Psicología: Ciencia Y Tecnología&nbsp; <i>ISSN:</i>&nbsp;2500-6517&nbsp; <i>ed:</i>&nbsp;
+            <br><i>v.</i>13 <i>fasc.</i>3 p.109 - 118 ,2021, <i>&nbsp;DOI:&nbsp;</i>10.33881/2027-1786.rip.13307
+            <br><b>Palabras: </b>
+            <br>
+            Sensibilidad materna, Metodología Q, Q-sort, Análisis factorial confirmatorio, Análisis de componentes principales, Análisis Q,
+        </blockquote></td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+    <td width=""100%""><a name=""libros"" href=""""></a>
+    <table width=""100%"" style=""border:#999 1px solid"">
+    <tbody>
+<tr>
+    <td>
+        <h3>Libros</h3></td>
+</tr>
+<tr>
+    <td>
+        <li><b>Producción bibliográfica - Libro - Libro resultado de investigación</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, ADIRA AMAYA, ESTELLA SACIPA, ""Los hombres y las mujeres opinan sobre la identidad, poder y violencia."" En: Colombia 2000.&nbsp; ed:Consejeria Presidencial para la Equidad de la mujer. Proequidad y GTZ.&nbsp; <i>ISBN:</i>&nbsp;&nbsp; <i>v. </i> <i>pags.</i>&nbsp;1
+            <br><b>Palabras: </b>
+            <br>
+            Opinión hombres y mujeres, Poder político, Dinamica de las violencias,
+            <br><b>Areas: </b>
+            <br>
+            Ciencias Sociales -- Psicología -- Psicología (Incluye Terapias de Aprendizaje, Habla, Visual y Otras Discapacidades Físicas y Mentales),
+            <br><b>Sectores: </b>
+            <br>
+            Otros sectores - Otro,
+        </blockquote></td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+    <td width=""100%""><a name=""capitulos"" href=""""></a>
+    <table width=""100%"" style=""border:#999 1px solid"">
+    <tbody>
+<tr>
+    <td colspan=""2"">
+    <h3>Capitulos de libro</h3></td>
+</tr>
+<tr>
+    <td>
+        <li>
+            <blockquote>
+                Tipo: Otro capítulo de libro publicado
+                <br>
+                SANDRA JULIANA PLATA CONTRERAS, Tipo: Otro capítulo de libro publicado
+                <br>
+                GLORIA ALZATE, Tipo: Otro capítulo de libro publicado
+                <br>
+                OLGA ALICIA CARBONELL BLANCO, Tipo: Otro capítulo de libro publicado
+                <br>
+                GERMAN POSADA, ""La seguridad emocional infantil y la calidad de cuidado en distintos contextos sociales y culturales"" Saber, Sujeto Y Sociedad. Una Década De Investigación En Psicología . En: Colombia&nbsp; <i>ISBN:</i>&nbsp;958-683-899-4&nbsp; <i>ed:</i>&nbsp;Pontificia Universidad Javeriana <i>, v.</i>1 , p.81 - 98&nbsp; ,2006
+                <br><b>Palabras: </b>
+                <br>
+                Seguridad Vincular,
+                <br><b>Areas: </b>
+                <br>
+                Ciencias Sociales -- Psicología -- Psicología (Incluye Terapias de Aprendizaje, Habla, Visual y Otras Discapacidades Físicas y Mentales),
+            </blockquote></li></td>
+</tr>
+<tr>
+    <td>
+        <li>
+            <blockquote>
+                Tipo: Otro capítulo de libro publicado
+                <br>
+                SANDRA JULIANA PLATA CONTRERAS, Tipo: Otro capítulo de libro publicado
+                <br>
+                OLGA ALICIA CARBONELL BLANCO, ""Construcción de un modelo de intervención/prevención para las relaciones de apego tempranas hijo-madre."" Teoría del apego: Investigaciones y aplicaciones clínicas . En: España&nbsp; <i>ISBN:</i>&nbsp;978-84-88909-55-8&nbsp; <i>ed:</i>&nbsp; <i>, v.</i> , p.215 - 226&nbsp; 1 ,2014
+                <br><b>Areas: </b>
+                <br>
+                Ciencias Sociales -- Psicología -- Psicología (Incluye Terapias de Aprendizaje, Habla, Visual y Otras Discapacidades Físicas y Mentales),
+            </blockquote></li></td>
+</tr>
+<tr>
+    <td>
+        <li>
+            <blockquote>
+                Tipo: Otro capítulo de libro publicado
+                <br>
+                SANDRA JULIANA PLATA CONTRERAS, Tipo: Otro capítulo de libro publicado
+                <br>
+                OLGA ALICIA CARBONELL BLANCO, ""Q-sort del apego una herramienta para evaluar la organización del comportamiento y la seguridad en las relaciones de apego"" Teoría del apego: Investigaciones y aplicaciones clínicas . En: España&nbsp; <i>ISBN:</i>&nbsp;978-84-88909-55-8&nbsp; <i>ed:</i>&nbsp; <i>, v.</i> , p.151 - 176&nbsp; 1 ,2014
+                <br><b>Areas: </b>
+                <br>
+                Ciencias Sociales -- Psicología -- Psicología (Incluye Terapias de Aprendizaje, Habla, Visual y Otras Discapacidades Físicas y Mentales),
+            </blockquote></li></td>
+</tr>
+<tr>
+    <td>
+        <li>
+            <blockquote>
+                Tipo: Otro capítulo de libro publicado
+                <br>
+                SANDRA JULIANA PLATA CONTRERAS, ""Factores de riesgo y prevención en el deterioro cognoscitivo"" Diagnostico Y Tratamiento Integral De Las Demencias . En: Colombia&nbsp; <i>ISBN:</i>&nbsp;978-958-99088-3-9&nbsp; <i>ed:</i>&nbsp;Asociación Colombiana de Neurología <i>, v.</i> , p.15 - 24&nbsp; 1 ,2013
+                <br><b>Areas: </b>
+                <br>
+                Ciencias Sociales -- Psicología -- Psicología (Incluye Terapias de Aprendizaje, Habla, Visual y Otras Discapacidades Físicas y Mentales),
+            </blockquote></li></td>
+</tr>
+<tr>
+    <td>
+        <li>
+            <blockquote>
+                <img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px""> Tipo: Capítulo de libro
+                <br>
+                SANDRA JULIANA PLATA CONTRERAS, Tipo: Capítulo de libro
+                <br>
+                OLGA ALICICA CARBONELL, ""Evaluación de un modelo de intervención temprana focalizado en la sensibilidad materna"" La Teoría Del Apego: Investigación E Implicaciones Clínicas . En: España&nbsp; <i>ISBN:</i>&nbsp;978-84-88909-87-9&nbsp; <i>ed:</i>&nbsp; <i>, v.</i> , p.245 - 268&nbsp; 1 ,2014
+                <br><b>Areas: </b>
+                <br>
+                Ciencias Sociales -- Psicología -- Psicología (Incluye Relaciones Hombre-Máquina),
+            </blockquote></li></td>
+</tr>
+<tr>
+    <td>
+        <li>
+            <blockquote>
+                <img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px""> Tipo: Capítulo de libro
+                <br>
+                SANDRA JULIANA PLATA CONTRERAS, Tipo: Capítulo de libro
+                <br>
+                OLGA ALICIA CARBONELL BLANCO, Tipo: Capítulo de libro
+                <br>
+                PAOLA ANDREA PENA PATINO, Tipo: Capítulo de libro
+                <br>
+                JENNIFER PEREZ MONTOYA, Tipo: Capítulo de libro
+                <br>
+                GERMAN ENRIQUE POSADA GILEDE, ""El q-sort del apego: Una herramienta para evaluar la organización del comportamiento y la seguridad en las relaciones de apego"" Teoría del apego, investigación y aplicaciones clínicas . En: España&nbsp; <i>ISBN:</i>&nbsp;9788488909855&nbsp; <i>ed:</i>&nbsp; <i>, v.</i> , p.245 - 268&nbsp; ,2014
+                <br><b>Areas: </b>
+                <br>
+                Ciencias Sociales -- Psicología -- Psicología (Incluye Relaciones Hombre-Máquina),
+            </blockquote></li></td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+    <td width=""100%""><a name=""nota_cientifica"" href=""""></a></td>
+</tr>
+<tr>
+    <td width=""100%""></td>
+</tr>
+<tr>
+    <td width=""100%""><a name=""otra_prod_biblio"" href=""""></a></td>
+</tr>
+<tr>
+    <td width=""100%""><a name=""lib_tra"" href=""""></a></td>
+</tr>
+<tr>
+    <td width=""100%""><a name=""lib_cre"" href=""""></a></td>
+</tr>
+<tr>
+    <td width=""100%""><a name=""lib_for"" href=""""></a></td>
+</tr>
+<tr>
+    <td width=""100%""><a name=""lib_div"" href=""""></a></td>
+</tr>
+<tr>
+    <td width=""100%""><a name=""lib_man"" href=""""></a></td>
+</tr>
+<tr>
+    <td width=""100%""></td>
+</tr>
+<tr>
+    <td width=""100%""></td>
+</tr>
+<tr>
+    <td width=""100%""></td>
+</tr>
+<tr>
+    <td width=""100%""><a name=""patentes"" href=""""></a></td>
+</tr>
+<tr>
+    <td width=""100%""><a name=""secretos"" href=""""></a></td>
+</tr>
+<tr>
+    <td width=""100%""><a name=""software"" href=""""></a></td>
+</tr>
+<tr>
+    <td width=""100%""><a name=""nutraceuticos"" href=""""></a></td>
+</tr>
+<tr>
+    <td width=""100%""></td>
+</tr>
+<tr>
+    <td width=""100%""></td>
+</tr>
+<tr>
+    <td width=""100%""><a name=""tecnologicos"" href=""""></a></td>
+</tr>
+<tr>
+    <td width=""100%""></td>
+</tr>
+<tr>
+    <td width=""100%""></td>
+</tr>
+<tr>
+    <td width=""100%""><a name=""disnio"" href=""""></a></td>
+</tr>
+<tr>
+    <td width=""100%""><a name=""disnio"" href=""""></a></td>
+</tr>
+<tr>
+    <td width=""100%""><a name=""disnio"" href=""""></a></td>
+</tr>
+<tr>
+    <td width=""100%""><a name=""disnio"" href=""""></a></td>
+</tr>
+<tr>
+    <td width=""100%""><a name=""disnio"" href=""""></a></td>
+</tr>
+<tr>
+    <td width=""100%""><a name=""registro_cientifico"" href=""""></a></td>
+</tr>
+<tr>
+    <td width=""100%""><a name=""procesos"" href=""""></a></td>
+</tr>
+<tr>
+    <td width=""100%""></td>
+</tr>
+<tr>
+    <td width=""100%""></td>
+</tr>
+<tr>
+    <td width=""100%""><a name=""disnio"" href=""""></a></td>
+</tr>
+<tr>
+    <td></td>
+</tr>
+<tr>
+    <td width=""100%""><a name=""disnio"" href=""""></a></td>
+</tr>
+<tr>
+    <td width=""100%""></td>
+</tr>
+<tr>
+    <td width=""100%""></td>
+</tr>
+<tr>
+    <td width=""100%""></td>
+</tr>
+<tr>
+    <td width=""100%"">
+    <table width=""100%"" style=""border:#999 1px solid"">
+    <tbody>
+<tr>
+    <td>
+        <h3>Informes de investigaci&amp;oacuten</h3></td>
+</tr>
+<tr>
+    <td><img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px"">
+        <li><b>Producción técnica - Informes de investigación</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, Informes de Investigación: Hacia la construcción de un modelo de cuidado sensible en las niñeras de la fundación los Pisingos . En: Colombia,&nbsp; ,2006,&nbsp;
+            <br><b>Areas: </b>
+            <br>
+            Ciencias Sociales -- Psicología -- Psicología (Incluye Terapias de Aprendizaje, Habla, Visual y Otras Discapacidades Físicas y Mentales),
+        </blockquote></td>
+</tr>
+<tr>
+    <td><img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px"">
+        <li><b>Producción técnica - Informes de investigación</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, Informe de Investigación: Caracterización de la conducta de exploración y de proximidad de los niños de la Fundación Pisingos . En: Colombia,&nbsp; ,2007,&nbsp;
+            <br><b>Areas: </b>
+            <br>
+            Ciencias Sociales -- Psicología -- Psicología (Incluye Terapias de Aprendizaje, Habla, Visual y Otras Discapacidades Físicas y Mentales),
+        </blockquote></td>
+</tr>
+<tr>
+    <td><img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px"">
+        <li><b>Producción técnica - Informes de investigación</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, Informe de Investigación-Intervención con Madres Adolescentes en la Localidad de Engativa . En: Colombia,&nbsp; ,2008,&nbsp;
+            <br><b>Areas: </b>
+            <br>
+            Ciencias Sociales -- Psicología -- Psicología (Incluye Terapias de Aprendizaje, Habla, Visual y Otras Discapacidades Físicas y Mentales),
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <li><b>Producción técnica - Informes de investigación</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, Informe de Investigación Hipoterapia y relaciones vinculares . En: Colombia,&nbsp; ,2005,&nbsp;
+            <br><b>Areas: </b>
+            <br>
+            Ciencias Sociales -- Psicología -- Psicología (Incluye Terapias de Aprendizaje, Habla, Visual y Otras Discapacidades Físicas y Mentales),
+        </blockquote></td>
+</tr>
+<tr>
+    <td><img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px"">
+        <li><b>Producción técnica - Informes de investigación</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, Informe de Investigación: Modelo de intervención-investigación desde la teoría vincular para la Fundación los Pisingos . En: Colombia,&nbsp; ,2006,&nbsp;
+            <br><b>Areas: </b>
+            <br>
+            Ciencias Sociales -- Psicología -- Psicología (Incluye Terapias de Aprendizaje, Habla, Visual y Otras Discapacidades Físicas y Mentales),
+        </blockquote></td>
+</tr>
+<tr>
+    <td><img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px"">
+        <li><b>Producción técnica - Informes de investigación</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, JENNIFER PEREZ MONTOYA, Informe de Investigación: Caracterización del comportamiento vincular de los niños de la Fundación Pisingos con sus niñeras. . En: Colombia,&nbsp; ,2007,&nbsp;
+            <br><b>Areas: </b>
+            <br>
+            Ciencias Sociales -- Psicología -- Psicología (Incluye Terapias de Aprendizaje, Habla, Visual y Otras Discapacidades Físicas y Mentales),
+        </blockquote></td>
+</tr>
+<tr>
+    <td><img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px"">
+        <li><b>Producción técnica - Informes de investigación</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, Informe de Investigación: acompañamiento a madres gestantes y lactantes en situación de desplazamiento desde la perspectiva de la teoria vincular . En: Colombia,&nbsp; ,2008,&nbsp;
+            <br><b>Areas: </b>
+            <br>
+            Ciencias Sociales -- Psicología -- Psicología (Incluye Terapias de Aprendizaje, Habla, Visual y Otras Discapacidades Físicas y Mentales),
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <li><b>Producción técnica - Informes de investigación</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, Informe Investigación: Modelo de intervención e investigación en un grupo de madres en situación de desplazamiento desde la teoria vincular . En: Colombia,&nbsp; ,2009,&nbsp;
+            <br><b>Areas: </b>
+            <br>
+            Ciencias Sociales -- Psicología -- Psicología (Incluye Terapias de Aprendizaje, Habla, Visual y Otras Discapacidades Físicas y Mentales),
+        </blockquote></td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+    <td width=""100%""></td>
+</tr>
+<tr>
+    <td width=""100%""></td>
+</tr>
+<tr>
+    <td width=""100%""><a name=""otra_prod_tecnica"" href=""""></a></td>
+</tr>
+<tr>
+    <td width=""100%""></td>
+</tr>
+<tr>
+    <td width=""100%""><a name=""demas_trabajos"" href=""""></a>
+    <table width=""100%"" style=""border:#999 1px solid"">
+    <tbody>
+<tr>
+    <td>
+        <h3>Demás trabajos</h3></td>
+</tr>
+<tr>
+    <td>
+        <li><b>Demás trabajos - Demás trabajos</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, OLGA ALICIA CARBONELL BLANCO, Cartilla: La crianza y el desarrollo de nuestros bebés: Creciendo y estimulando el desarrollo de mi bebé . En: Colombia,&nbsp; ,2001,&nbsp; <i>finalidad: </i>Esta cartilla es de carácter informático-pedagógico y pretende proporcionar herramientas y estrategias a los padres para la crianza de sus hijos&nbsp;
+            <br><b>Areas: </b>
+            <br>
+            Ciencias Sociales -- Psicología -- Psicología (Incluye Terapias de Aprendizaje, Habla, Visual y Otras Discapacidades Físicas y Mentales),
+            <br><b>Sectores: </b>
+            <br>
+            Educación, Salud humana,
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <li><b>Demás trabajos - Demás trabajos</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, OLGA ALICICA CARBONELL, Cartilla: Compartiendo saberes, emociones y practicas sobre la experiencia de ser mamá: ¿Cómo me relaciono con mi hijo(a)? . En: Colombia,&nbsp; ,2001,&nbsp; <i>finalidad: </i>Producto de la intervención por medio de Talleres, para favorecer una crianza sensible.&nbsp;
+            <br><b>Areas: </b>
+            <br>
+            Ciencias Sociales -- Psicología -- Psicología (Incluye Terapias de Aprendizaje, Habla, Visual y Otras Discapacidades Físicas y Mentales),
+            <br><b>Sectores: </b>
+            <br>
+            Educación,
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <li><b>Demás trabajos - Demás trabajos</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            SANDRA JULIANA PLATA CONTRERAS, OLGA ALICIA CARBONELL BLANCO, SARA MENDEZ, TATIANA RUIZ, CAROLINA VILLANUEVA, ANDREA JIMENEZ, ADRIANA RUIZ, Cartilla: Aprendiendo y reflexionando sobre nuestra experiencia de ser padres . En: Colombia,&nbsp; ,2002,&nbsp; <i>finalidad: </i>Traducir en un documento pedagógico y didáctico para los padres participantes en el proyecto la propuesta conceptual, proporcionando estrategias y experiencias que favorezcan la crianza sensible&nbsp;
+            <br><b>Areas: </b>
+            <br>
+            Ciencias Sociales -- Psicología -- Psicología (Incluye Terapias de Aprendizaje, Habla, Visual y Otras Discapacidades Físicas y Mentales),
+        </blockquote></td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+    <td width=""100%""></td>
+</tr>
+<tr>
+    <td width=""100%""></td>
+</tr>
+<tr>
+    <td width=""100%""></td>
+</tr>
+<tr>
+    <td width=""100%""></td>
+</tr>
+<tr>
+    <td width=""100%""></td>
+</tr>
+<tr>
+    <td>
+        <table width=""100%"" style=""border:#999 1px solid"">
+        <tbody>
+<tr>
+    <td id=""proyectos"">
+    <h3>Proyectos</h3></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            <img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px""> <i>Tipo de proyecto:&nbsp;</i>Investigación y desarrollo&nbsp;
+            <br>
+            Career: Child-mother secure base relationship processes and social competence in early childhood: A cross-cultural perspective
+            <br><i>Inicio:&nbsp;</i>Noviembre&nbsp; 2007 <i>Fin proyectado:&nbsp;</i>Noviembre&nbsp; 2012 <i>Fin:&nbsp;</i>Enero&nbsp; 2016 <i>Duración&nbsp;</i>60
+            <br><b>Resumen</b>
+            <p class=""test1"">This proposal is motivated by two important theoretical issues that remain empirically unresolved: the cross-cultural generality of basic hypotheses in attachment theory, and the developmental changes and stability in the organization of secure base behavior and representations during the preschool years. <br></p>
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            <i>Tipo de proyecto:&nbsp;</i>Investigación y desarrollo&nbsp;
+            <br>
+            Relaciones Vinculares en niños institucionalizados
+            <br><i>Inicio:&nbsp;</i>Julio&nbsp; 2005 <i>Fin proyectado:&nbsp;</i>Diciembre&nbsp; 2007 <i>Fin:&nbsp;</i>Diciembre&nbsp; 2007 <i>Duración&nbsp;</i>30
+            <br><b>Resumen</b>
+            <p class=""test1"">Caracterizar factores de riesgo y protectores que favorecen las relaciones vinculares tempranas en niños abandonados que estan institucionalizados. Se caracterizaron los sistemas de comportamientos de cuidado y comportamientos vinculares.<br></p>
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            <i>Tipo de proyecto:&nbsp;</i>Investigación y desarrollo&nbsp;
+            <br>
+            Modelo de Investigación-intervención en poblaciones de alto riesgo desde la perspectiva de la teoria vincular
+            <br><i>Inicio:&nbsp;</i>Agosto&nbsp; 2003 <i>Duración&nbsp;</i>84
+            <br><b>Resumen</b>
+            <p class=""test1"">Construir un modelo de intervención-investigación para intervenir desde la psicología del desarrollo socioemocional con poblaciones de alto riesgo, madres adolescentes, familias en situación de desplazamiento, familias con bebés prematuros y niños institucionalizados.<br></p>
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            <i>Tipo de proyecto:&nbsp;</i>Extensión y responsabilidad social CTI&nbsp;
+            <br>
+            Aunar esfuerzos, recursos técnicos y administrativos entre la Consejería Presidencial para la Niñez y la Adolescencia y la Pontificia Universidad Javeriana, a través de la Facultad de Psicología.
+            <br><i>Inicio:&nbsp;</i>Febrero&nbsp; 2021 <i>Fin:&nbsp;</i>Diciembre&nbsp; 2021 <i>Duración&nbsp;</i>
+            <br><b>Resumen</b>
+            <p class=""test1"">Aunar esfuerzos, recursos técnicos y administrativos entre el Departamento Administrativo de la Presidencia de la República, a través de la Consejería Presidencial para la Niñez y la Adolescencia y la Pontificia Universidad Javeriana, a través de la Facultad de Psicología, con el objeto de implementar acciones de movilización social de gestión del conocimiento a favor del desarrollo integral de las familias y las niñas, niños y adolescentes en Colombia, con el fin de promover entre los diferentes actores de los territorios el desarrollo y protección integral de las niñas, niños y adolescentes y sus familias.<br></p>
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            <img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px""> <i>Tipo de proyecto:&nbsp;</i>Investigación y desarrollo&nbsp;
+            <br>
+            Contacto temprano piel a piel en madres adolescentes-niño(a) prematuro(a): sensibilidad materna y comportamiento de base segura, fase II
+            <br><i>Inicio:&nbsp;</i>Septiembre&nbsp; 2006 <i>Fin:&nbsp;</i>Agosto&nbsp; 2007 <i>Duración&nbsp;</i>
+            <br><b>Resumen</b>
+            <p class=""test1""><br></p>
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            <img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px""> <i>Tipo de proyecto:&nbsp;</i>Investigación y desarrollo&nbsp;
+            <br>
+            Construcción de un Modelo Intervención/Prevención para las relaciones vinculares tempranas del hijo(a)-madre. Subfase II
+            <br><i>Inicio:&nbsp;</i>Febrero&nbsp; 2002 <i>Fin:&nbsp;</i>Enero&nbsp; 2003 <i>Duración&nbsp;</i>24
+            <br><b>Resumen</b>
+            <p class=""test1""><br></p>
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            <img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px""> <i>Tipo de proyecto:&nbsp;</i>Investigación y desarrollo&nbsp;
+            <br>
+            Construcción de un Modelo Intervención/Prevención para las Relaciones Vinculares tempranas hijo(a)-madre. Subfase I
+            <br><i>Inicio:&nbsp;</i>Febrero&nbsp; 2001 <i>Fin:&nbsp;</i>Enero&nbsp; 2002 <i>Duración&nbsp;</i>12
+            <br><b>Resumen</b>
+            <p class=""test1""><br></p>
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            <img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px""> <i>Tipo de proyecto:&nbsp;</i>Extensión y responsabilidad social CTI&nbsp;
+            <br>
+            Hacia la construcción de un Modelo de Intervención sobre las relaciones vinculares tempranas niño(a)-profesora
+            <br><i>Inicio:&nbsp;</i>Enero&nbsp; 1998 <i>Duración&nbsp;</i>0
+            <br><b>Resumen</b>
+            <p class=""test1""><br></p>
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            <img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px""> <i>Tipo de proyecto:&nbsp;</i>Extensión y responsabilidad social CTI&nbsp;
+            <br>
+            Construcción y validación de escalas cualitativas del comportamiento materno
+            <br><i>Inicio:&nbsp;</i>Enero&nbsp; 1998 <i>Duración&nbsp;</i>
+            <br><b>Resumen</b>
+            <p class=""test1""><br></p>
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            <i>Tipo de proyecto:&nbsp;</i>Investigación y desarrollo&nbsp;
+            <br>
+            Caracterización de la Sensibilidad Materna y del Comportamiento de base segura del niño en las interacción cotidianas
+            <br><i>Inicio:&nbsp;</i>Enero&nbsp; 1998 <i>Duración&nbsp;</i>36
+            <br><b>Resumen</b>
+            <p class=""test1""><br></p>
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            <img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px""> <i>Tipo de proyecto:&nbsp;</i>Extensión y responsabilidad social CTI&nbsp;
+            <br>
+            Programa De Educación A Distancia Para Medicos ""Diplomado En Demencias""
+            <br><i>Inicio:&nbsp;</i>Enero&nbsp; 2002 <i>Duración&nbsp;</i>
+            <br><b>Resumen</b>
+            <p class=""test1""><br></p>
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            <img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px""> <i>Tipo de proyecto:&nbsp;</i>Extensión y responsabilidad social CTI&nbsp;
+            <br>
+            Estudios Clínicos Patológicos
+            <br><i>Inicio:&nbsp;</i>Enero&nbsp; 2001 <i>Duración&nbsp;</i>
+            <br><b>Resumen</b>
+            <p class=""test1""><br></p>
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            <img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px""> <i>Tipo de proyecto:&nbsp;</i>Extensión y responsabilidad social CTI&nbsp;
+            <br>
+            Capacidad Operativa De Una Prueba De Tamizado En El Diagnóstico De La Enfermedad De Alzheimer
+            <br><i>Inicio:&nbsp;</i>Enero&nbsp; 2001 <i>Duración&nbsp;</i>
+            <br><b>Resumen</b>
+            <p class=""test1""><br></p>
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            <img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px""> <i>Tipo de proyecto:&nbsp;</i>Extensión y responsabilidad social CTI&nbsp;
+            <br>
+            Utilización de instrumentos de tamizado en el diagnóstico temprano de la Demencia Tipo Azheimer en comunidad . Estudio piloto
+            <br><i>Inicio:&nbsp;</i>Enero&nbsp; 2003 <i>Duración&nbsp;</i>
+            <br><b>Resumen</b>
+            <p class=""test1""><br></p>
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            <i>Tipo de proyecto:&nbsp;</i>Investigación y desarrollo&nbsp;
+            <br>
+            Anosognosia en la Enfermedad de Alzheimer
+            <br><i>Inicio:&nbsp;</i>Septiembre&nbsp; 1999 <i>Fin proyectado:&nbsp;</i>Diciembre&nbsp; 2002 <i>Duración&nbsp;</i>36
+            <br><b>Resumen</b>
+            <p class=""test1""><br></p>
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            <img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px""> <i>Tipo de proyecto:&nbsp;</i>Extensión y responsabilidad social CTI&nbsp;
+            <br>
+            Perfiles Clínicos en controles y pacientes con demencia: Estudio Transversal
+            <br><i>Inicio:&nbsp;</i>Enero&nbsp; 1999 <i>Duración&nbsp;</i>
+            <br><b>Resumen</b>
+            <p class=""test1""><br></p>
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            <i>Tipo de proyecto:&nbsp;</i>Investigación y desarrollo&nbsp;
+            <br>
+            Contacto temprano piel a piel en madres adolescentes niño(a) prematuro(a): Sensibilidad materna y comportamiento de base segura
+            <br><i>Inicio:&nbsp;</i>Diciembre&nbsp; 2004 <i>Fin proyectado:&nbsp;</i>Diciembre&nbsp; 2006 <i>Fin:&nbsp;</i>Diciembre&nbsp; 2008 <i>Duración&nbsp;</i>48
+            <br><b>Resumen</b>
+            <p class=""test1""><br></p>
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            <i>Tipo de proyecto:&nbsp;</i>Investigación y desarrollo&nbsp;
+            <br>
+            Heterogeneidad Clínica de la enfermedad de Alzheimer: Estudio Longitudinal de los perfiles cognoscitivos, neurológicos, comportamentales y funcionales Fase II
+            <br><i>Inicio:&nbsp;</i>Enero&nbsp; 2002 <i>Duración&nbsp;</i>
+            <br><b>Resumen</b>
+            <p class=""test1""><br></p>
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            <i>Tipo de proyecto:&nbsp;</i>Investigación y desarrollo&nbsp;
+            <br>
+            Heterogeneidad Clínica de la Enfermedad de Alzheimer: Estudio longitudinal Fase I
+            <br><i>Inicio:&nbsp;</i>Enero&nbsp; 2000 <i>Duración&nbsp;</i>
+            <br><b>Resumen</b>
+            <p class=""test1""><br></p>
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            <i>Tipo de proyecto:&nbsp;</i>Investigación y desarrollo&nbsp;
+            <br>
+            Prevalencia de las demencias con énfasis en la Enfermedad de Alzheimer en la Población comunitaria de Santafé de Bogotá: Estudio Piloto
+            <br><i>Inicio:&nbsp;</i>Enero&nbsp; 2000 <i>Duración&nbsp;</i>
+            <br><b>Resumen</b>
+            <p class=""test1""><br></p>
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            <img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px""> <i>Tipo de proyecto:&nbsp;</i>Investigación y desarrollo&nbsp;
+            <br>
+            Canción de cuna como una de las estrategias de regulación emocional y sus relaciones con la sensibilidad materna, las representaciones mentales maternas del apego y los precursores del apego infantil: En el contexto Latinoamericano
+            <br><i>Inicio:&nbsp;</i>Septiembre&nbsp; 2014 <i>Fin:&nbsp;</i>Septiembre&nbsp; 2017 <i>Duración&nbsp;</i>
+            <br><b>Resumen</b>
+            <p class=""test1""><br></p>
+        </blockquote></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+            <img src=""https://scienti.minciencias.gov.co/cvlac/images/chulo.jpg"" height=""15px"" width=""15px""> <i>Tipo de proyecto:&nbsp;</i>Investigación y desarrollo&nbsp;
+            <br>
+            CARACTERIZACIÓN DE LOS PATRONES DE INTERACCIÓN PADRE ¿HIJO EN UNA MUESTRA DE 10 PADRES BOGOTANOS, REPRESENTACIONES MENTALES SOBRE SEGURIDAD EMOCIONAL Y HABILIDADES SOCIALES DE LOS NIÑOS(AS)¿
+            <br><i>Inicio:&nbsp;</i>Mayo&nbsp; 2012 <i>Fin:&nbsp;</i>Julio&nbsp; 2013 <i>Duración&nbsp;</i>
+            <br><b>Resumen</b>
+            <p class=""test1"">Jóvenes Investigadores e Innovadores-Colciencias Convocatoria 525-2011 <br></p>
+        </blockquote></td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</body>
+</html>"
