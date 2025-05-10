@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6ccfd88e-c8a2-460c-a9ca-c84a1eedd92f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/CvLAC/scraping/html_parsing_processing/cvlac_product_miner.py" beforeDir="false" afterPath="$PROJECT_DIR$/CvLAC/scraping/html_parsing_processing/cvlac_product_miner.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CvLAC/scraping/html_parsing_processing/product_miner_tester.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/CvLAC/scraping/html_parsing_processing/product_miner_tester.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GroupLAC_Scraping_Parsing/Parsing_Cleaning/product_parsing/projects_parsing.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GroupLAC_Scraping_Parsing/Grupos_historicos_1.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/GroupLAC_Scraping_Parsing/Inputs/Grupos_historicos_1.xlsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +64,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "cvlac-scraping-parsing",
+    "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "C:/Users/David Barreto/Local_Documents/MonitoriaCienciometria/CvLAC/scraping/html_parsing_processing",
     "node.js.detected.package.eslint": "true",
